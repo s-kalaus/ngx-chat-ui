@@ -14,10 +14,10 @@ describe("AppComponent", () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'ngx-chat-ui'`, () => {
+  it(`should have as title 'ngx-chat-ui-demo'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual("ngx-chat-ui");
+    expect(app.title).toEqual("ngx-chat-ui-demo");
   });
 
   it("should render title in a h1 tag", () => {
@@ -25,7 +25,7 @@ describe("AppComponent", () => {
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector("h1").textContent).toContain(
-      "Welcome to ngx-chat-ui!"
+      "Welcome to ngx-chat-ui-demo!"
     );
   });
 });

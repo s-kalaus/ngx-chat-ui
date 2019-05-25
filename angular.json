@@ -3,11 +3,11 @@
   "version": 1,
   "newProjectRoot": "",
   "projects": {
-    "ngx-chat-ui": {
-      "root": "apps/ngx-chat-ui/",
-      "sourceRoot": "apps/ngx-chat-ui/src",
+    "ngx-chat-ui-demo": {
+      "root": "apps/ngx-chat-ui-demo/",
+      "sourceRoot": "apps/ngx-chat-ui-demo/src",
       "projectType": "application",
-      "prefix": "ngx-chat-ui",
+      "prefix": "ngx-chat-ui-demo",
       "schematics": {
         "@nrwl/schematics:component": {
           "style": "scss"
@@ -17,16 +17,16 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps/ngx-chat-ui",
-            "index": "apps/ngx-chat-ui/src/index.html",
-            "main": "apps/ngx-chat-ui/src/main.ts",
-            "polyfills": "apps/ngx-chat-ui/src/polyfills.ts",
-            "tsConfig": "apps/ngx-chat-ui/tsconfig.app.json",
+            "outputPath": "dist/apps/ngx-chat-ui-demo",
+            "index": "apps/ngx-chat-ui-demo/src/index.html",
+            "main": "apps/ngx-chat-ui-demo/src/main.ts",
+            "polyfills": "apps/ngx-chat-ui-demo/src/polyfills.ts",
+            "tsConfig": "apps/ngx-chat-ui-demo/tsconfig.app.json",
             "assets": [
-              "apps/ngx-chat-ui/src/favicon.ico",
-              "apps/ngx-chat-ui/src/assets"
+              "apps/ngx-chat-ui-demo/src/favicon.ico",
+              "apps/ngx-chat-ui-demo/src/assets"
             ],
-            "styles": ["apps/ngx-chat-ui/src/styles.scss"],
+            "styles": ["apps/ngx-chat-ui-demo/src/styles.scss"],
             "scripts": [],
             "es5BrowserSupport": true
           },
@@ -34,8 +34,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "apps/ngx-chat-ui/src/environments/environment.ts",
-                  "with": "apps/ngx-chat-ui/src/environments/environment.prod.ts"
+                  "replace": "apps/ngx-chat-ui-demo/src/environments/environment.ts",
+                  "with": "apps/ngx-chat-ui-demo/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -60,26 +60,26 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ngx-chat-ui:build"
+            "browserTarget": "ngx-chat-ui-demo:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ngx-chat-ui:build:production"
+              "browserTarget": "ngx-chat-ui-demo:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngx-chat-ui:build"
+            "browserTarget": "ngx-chat-ui-demo:build"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "apps/ngx-chat-ui/tsconfig.app.json",
-              "apps/ngx-chat-ui/tsconfig.spec.json"
+              "apps/ngx-chat-ui-demo/tsconfig.app.json",
+              "apps/ngx-chat-ui-demo/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
@@ -87,37 +87,41 @@
         "test": {
           "builder": "@nrwl/builders:jest",
           "options": {
-            "jestConfig": "apps/ngx-chat-ui/jest.config.js",
-            "tsConfig": "apps/ngx-chat-ui/tsconfig.spec.json",
-            "setupFile": "apps/ngx-chat-ui/src/test-setup.ts"
+            "jestConfig": "apps/ngx-chat-ui-demo/jest.config.js",
+            "tsConfig": "apps/ngx-chat-ui-demo/tsconfig.spec.json",
+            "setupFile": "apps/ngx-chat-ui-demo/src/test-setup.ts"
           }
         }
       }
     },
-    "ngx-chat-ui-e2e": {
-      "root": "apps/ngx-chat-ui-e2e",
-      "projectType": "application",
-      "prefix": "",
+    "ngx-chat-ui": {
+      "root": "libs/ngx-chat-ui",
+      "sourceRoot": "libs/ngx-chat-ui/src",
+      "projectType": "library",
+      "prefix": "ngx-chat-ui",
       "architect": {
-        "e2e": {
-          "builder": "@nrwl/builders:cypress",
-          "options": {
-            "cypressConfig": "apps/ngx-chat-ui-e2e/cypress.json",
-            "tsConfig": "apps/ngx-chat-ui-e2e/tsconfig.e2e.json",
-            "devServerTarget": "ngx-chat-ui:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "ngx-chat-ui:serve:production"
-            }
-          }
-        },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": "apps/ngx-chat-ui-e2e/tsconfig.e2e.json",
+            "tsConfig": [
+              "libs/ngx-chat-ui/tsconfig.lib.json",
+              "libs/ngx-chat-ui/tsconfig.spec.json"
+            ],
             "exclude": ["**/node_modules/**"]
           }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/ngx-chat-ui/jest.config.js",
+            "tsConfig": "libs/ngx-chat-ui/tsconfig.spec.json",
+            "setupFile": "libs/ngx-chat-ui/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
         }
       }
     }
@@ -138,5 +142,5 @@
       "style": "scss"
     }
   },
-  "defaultProject": "ngx-chat-ui"
+  "defaultProject": "ngx-chat-ui-demo"
 }

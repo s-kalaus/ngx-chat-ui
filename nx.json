@@ -8,10 +8,10 @@
     "nx.json": "*"
   },
   "projects": {
-    "ngx-chat-ui": {
+    "ngx-chat-ui-demo": {
       "tags": []
     },
-    "ngx-chat-ui-e2e": {
+    "ngx-chat-ui": {
       "tags": []
     }
   }
