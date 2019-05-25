@@ -1,0 +1,7 @@
+{
+  "extends": "../../tslint.json",
+  "rules": {
+    "directive-selector": [true, "attribute", "ngx-chat-ui", "camelCase"],
+    "component-selector": [true, "element", "ngx-chat-ui", "kebab-case"]
+  }
+}

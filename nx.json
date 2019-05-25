@@ -1,0 +1,18 @@
+{
+  "npmScope": "ngx-chat-ui",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "ngx-chat-ui": {
+      "tags": []
+    },
+    "ngx-chat-ui-e2e": {
+      "tags": []
+    }
+  }
+}

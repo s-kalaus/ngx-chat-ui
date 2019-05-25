@@ -1,0 +1,18 @@
+version: '3'
+
+networks:
+  ngx-chat-ui:
+
+services:
+  ngx-chat-ui-runner-development:
+    image: node:10-alpine
+    tty: true
+    working_dir: /ngx-chat-ui
+    user: node
+    volumes:
+     - .:/ngx-chat-ui
+    networks:
+      ngx-chat-ui:
+    entrypoint:
+      - sh
+      - ./entrypoint.sh
