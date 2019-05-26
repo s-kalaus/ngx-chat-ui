@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+body,
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  margin: 0;
+}
+
+ngx-chat-ui-container {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+ngx-chat-ui-message-list {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+ngx-chat-ui-message-spacer {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+}

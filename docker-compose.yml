@@ -8,9 +8,10 @@ services:
     image: node:10-alpine
     tty: true
     working_dir: /ngx-chat-ui
-    user: node
+    ports:
+      - "7171:7171"
     volumes:
-     - .:/ngx-chat-ui
+      - .:/ngx-chat-ui
     networks:
       ngx-chat-ui:
     entrypoint:

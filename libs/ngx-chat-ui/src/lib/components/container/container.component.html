@@ -1,0 +1,46 @@
+<ng-container *ngTemplateOutlet="template; context: { $implicit: chatKey }"></ng-container>
+
+<ng-template #ngxChatUiContainerTemplateDefault let-chatKey>
+  <ngx-chat-ui-message-list
+    [chatKey]="chatKey"
+  ></ngx-chat-ui-message-list>
+  <ngx-chat-ui-action
+    [chatKey]="chatKey"
+  ></ngx-chat-ui-action>
+</ng-template>
+
+<ng-template #ngxChatUiMessageListTemplateDefault let-messages let-chatKey="chatKey" let-trackByFn="trackByFn">
+  <ngx-chat-ui-message-spacer></ngx-chat-ui-message-spacer>
+  <ngx-chat-ui-message-item
+    *ngFor="let message of messages; trackBy: trackByFn"
+    [chatKey]="chatKey"
+    [message]="message"
+  ></ngx-chat-ui-message-item>
+</ng-template>
+
+<ng-template #ngxChatUiMessageItemTemplateDefault let-message>
+  <ngx-chat-ui-message-partner
+    [chatKey]="chatKey"
+    [message]="message"
+  ></ngx-chat-ui-message-partner>
+  <ngx-chat-ui-message-meta
+    [chatKey]="chatKey"
+    [message]="message"
+  ></ngx-chat-ui-message-meta>
+  <ngx-chat-ui-message-text
+    [chatKey]="chatKey"
+    [message]="message"
+  ></ngx-chat-ui-message-text>
+</ng-template>
+
+<ng-template #ngxChatUiMessagePartnerTemplateDefault let-message>
+  {{message.partner.firstName}}
+</ng-template>
+
+<ng-template #ngxChatUiMessageMetaTemplateDefault let-message>
+  {{message.date}}
+</ng-template>
+
+<ng-template #ngxChatUiMessageTextTemplateDefault let-message>
+  {{message.payload.text}}
+</ng-template>
