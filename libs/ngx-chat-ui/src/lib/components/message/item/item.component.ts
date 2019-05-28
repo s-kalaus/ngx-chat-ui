@@ -1,5 +1,6 @@
-import { Component, Input, OnInit, TemplateRef, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, TemplateRef, ViewChild, ViewEncapsulation } from '@angular/core';
 import { NgxChatUiService } from '../../../services/chat.service';
+import { INgxChatUiMessage } from '../../../interfaces';
 
 @Component({
   selector: 'ngx-chat-ui-message-item',
@@ -8,11 +9,12 @@ import { NgxChatUiService } from '../../../services/chat.service';
   encapsulation: ViewEncapsulation.None
 })
 export class NgxChatUiMessageItemComponent implements OnInit {
+  @ViewChild('elRef') elRef: ElementRef;
   @Input() chatKey = 'default';
 
   template: TemplateRef<any>;
 
-  @Input() message: any;
+  @Input() message: INgxChatUiMessage;
 
   constructor(
     private ngxChatUiService: NgxChatUiService
@@ -21,5 +23,7 @@ export class NgxChatUiMessageItemComponent implements OnInit {
   ngOnInit() {
     this.ngxChatUiService.templatesGet('messageItem')
       .subscribe(template => this.template = template);
+
+    this.elRef.nativeElement.scrollIntoView({ behavior: 'smooth' })
   }
 }

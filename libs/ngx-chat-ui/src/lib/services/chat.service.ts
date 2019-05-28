@@ -1,6 +1,10 @@
 import { Injectable, TemplateRef } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { INgxChatUiAction, INgxChatUiMessage, INgxChatUiMessagePartner } from '../interfaces';
+import {
+  INgxChatUiMessage,
+  INgxChatUiMessagePartner,
+  INgxChatUiState,
+} from '../interfaces';
 
 type templateStoreType = {
   [templateKey: string]: BehaviorSubject<TemplateRef<any>>
@@ -15,7 +19,11 @@ type messagesStoreType = {
 };
 
 type actionsStoreType = {
-  [chatKey: string]: BehaviorSubject<INgxChatUiAction>
+  [chatKey: string]: BehaviorSubject<INgxChatUiMessage>
+};
+
+type statesStoreType = {
+  [chatKey: string]: BehaviorSubject<INgxChatUiState>
 };
 
 type partnersStoreType = {
@@ -34,11 +42,20 @@ export class NgxChatUiService {
 
   private templatesStore: templateStoreType = {
     container$: new BehaviorSubject<TemplateRef<any>>(null),
+    messageTyping$: new BehaviorSubject<TemplateRef<any>>(null),
     messageList$: new BehaviorSubject<TemplateRef<any>>(null),
     messageItem$: new BehaviorSubject<TemplateRef<any>>(null),
     messagePartner$: new BehaviorSubject<TemplateRef<any>>(null),
-    messageText$: new BehaviorSubject<TemplateRef<any>>(null),
-    messageMeta$: new BehaviorSubject<TemplateRef<any>>(null)
+    messagePayload$: new BehaviorSubject<TemplateRef<any>>(null),
+    messagePayloadText$: new BehaviorSubject<TemplateRef<any>>(null),
+    messagePayloadSelect$: new BehaviorSubject<TemplateRef<any>>(null),
+    messagePayloadZipcode$: new BehaviorSubject<TemplateRef<any>>(null),
+    messageMeta$: new BehaviorSubject<TemplateRef<any>>(null),
+    action$: new BehaviorSubject<TemplateRef<any>>(null),
+    actionText$: new BehaviorSubject<TemplateRef<any>>(null),
+    actionSelect$: new BehaviorSubject<TemplateRef<any>>(null),
+    actionSelectItem$: new BehaviorSubject<TemplateRef<any>>(null),
+    actionZipcode$: new BehaviorSubject<TemplateRef<any>>(null),
   };
 
   private partnersStore: partnersStoreType = {};
@@ -46,6 +63,8 @@ export class NgxChatUiService {
   private messagesStore: messagesStoreType = {};
 
   private actionsStore: actionsStoreType = {};
+
+  private statesStore: statesStoreType = {};
 
   constructor() {
   }
@@ -66,7 +85,14 @@ export class NgxChatUiService {
   ensureActionsKey(chatKey: string = 'default') {
     const key = `${chatKey}$`;
     if (!this.actionsStore[key]) {
-      this.actionsStore[key] = new BehaviorSubject<INgxChatUiAction>(null);
+      this.actionsStore[key] = new BehaviorSubject<INgxChatUiMessage>(null);
+    }
+  }
+
+  ensureStateKey(chatKey: string = 'default') {
+    const key = `${chatKey}$`;
+    if (!this.statesStore[key]) {
+      this.statesStore[key] = new BehaviorSubject<INgxChatUiState>(null);
     }
   }
 
@@ -89,7 +115,7 @@ export class NgxChatUiService {
     this.partnersGet(chatKey).next(partners);
   }
 
-  partnersGet(chatKey: string): BehaviorSubject<INgxChatUiMessagePartner[]> {
+  partnersGet(chatKey: string = 'default'): BehaviorSubject<INgxChatUiMessagePartner[]> {
     this.ensurePartnersKey(chatKey);
     const key = `${chatKey}$`;
     return this.partnersStore[key];
@@ -117,26 +143,56 @@ export class NgxChatUiService {
     this.messagesGet(chatKey).next([]);
   }
 
-  messagesGet(chatKey: string): BehaviorSubject<INgxChatUiMessage[]> {
+  messagesGet(chatKey: string = 'default'): BehaviorSubject<INgxChatUiMessage[]> {
     this.ensureMessagesKey(chatKey);
     const key = `${chatKey}$`;
     return this.messagesStore[key];
   }
 
   onMessagesUpdated(messages: INgxChatUiMessage[], chatKey: string = 'default') {
-    this.actionUpdate(messages ? messages[messages.length - 1] : null, chatKey);
+    const len = messages.length - 1;
+    let lastMessage = null;
+    let lastContextMessage = null;
+    for (let i = len; i >= 0; i--) {
+      if (!lastMessage) {
+        lastMessage = messages[i];
+      }
+      if (!messages[i].isIncoming) {
+        break;
+      }
+      if (messages[i].action) {
+        lastContextMessage = messages[i];
+        break;
+      }
+    }
+    this.actionUpdate(lastContextMessage, chatKey);
+    if (lastMessage) {
+      this.stateSet(lastMessage.isIncoming ? { isTyping: false } : { isSending: false });
+    }
   }
 
-  actionGet(chatKey: string): BehaviorSubject<INgxChatUiAction> {
+  actionGet(chatKey: string = 'default'): BehaviorSubject<INgxChatUiMessage> {
     this.ensureActionsKey(chatKey);
     return this.actionsStore[`${chatKey}$`];
   }
 
-  actionSet(action: INgxChatUiAction | null, chatKey: string = 'default') {
+  actionSet(action: INgxChatUiMessage | null, chatKey: string = 'default') {
     this.actionGet(chatKey).next(action);
   }
 
   actionUpdate(message: INgxChatUiMessage | null, chatKey: string = 'default') {
-    this.actionSet(message, chatKey);
+    this.actionSet(message || null, chatKey);
+  }
+
+  stateGet(chatKey: string = 'default'): BehaviorSubject<INgxChatUiState> {
+    this.ensureStateKey(chatKey);
+    return this.statesStore[`${chatKey}$`];
+  }
+
+  stateSet(state: INgxChatUiState | null, chatKey: string = 'default') {
+    this.stateGet(chatKey).next({
+      ...this.stateGet(chatKey).getValue(),
+      ...state,
+    });
   }
 }

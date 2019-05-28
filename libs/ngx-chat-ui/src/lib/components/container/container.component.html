@@ -1,12 +1,22 @@
-<ng-container *ngTemplateOutlet="template; context: { $implicit: chatKey }"></ng-container>
+<ng-container *ngTemplateOutlet="template; context: { $implicit: chatKey, response: response }"></ng-container>
 
-<ng-template #ngxChatUiContainerTemplateDefault let-chatKey>
+<ng-template #ngxChatUiContainerTemplateDefault let-chatKey let-response="response">
   <ngx-chat-ui-message-list
     [chatKey]="chatKey"
   ></ngx-chat-ui-message-list>
+  <ngx-chat-ui-message-typing
+    [chatKey]="chatKey"
+  ></ngx-chat-ui-message-typing>
   <ngx-chat-ui-action
     [chatKey]="chatKey"
+    (response)="response.emit($event)"
   ></ngx-chat-ui-action>
+</ng-template>
+
+<ng-template #ngxChatUiMessageTypingTemplateDefault let-partner>
+  <ng-container *ngIf="partner">
+    <div class="ngx-chat-ui-message-typing">{{ partner.firstName }} {{ partner.lastName }} is typing...</div>
+  </ng-container>
 </ng-template>
 
 <ng-template #ngxChatUiMessageListTemplateDefault let-messages let-chatKey="chatKey" let-trackByFn="trackByFn">
@@ -27,10 +37,11 @@
     [chatKey]="chatKey"
     [message]="message"
   ></ngx-chat-ui-message-meta>
-  <ngx-chat-ui-message-text
+  <ngx-chat-ui-message-payload
+    *ngIf="message.payload"
     [chatKey]="chatKey"
     [message]="message"
-  ></ngx-chat-ui-message-text>
+  ></ngx-chat-ui-message-payload>
 </ng-template>
 
 <ng-template #ngxChatUiMessagePartnerTemplateDefault let-message>
@@ -41,6 +52,91 @@
   {{message.date}}
 </ng-template>
 
-<ng-template #ngxChatUiMessageTextTemplateDefault let-message>
+<ng-template #ngxChatUiMessagePayloadTemplateDefault let-message let-MessageType="MessageType">
+  <ng-container [ngSwitch]="message.payload.type">
+    <ngx-chat-ui-message-payload-text
+      *ngSwitchCase="MessageType.text"
+      [chatKey]="chatKey"
+      [message]="message"
+    ></ngx-chat-ui-message-payload-text>
+    <ngx-chat-ui-message-payload-select
+      *ngSwitchCase="MessageType.select"
+      [chatKey]="chatKey"
+      [message]="message"
+    ></ngx-chat-ui-message-payload-select>
+    <ngx-chat-ui-message-payload-zipcode
+      *ngSwitchCase="MessageType.zipcode"
+      [chatKey]="chatKey"
+      [message]="message"
+    ></ngx-chat-ui-message-payload-zipcode>
+  </ng-container>
+</ng-template>
+
+<ng-template #ngxChatUiMessagePayloadTextTemplateDefault let-message>
   {{message.payload.text}}
+</ng-template>
+
+<ng-template #ngxChatUiMessagePayloadSelectTemplateDefault let-message let-item="item">
+  <div class="ngx-chat-ui-action-select-item-icon" *ngIf="item.icon">{{ item.icon }}</div>
+  <div class="ngx-chat-ui-action-select-item-text" *ngIf="item.text">{{ item.text }}</div>
+</ng-template>
+
+<ng-template #ngxChatUiMessagePayloadZipcodeTemplateDefault let-message>
+  {{message.payload.zipcode}}
+</ng-template>
+
+<ng-template #ngxChatUiActionTemplateDefault let-message let-MessageType="MessageType" let-chatKey="chatKey" let-response="response" let-isSending="isSending">
+  <div [class.ngx-chat-ui-action-sending]="isSending" *ngIf="message && message.action" [ngSwitch]="message.action.type">
+    <ngx-chat-ui-action-text
+      *ngSwitchCase="MessageType.text"
+      [chatKey]="chatKey"
+      [message]="message"
+      (response)="response.emit($event)"
+    ></ngx-chat-ui-action-text>
+    <ngx-chat-ui-action-select
+      *ngSwitchCase="MessageType.select"
+      [chatKey]="chatKey"
+      [message]="message"
+      (response)="response.emit($event)"
+    ></ngx-chat-ui-action-select>
+    <ngx-chat-ui-action-zipcode
+      *ngSwitchCase="MessageType.zipcode"
+      [chatKey]="chatKey"
+      [message]="message"
+      (response)="response.emit($event)"
+    ></ngx-chat-ui-action-zipcode>
+  </div>
+</ng-template>
+
+<ng-template #ngxChatUiActionTextTemplateDefault let-message let-submit="submit" let-form="form">
+  <form novalidate [formGroup]="form" (ngSubmit)="submit()">
+    <input formControlName="text" type="text">
+    <button>Send</button>
+  </form>
+</ng-template>
+
+<ng-template #ngxChatUiActionSelectTemplateDefault let-message let-submit="submit">
+  <ngx-chat-ui-action-select-item
+    *ngFor="let item of message.action.items"
+    [item]="item"
+    (response)="submit($event)"
+  ></ngx-chat-ui-action-select-item>
+</ng-template>
+
+<ng-template #ngxChatUiActionSelectItemTemplateDefault let-item let-response="response">
+  <a
+    (click)="response.emit(item)"
+    [ngClass]="item.className"
+    href="javascript:;"
+  >
+    <div class="ngx-chat-ui-action-select-item-icon" *ngIf="item.icon">{{ item.icon }}</div>
+    <div class="ngx-chat-ui-action-select-item-text" *ngIf="item.text">{{ item.text }}</div>
+  </a>
+</ng-template>
+
+<ng-template #ngxChatUiActionZipcodeTemplateDefault let-message let-submit="submit" let-form="form">
+  <form novalidate [formGroup]="form" (ngSubmit)="submit()">
+    <input formControlName="zipcode" type="text" maxlength="5">
+    <button>Send</button>
+  </form>
 </ng-template>

@@ -1,5 +1,5 @@
-import { INgxChatUiMessagePayloadText } from './message-payload-text';
+import { INgxChatUiMessagePayloadBase } from './message-payload-base';
 
-export interface INgxChatUiMessagePayloadSelect extends INgxChatUiMessagePayloadText {
-  items?: any[];
+export interface INgxChatUiMessagePayloadSelect extends INgxChatUiMessagePayloadBase {
+  item: number;
 }

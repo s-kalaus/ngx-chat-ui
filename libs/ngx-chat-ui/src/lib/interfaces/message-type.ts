@@ -1,4 +1,5 @@
 export enum INgxChatUiMessageType{
   text,
-  select
+  select,
+  zipcode
 }

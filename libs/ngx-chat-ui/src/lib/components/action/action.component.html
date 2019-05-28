@@ -1,3 +1,1 @@
-<ng-container *ngIf="action">
-  Action: {{ action.type }}
-</ng-container>
+<ng-container *ngTemplateOutlet="template; context: { $implicit: message, response: response, chatKey: chatKey, MessageType: MessageType, isSending: isSending }"></ng-container>

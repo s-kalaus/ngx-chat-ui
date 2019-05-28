@@ -1,7 +1,12 @@
 import { INgxChatUiMessagePartner } from './message-partner';
-import { INgxChatUiAction } from './action';
+import { INgxChatUiMessageAction } from './message-action';
+import { INgxChatUiMessagePayload } from './message-payload';
 
-export interface INgxChatUiMessage extends INgxChatUiAction {
+export interface INgxChatUiMessage {
+  id?: string;
   date: string;
+  isIncoming?: boolean;
   partner: string | INgxChatUiMessagePartner;
+  action?: INgxChatUiMessageAction;
+  payload: INgxChatUiMessagePayload;
 }

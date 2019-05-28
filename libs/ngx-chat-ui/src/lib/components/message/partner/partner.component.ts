@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, TemplateRef, ViewEncapsulation } from '@angular/core';
 import { NgxChatUiService } from '../../../services/chat.service';
+import { INgxChatUiMessage } from '../../../interfaces';
 
 @Component({
   selector: 'ngx-chat-ui-message-partner',
@@ -12,7 +13,7 @@ export class NgxChatUiMessagePartnerComponent implements OnInit {
 
   template: TemplateRef<any>;
 
-  @Input() message: any;
+  @Input() message: INgxChatUiMessage;
 
   constructor(
     private ngxChatUiService: NgxChatUiService

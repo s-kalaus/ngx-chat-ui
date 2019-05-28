@@ -1,5 +1,11 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewEncapsulation } from '@angular/core';
 import { NgxChatUiService } from '../../services/chat.service';
+import {
+  INgxChatUiMessage,
+  INgxChatUiMessageAction,
+  INgxChatUiMessagePayload,
+  INgxChatUiMessageType
+} from '../../interfaces';
 
 @Component({
   selector: 'ngx-chat-ui-action',
@@ -10,14 +16,27 @@ import { NgxChatUiService } from '../../services/chat.service';
 export class NgxChatUiActionComponent implements OnInit {
   @Input() chatKey = 'default';
 
-  @Input() action: any = null;
+  template: TemplateRef<any>;
+
+  isSending = false;
+  message: INgxChatUiMessage = null;
+
+  MessageType = INgxChatUiMessageType;
+
+  @Output() response: EventEmitter<INgxChatUiMessagePayload> = new EventEmitter();
 
   constructor(
     private ngxChatUiService: NgxChatUiService
   ) { }
 
   ngOnInit() {
-    const subject = this.ngxChatUiService.actionGet(this.chatKey);
-    subject.subscribe(action => this.action = action);
+    this.ngxChatUiService.templatesGet('action')
+      .subscribe(template => this.template = template);
+
+    const subjectMessage = this.ngxChatUiService.actionGet(this.chatKey);
+    subjectMessage.subscribe(message => this.message = message);
+
+    const subjectState = this.ngxChatUiService.stateGet(this.chatKey);
+    subjectState.subscribe(state => this.isSending = state.isSending);
   }
 }

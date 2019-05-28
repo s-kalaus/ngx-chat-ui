@@ -3,5 +3,4 @@ export interface INgxChatUiMessagePartner {
   firstName: string;
   lastName: string;
   avatar?: string;
-  direction?: boolean;
 }
