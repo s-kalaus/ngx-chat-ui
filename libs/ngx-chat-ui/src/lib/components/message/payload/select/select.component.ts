@@ -26,9 +26,9 @@ export class NgxChatUiMessagePayloadSelectComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.ngxChatUiService.templatesGet('messagePayloadSelect')
+    this.ngxChatUiService
+      .templatesGet('messagePayloadSelect')
       .subscribe(template => this.template = template);
-
     this.initMessage();
   }
 

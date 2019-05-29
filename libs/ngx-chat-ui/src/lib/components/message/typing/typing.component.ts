@@ -13,27 +13,29 @@ export class NgxChatUiMessageTypingComponent implements OnInit {
 
   template: TemplateRef<any>;
 
-  partner: INgxChatUiMessagePartner | null = null;
+  partner: INgxChatUiMessagePartner | null | true = null;
 
   constructor(
     private ngxChatUiService: NgxChatUiService
   ) { }
 
   ngOnInit() {
-    this.ngxChatUiService.templatesGet('messageTyping')
+    this.ngxChatUiService
+      .templatesGet('messageTyping')
       .subscribe(template => this.template = template);
 
-    const subject = this.ngxChatUiService.stateGet(this.chatKey);
-    subject.subscribe(state => this.stateUpdated(state));
+    this.ngxChatUiService
+      .stateGet(this.chatKey)
+      .subscribe(state => this.stateUpdated(state));
   }
 
   stateUpdated(state: INgxChatUiState) {
     this.partner = (
       state.isTyping
-        && this.ngxChatUiService
+        && (this.ngxChatUiService
              .partnersGet(this.chatKey)
              .getValue()
-             .find(partner => partner.id === state.isTyping)
+             .find(partner => partner.id === state.isTyping) || !!state.isTyping)
     ) || null;
   }
 }

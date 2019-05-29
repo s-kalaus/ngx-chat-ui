@@ -20,7 +20,8 @@ export class NgxChatUiMessagePayloadZipcodeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.ngxChatUiService.templatesGet('messagePayloadZipcode')
+    this.ngxChatUiService
+      .templatesGet('messagePayloadZipcode')
       .subscribe(template => {this.template = template});
   }
 }

@@ -9,7 +9,6 @@ import { INgxChatUiMessage } from '../../../interfaces';
   encapsulation: ViewEncapsulation.None
 })
 export class NgxChatUiMessageItemComponent implements OnInit {
-  @ViewChild('elRef') elRef: ElementRef;
   @Input() chatKey = 'default';
 
   template: TemplateRef<any>;
@@ -21,9 +20,8 @@ export class NgxChatUiMessageItemComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.ngxChatUiService.templatesGet('messageItem')
+    this.ngxChatUiService
+      .templatesGet('messageItem')
       .subscribe(template => this.template = template);
-
-    this.elRef.nativeElement.scrollIntoView({ behavior: 'smooth' })
   }
 }

@@ -31,15 +31,13 @@ type partnersStoreType = {
 };
 
 const defaultPartner: INgxChatUiMessagePartner = {
-  firstName: 'Unknown',
-  lastName: 'User'
+  firstName: 'User'
 };
 
 @Injectable({
   providedIn: 'root'
 })
 export class NgxChatUiService {
-
   private templatesStore: templateStoreType = {
     container$: new BehaviorSubject<TemplateRef<any>>(null),
     messageTyping$: new BehaviorSubject<TemplateRef<any>>(null),
@@ -59,23 +57,18 @@ export class NgxChatUiService {
   };
 
   private partnersStore: partnersStoreType = {};
-
   private messagesStore: messagesStoreType = {};
-
   private actionsStore: actionsStoreType = {};
-
   private statesStore: statesStoreType = {};
 
-  constructor() {
-  }
-
   templatesSet(templates: templateParamType) {
-    Object.keys(this.templatesStore).forEach(templateKey => {
-      const key = templateKey.replace(/\$/, '');
-      if (templates[key] !== undefined) {
-        this.templatesStore[templateKey].next(templates[key]);
-      }
-    })
+    Object.keys(this.templatesStore)
+      .forEach(templateKey => {
+        const key = templateKey.replace(/\$/, '');
+        if (templates[key] !== undefined) {
+          this.templatesStore[templateKey].next(templates[key]);
+        }
+      });
   }
 
   templatesGet(templateKey: string): BehaviorSubject<TemplateRef<any>> {
@@ -100,7 +93,8 @@ export class NgxChatUiService {
     const key = `${chatKey}$`;
     if (!this.messagesStore[key]) {
       this.messagesStore[key] = new BehaviorSubject<INgxChatUiMessage[]>([]);
-      this.messagesStore[key].subscribe(messages => this.onMessagesUpdated(messages, chatKey));
+      this.messagesStore[key]
+        .subscribe(messages => this.onMessagesUpdated(messages, chatKey));
     }
   }
 
@@ -112,7 +106,8 @@ export class NgxChatUiService {
   }
 
   partnersSet(partners: INgxChatUiMessagePartner[], chatKey: string = 'default') {
-    this.partnersGet(chatKey).next(partners);
+    this.partnersGet(chatKey)
+      .next(partners);
   }
 
   partnersGet(chatKey: string = 'default'): BehaviorSubject<INgxChatUiMessagePartner[]> {
@@ -177,7 +172,8 @@ export class NgxChatUiService {
   }
 
   actionSet(action: INgxChatUiMessage | null, chatKey: string = 'default') {
-    this.actionGet(chatKey).next(action);
+    this.actionGet(chatKey)
+      .next(action);
   }
 
   actionUpdate(message: INgxChatUiMessage | null, chatKey: string = 'default') {

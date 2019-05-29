@@ -30,13 +30,14 @@ export class NgxChatUiActionComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.ngxChatUiService.templatesGet('action')
+    this.ngxChatUiService
+      .templatesGet('action')
       .subscribe(template => this.template = template);
-
-    const subjectMessage = this.ngxChatUiService.actionGet(this.chatKey);
-    subjectMessage.subscribe(message => this.message = message);
-
-    const subjectState = this.ngxChatUiService.stateGet(this.chatKey);
-    subjectState.subscribe(state => this.isSending = state.isSending);
+    this.ngxChatUiService
+      .actionGet(this.chatKey)
+      .subscribe(message => this.message = message);
+    this.ngxChatUiService
+      .stateGet(this.chatKey)
+      .subscribe(state => this.isSending = state.isSending);
   }
 }

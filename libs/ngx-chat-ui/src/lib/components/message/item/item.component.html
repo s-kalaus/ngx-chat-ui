@@ -1,3 +1,4 @@
-<div #elRef>
-  <ng-container *ngTemplateOutlet="template; context: { $implicit: message, chatKey: chatKey }"></ng-container>
-</div>
+<ng-container *ngTemplateOutlet="template; context: {
+  message: message,
+  chatKey: chatKey
+}"></ng-container>

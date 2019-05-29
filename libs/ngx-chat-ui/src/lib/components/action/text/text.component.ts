@@ -36,7 +36,8 @@ export class NgxChatUiActionTextComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.ngxChatUiService.templatesGet('actionText')
+    this.ngxChatUiService
+      .templatesGet('actionText')
       .subscribe(template => this.template = template);
   }
 

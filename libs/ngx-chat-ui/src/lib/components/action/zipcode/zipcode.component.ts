@@ -36,7 +36,8 @@ export class NgxChatUiActionZipcodeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.ngxChatUiService.templatesGet('actionZipcode')
+    this.ngxChatUiService
+      .templatesGet('actionZipcode')
       .subscribe(template => this.template = template);
   }
 

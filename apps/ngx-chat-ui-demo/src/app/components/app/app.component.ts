@@ -2,15 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import {
   INgxChatUiMessageType,
   INgxChatUiMessage,
-  NgxChatUiService, INgxChatUiMessagePayload
+  INgxChatUiMessagePayload, INgxChatUiMessagePartner, INgxChatUiState
 } from '@ngx-chat-ui/libs/ngx-chat-ui';
 
 @Component({
   selector: 'ngx-chat-ui-demo-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+  partners: INgxChatUiMessagePartner[] = [];
+  messages: INgxChatUiMessage[] = [];
+  state: INgxChatUiState = {};
   dialog: any[] = [
     {
       id: 'start',
@@ -33,7 +36,7 @@ export class AppComponent implements OnInit {
               {
                 id: 0,
                 icon: '👌',
-                className: 'cta'
+                className: 'ngx-chat-ui-action-select-item-cta'
               },
               {
                 id: 1,
@@ -102,12 +105,8 @@ export class AppComponent implements OnInit {
 
   dialogResult: { [key: string]: any } = {};
 
-  constructor(
-    private ngxChatUiService: NgxChatUiService
-  ) { }
-
   ngOnInit() {
-    this.ngxChatUiService.partnersSet([
+    this.partners = this.partners.concat([
       {
         id: '1',
         firstName: 'Sergey',
@@ -124,7 +123,7 @@ export class AppComponent implements OnInit {
   }
 
   dialogNext() {
-    this.ngxChatUiService.stateSet({ isTyping: '2' });
+    this.state = { isTyping: '2' };
     setTimeout(() => {
       const phrase = this.dialog[this.dialogCursor];
       phrase.messages.reduce((previousPromise, message) =>
@@ -135,9 +134,9 @@ export class AppComponent implements OnInit {
   }
 
   sendMessage(message: INgxChatUiMessage, callback) {
-    this.ngxChatUiService.stateSet({ isTyping: '2' });
+    this.state = { isTyping: '2' };
     setTimeout(() => {
-      this.ngxChatUiService.messagesAdd( [message]);
+      this.messages = this.messages.concat(message);
       callback();
     }, 1000);
   }
@@ -146,13 +145,11 @@ export class AppComponent implements OnInit {
     const phrase = this.dialog[this.dialogCursor];
     setTimeout(() => {
       this.dialogResult[phrase.id] = payload;
-      this.ngxChatUiService.messagesAdd([
-        {
-          date: 'date-' + new Date().getTime(),
-          partner: '1',
-          payload,
-        }
-      ]);
+      this.messages = this.messages.concat({
+        date: 'date-' + new Date().getTime(),
+        partner: '1',
+        payload,
+      });
       if (this.dialog.length - 1 > this.dialogCursor) {
         this.dialogCursor += 1;
         setTimeout(() => this.dialogNext(), 500);

@@ -1,6 +1,13 @@
-<ng-container *ngTemplateOutlet="template; context: { $implicit: chatKey, response: response }"></ng-container>
+<ng-container *ngTemplateOutlet="template; context: {
+  chatKey: chatKey,
+  response: response
+}"></ng-container>
 
-<ng-template #ngxChatUiContainerTemplateDefault let-chatKey let-response="response">
+<ng-template
+  #containerTemplateDefault
+  let-chatKey="chatKey"
+  let-response="response"
+>
   <ngx-chat-ui-message-list
     [chatKey]="chatKey"
   ></ngx-chat-ui-message-list>
@@ -13,13 +20,22 @@
   ></ngx-chat-ui-action>
 </ng-template>
 
-<ng-template #ngxChatUiMessageTypingTemplateDefault let-partner>
-  <ng-container *ngIf="partner">
-    <div class="ngx-chat-ui-message-typing">{{ partner.firstName }} {{ partner.lastName }} is typing...</div>
-  </ng-container>
+<ng-template
+  #messageTypingTemplateDefault
+  let-partner="partner"
+>
+  <div
+    *ngIf="partner"
+    class="ngx-chat-ui-message-typing"
+  >{{ partner.firstName }}</div>
 </ng-template>
 
-<ng-template #ngxChatUiMessageListTemplateDefault let-messages let-chatKey="chatKey" let-trackByFn="trackByFn">
+<ng-template
+  #messageListTemplateDefault
+  let-messages="messages"
+  let-chatKey="chatKey"
+  let-trackByFn="trackByFn"
+>
   <ngx-chat-ui-message-spacer></ngx-chat-ui-message-spacer>
   <ngx-chat-ui-message-item
     *ngFor="let message of messages; trackBy: trackByFn"
@@ -28,7 +44,10 @@
   ></ngx-chat-ui-message-item>
 </ng-template>
 
-<ng-template #ngxChatUiMessageItemTemplateDefault let-message>
+<ng-template
+  #messageItemTemplateDefault
+  let-message="message"
+>
   <ngx-chat-ui-message-partner
     [chatKey]="chatKey"
     [message]="message"
@@ -44,15 +63,25 @@
   ></ngx-chat-ui-message-payload>
 </ng-template>
 
-<ng-template #ngxChatUiMessagePartnerTemplateDefault let-message>
+<ng-template
+  #messagePartnerTemplateDefault
+  let-message="message"
+>
   {{message.partner.firstName}}
 </ng-template>
 
-<ng-template #ngxChatUiMessageMetaTemplateDefault let-message>
+<ng-template
+  #messageMetaTemplateDefault
+  let-message="message"
+>
   {{message.date}}
 </ng-template>
 
-<ng-template #ngxChatUiMessagePayloadTemplateDefault let-message let-MessageType="MessageType">
+<ng-template
+  #messagePayloadTemplate
+  let-message="message"
+  let-MessageType="MessageType"
+>
   <ng-container [ngSwitch]="message.payload.type">
     <ngx-chat-ui-message-payload-text
       *ngSwitchCase="MessageType.text"
@@ -72,21 +101,48 @@
   </ng-container>
 </ng-template>
 
-<ng-template #ngxChatUiMessagePayloadTextTemplateDefault let-message>
+<ng-template
+  #messagePayloadTextTemplateDefault
+  let-message="message"
+>
   {{message.payload.text}}
 </ng-template>
 
-<ng-template #ngxChatUiMessagePayloadSelectTemplateDefault let-message let-item="item">
-  <div class="ngx-chat-ui-action-select-item-icon" *ngIf="item.icon">{{ item.icon }}</div>
-  <div class="ngx-chat-ui-action-select-item-text" *ngIf="item.text">{{ item.text }}</div>
+<ng-template
+  #messagePayloadSelectTemplateDefault
+  let-message="message"
+  let-item="item"
+>
+  <div
+    class="ngx-chat-ui-action-select-item-icon"
+    *ngIf="item.icon"
+  >{{ item.icon }}</div>
+  <div
+    class="ngx-chat-ui-action-select-item-text"
+    *ngIf="item.text"
+  >{{ item.text }}</div>
 </ng-template>
 
-<ng-template #ngxChatUiMessagePayloadZipcodeTemplateDefault let-message>
+<ng-template
+  #messagePayloadZipcodeTemplateDefault
+  let-message="message"
+>
   {{message.payload.zipcode}}
 </ng-template>
 
-<ng-template #ngxChatUiActionTemplateDefault let-message let-MessageType="MessageType" let-chatKey="chatKey" let-response="response" let-isSending="isSending">
-  <div [class.ngx-chat-ui-action-sending]="isSending" *ngIf="message && message.action" [ngSwitch]="message.action.type">
+<ng-template
+  #actionTemplate
+  let-message="message"
+  let-MessageType="MessageType"
+  let-chatKey="chatKey"
+  let-response="response"
+  let-isSending="isSending"
+>
+  <div
+    *ngIf="message && message.action"
+    [class.ngx-chat-ui-action-sending]="isSending"
+    [ngSwitch]="message.action.type"
+  >
     <ngx-chat-ui-action-text
       *ngSwitchCase="MessageType.text"
       [chatKey]="chatKey"
@@ -108,14 +164,30 @@
   </div>
 </ng-template>
 
-<ng-template #ngxChatUiActionTextTemplateDefault let-message let-submit="submit" let-form="form">
-  <form novalidate [formGroup]="form" (ngSubmit)="submit()">
-    <input formControlName="text" type="text">
-    <button>Send</button>
+<ng-template
+  #actionTextTemplateDefault
+  let-message="message"
+  let-submit="submit"
+  let-form="form"
+>
+  <form
+    novalidate
+    [formGroup]="form"
+    (ngSubmit)="submit()"
+  >
+    <input
+      formControlName="text"
+      type="text"
+    >
+    <button></button>
   </form>
 </ng-template>
 
-<ng-template #ngxChatUiActionSelectTemplateDefault let-message let-submit="submit">
+<ng-template
+  #actionSelectTemplateDefault
+  let-message="message"
+  let-submit="submit"
+>
   <ngx-chat-ui-action-select-item
     *ngFor="let item of message.action.items"
     [item]="item"
@@ -123,20 +195,42 @@
   ></ngx-chat-ui-action-select-item>
 </ng-template>
 
-<ng-template #ngxChatUiActionSelectItemTemplateDefault let-item let-response="response">
+<ng-template
+  #actionSelectItemTemplateDefault
+  let-item="item"
+  let-response="response"
+>
   <a
     (click)="response.emit(item)"
-    [ngClass]="item.className"
+    [ngClass]="item.className || ''"
     href="javascript:;"
   >
-    <div class="ngx-chat-ui-action-select-item-icon" *ngIf="item.icon">{{ item.icon }}</div>
-    <div class="ngx-chat-ui-action-select-item-text" *ngIf="item.text">{{ item.text }}</div>
+    <div
+      class="ngx-chat-ui-action-select-item-icon"
+      *ngIf="item.icon"
+    >{{ item.icon }}</div>
+    <div
+      class="ngx-chat-ui-action-select-item-text"
+      *ngIf="item.text"
+    >{{ item.text }}</div>
   </a>
 </ng-template>
 
-<ng-template #ngxChatUiActionZipcodeTemplateDefault let-message let-submit="submit" let-form="form">
-  <form novalidate [formGroup]="form" (ngSubmit)="submit()">
-    <input formControlName="zipcode" type="text" maxlength="5">
-    <button>Send</button>
+<ng-template
+  #actionZipcodeTemplateDefault
+  let-message
+  let-submit="submit"
+  let-form="form"
+>
+  <form
+    novalidate
+    [formGroup]="form"
+    (ngSubmit)="submit()"
+  >
+    <input
+      formControlName="zipcode"
+      type="text"
+    >
+    <button></button>
   </form>
 </ng-template>

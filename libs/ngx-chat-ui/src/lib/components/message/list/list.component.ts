@@ -1,5 +1,8 @@
-import { Component, Input, OnInit, TemplateRef, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, TemplateRef, ViewEncapsulation } from '@angular/core';
 import { NgxChatUiService } from '../../../services/chat.service';
+import {
+  INgxChatUiMessage
+} from '../../../interfaces';
 
 @Component({
   selector: 'ngx-chat-ui-message-list',
@@ -15,18 +18,27 @@ export class NgxChatUiMessageListComponent implements OnInit {
   messages: any[] = [];
 
   constructor(
+    private element: ElementRef,
     private ngxChatUiService: NgxChatUiService
   ) { }
 
   ngOnInit() {
-    this.ngxChatUiService.templatesGet('messageList')
+    this.ngxChatUiService
+      .templatesGet('messageList')
       .subscribe(template => this.template = template);
 
-    const subject = this.ngxChatUiService.messagesGet(this.chatKey);
-    subject.subscribe(list => this.messages = list);
+    this.ngxChatUiService
+      .messagesGet(this.chatKey)
+      .subscribe(messages => this.onMessageChanged(messages));
   }
 
   trackByFn(index) {
     return index;
+  }
+
+  onMessageChanged(messages: INgxChatUiMessage[]) {
+    this.messages = messages;
+    const el = this.element.nativeElement;
+    el.scrollTop = el.scrollHeight;
   }
 }

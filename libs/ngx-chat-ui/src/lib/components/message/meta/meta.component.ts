@@ -20,7 +20,8 @@ export class NgxChatUiMessageMetaComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.ngxChatUiService.templatesGet('messageMeta')
+    this.ngxChatUiService
+      .templatesGet('messageMeta')
       .subscribe(template => this.template = template);
   }
 }

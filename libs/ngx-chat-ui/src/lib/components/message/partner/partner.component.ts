@@ -20,7 +20,8 @@ export class NgxChatUiMessagePartnerComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.ngxChatUiService.templatesGet('messagePartner')
+    this.ngxChatUiService
+      .templatesGet('messagePartner')
       .subscribe(template => this.template = template);
   }
 }

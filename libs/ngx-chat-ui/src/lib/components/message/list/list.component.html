@@ -1,1 +1,5 @@
-<ng-container *ngTemplateOutlet="template; context: { $implicit: messages, chatKey: chatKey, trackByFn: trackByFn }"></ng-container>
+<ng-container *ngTemplateOutlet="template; context: {
+  messages: messages,
+  chatKey: chatKey,
+  trackByFn: trackByFn
+}"></ng-container>

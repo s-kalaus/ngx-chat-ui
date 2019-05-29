@@ -21,7 +21,8 @@ export class NgxChatUiActionSelectItemComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.ngxChatUiService.templatesGet('actionSelectItem')
+    this.ngxChatUiService
+      .templatesGet('actionSelectItem')
       .subscribe(template => this.template = template);
   }
 }

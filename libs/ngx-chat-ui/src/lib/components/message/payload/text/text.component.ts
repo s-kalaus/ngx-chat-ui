@@ -20,7 +20,8 @@ export class NgxChatUiMessagePayloadTextComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.ngxChatUiService.templatesGet('messagePayloadText')
+    this.ngxChatUiService
+      .templatesGet('messagePayloadText')
       .subscribe(template => {this.template = template});
   }
 }
