@@ -29,6 +29,22 @@ export class AppComponent implements OnInit {
         {
           partner: '2',
           isIncoming: true,
+          payload: {
+            type: INgxChatUiMessageType.text,
+            text: 'My Name is Jim'
+          },
+        },
+        {
+          partner: '2',
+          isIncoming: true,
+          payload: {
+            type: INgxChatUiMessageType.text,
+            text: 'I am here to help you post a job!'
+          },
+        },
+        {
+          partner: '2',
+          isIncoming: true,
           id: '1',
           action: {
             type: INgxChatUiMessageType.select,
@@ -91,10 +107,24 @@ export class AppComponent implements OnInit {
         {
           partner: '2',
           isIncoming: true,
-          id: '2',
+          id: '3',
+          action: {
+            type: INgxChatUiMessageType.select,
+            items: [
+              {
+                id: 0,
+                icon: '🤟',
+                className: 'ngx-chat-ui-action-select-item-cta'
+              },
+              {
+                id: 1,
+                text: 'OK'
+              },
+            ],
+          },
           payload: {
             type: INgxChatUiMessageType.text,
-            text: 'Bye',
+            text: '👍 Great. Job has been posted!',
           },
         },
       ],

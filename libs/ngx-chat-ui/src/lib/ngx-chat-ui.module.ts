@@ -6,7 +6,6 @@ import { NgxChatUiContainerComponent } from './components/container/container.co
 import { NgxChatUiMessageListComponent } from './components/message/list/list.component';
 import { NgxChatUiMessageItemComponent } from './components/message/item/item.component';
 import { NgxChatUiActionComponent } from './components/action/action.component';
-import { NgxChatUiMessageSpacerComponent } from './components/message/spacer/spacer.component';
 import { NgxChatUiMessagePartnerComponent } from './components/message/partner/partner.component';
 import { NgxChatUiMessagePayloadComponent } from './components/message/payload/payload.component';
 import { NgxChatUiMessagePayloadTextComponent } from './components/message/payload/text/text.component';
@@ -39,7 +38,6 @@ export * from './interfaces';
     NgxChatUiMessagePayloadSelectComponent,
     NgxChatUiMessagePayloadZipcodeComponent,
     NgxChatUiMessageMetaComponent,
-    NgxChatUiMessageSpacerComponent,
     NgxChatUiActionComponent,
     NgxChatUiActionTextComponent,
     NgxChatUiActionSelectComponent,
@@ -57,7 +55,6 @@ export * from './interfaces';
     NgxChatUiMessagePayloadSelectComponent,
     NgxChatUiMessagePayloadZipcodeComponent,
     NgxChatUiMessageMetaComponent,
-    NgxChatUiMessageSpacerComponent,
     NgxChatUiActionComponent,
     NgxChatUiActionTextComponent,
     NgxChatUiActionSelectComponent,
