@@ -1,11 +1,11 @@
 import { Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewEncapsulation } from '@angular/core';
-import { NgxChatUiService } from '@ngx-chat-ui-lib/services/chat.service';
+import { NgxChatUiService } from '../../../services/chat.service';
 import {
   INgxChatUiMessage,
   INgxChatUiMessageActionSelectItem,
   INgxChatUiMessagePayload,
   INgxChatUiMessageType
-} from '@ngx-chat-ui-lib/interfaces';
+} from '../../../interfaces';
 
 @Component({
   selector: 'ngx-chat-ui-action-select',

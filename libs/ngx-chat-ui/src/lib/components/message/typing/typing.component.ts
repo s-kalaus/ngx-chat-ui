@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, TemplateRef, ViewEncapsulation } from '@angular/core';
-import { NgxChatUiService } from '@ngx-chat-ui-lib/services/chat.service';
-import { INgxChatUiMessagePartner, INgxChatUiState } from '@ngx-chat-ui-lib/interfaces';
+import { NgxChatUiService } from '../../../services/chat.service';
+import { INgxChatUiMessagePartner, INgxChatUiState } from '../../../interfaces';
 
 @Component({
   selector: 'ngx-chat-ui-message-typing',

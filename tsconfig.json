@@ -15,7 +15,6 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ngx-chat-ui-lib/*": [ "libs/ngx-chat-ui/src/lib/*" ],
       "@ngx-chat-ui/libs/ngx-chat-ui": ["libs/ngx-chat-ui/src/index.ts"]
     }
   },

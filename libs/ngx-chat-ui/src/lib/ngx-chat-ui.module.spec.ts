@@ -1,5 +1,5 @@
 import { async, TestBed } from '@angular/core/testing';
-import { NgxChatUiModule } from '@ngx-chat-ui-lib/ngx-chat-ui.module';
+import { NgxChatUiModule } from './ngx-chat-ui.module';
 
 describe('NgxChatUiModule', () => {
   beforeEach(async(() => {

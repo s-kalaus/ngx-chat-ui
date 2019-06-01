@@ -37,6 +37,10 @@ ngx-chat-ui-message-item {
     border-color: transparent transparent transparent #f0f9ff;
   }
 
+  ngx-chat-ui-message-meta {
+    right: 5px;
+  }
+
   ngx-chat-ui-message-partner {
     left: -35px;
   }
@@ -51,6 +55,11 @@ ngx-chat-ui-message-item {
       left: -5px;
       border-width: 5px 5px 5px 0;
       border-color: transparent #ffffff transparent transparent;
+    }
+
+    ngx-chat-ui-message-meta {
+      left: 5px;
+      right: auto;
     }
 
     ngx-chat-ui-message-partner {
@@ -94,7 +103,10 @@ ngx-chat-ui-message-partner {
 }
 
 ngx-chat-ui-message-meta {
-  display: none;
+  position: absolute;
+  font-size: 10px;
+  color: #888888;
+  bottom: -17px;
 }
 
 .ngx-chat-ui-action-select-frame {

@@ -4,7 +4,7 @@ import {
   INgxChatUiMessage,
   INgxChatUiMessagePartner,
   INgxChatUiState,
-} from '@ngx-chat-ui-lib/interfaces';
+} from '../interfaces';
 
 type templateStoreType = {
   [templateKey: string]: BehaviorSubject<TemplateRef<any>>

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, TemplateRef, ViewEncapsulation } from '@angular/core';
-import { NgxChatUiService } from '@ngx-chat-ui-lib/services/chat.service';
-import { INgxChatUiMessage } from '@ngx-chat-ui-lib/interfaces';
+import { NgxChatUiService } from '../../../../services/chat.service';
+import { INgxChatUiMessage } from '../../../../interfaces';
 
 @Component({
   selector: 'ngx-chat-ui-message-payload-text',

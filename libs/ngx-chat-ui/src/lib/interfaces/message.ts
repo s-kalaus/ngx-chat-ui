@@ -4,7 +4,7 @@ import { INgxChatUiMessagePayload } from './message-payload';
 
 export interface INgxChatUiMessage {
   messageId?: string;
-  date?: string;
+  date?: string | Date;
   isIncoming?: boolean;
   messagePartnerId?: string;
   partner?: INgxChatUiMessagePartner;

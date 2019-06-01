@@ -44,6 +44,7 @@ export class AppComponent implements OnInit {
 
     this.messages.first = this.messages.first.concat([
       {
+        date: new Date(),
         messagePartnerId: 'me',
         payload: {
           type: INgxChatUiMessageType.text,
@@ -51,6 +52,7 @@ export class AppComponent implements OnInit {
         }
       },
       {
+        date: new Date(),
         messageId: '1',
         messagePartnerId: 'it',
         isIncoming: true,
@@ -77,6 +79,7 @@ export class AppComponent implements OnInit {
 
     this.messages.second = this.messages.second.concat([
       {
+        date: new Date(),
         messagePartnerId: 'me',
         payload: {
           type: INgxChatUiMessageType.text,
@@ -84,6 +87,7 @@ export class AppComponent implements OnInit {
         }
       },
       {
+        date: new Date(),
         messageId: '2',
         messagePartnerId: 'it',
         isIncoming: true,
@@ -99,6 +103,7 @@ export class AppComponent implements OnInit {
 
     this.messages.third = this.messages.third.concat([
       {
+        date: new Date(),
         messagePartnerId: 'me',
         payload: {
           type: INgxChatUiMessageType.text,
@@ -106,6 +111,7 @@ export class AppComponent implements OnInit {
         }
       },
       {
+        date: new Date(),
         messageId: '1',
         messagePartnerId: 'it',
         isIncoming: true,
@@ -136,6 +142,7 @@ export class AppComponent implements OnInit {
     setTimeout(() => {
       this.messages[chatKey] = this.messages[chatKey].concat([
         {
+          date: new Date(),
           messagePartnerId: 'me',
           payload
         }
