@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
     third: {}
   };
 
-  async ngOnInit() {
+  ngOnInit() {
     this.partners = this.partners.concat([
       {
         messagePartnerId: 'me',
