@@ -2,7 +2,7 @@
 
 [![travis ci](https://travis-ci.org/s-kalaus/ngx-chat-ui.svg?branch=master)](https://travis-ci.org/s-kalaus/ngx-chat-ui)
 
-Universal Chat UI based on Angular
+Universal Chat UI based on Angular. It Supports override of every template component via TemplateRef mechanism. Also ngx-chat-ui supports non-text responses (action payloads), for example, select one item from list or click buttons.
 
 ### Installation
 
@@ -25,6 +25,7 @@ Universal Chat UI based on Angular
 
 #### Component (app.component.ts)
 
+    import { Component, OnInit } from '@angular/core';
     import {
       INgxChatUiMessage,
       INgxChatUiMessageType,
@@ -100,8 +101,30 @@ Universal Chat UI based on Angular
       [state]="state"
       [partners]="partners"
       [messages]="messages"
+      [containerTemplate]="containerTemplate"
       (response)="onResponse($event)"
     ></ngx-chat-ui-container>
+    
+    <ng-template
+      #containerTemplate
+      let-chatKey="chatKey"
+      let-response="response"
+    >
+      <p>Custom tempalte example</p>
+      <ngx-chat-ui-message-list
+        [chatKey]="chatKey"
+      ></ngx-chat-ui-message-list>
+      <ngx-chat-ui-action
+        [chatKey]="chatKey"
+        (response)="response.emit($event)"
+      ></ngx-chat-ui-action>
+    </ng-template>
 
 #### Component (app.component.scss)
     @import '~ngx-chat-ui/src/themes/default/styles';
+
+### Demo
+[Link](https://s-kalaus.github.io/ngx-chat-ui/dist/apps/ngx-chat-ui-demo/)
+
+### Full list of templates
+[Link](https://github.com/s-kalaus/ngx-chat-ui/blob/master/libs/ngx-chat-ui/src/lib/components/container/container.component.html)
