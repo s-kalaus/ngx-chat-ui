@@ -4,10 +4,11 @@ import { INgxChatUiMessagePayload } from './message-payload';
 
 export interface INgxChatUiMessage {
   messageId?: string;
-  date: string;
+  date?: string;
   isIncoming?: boolean;
   messagePartnerId?: string;
-  partner: INgxChatUiMessagePartner;
+  partner?: INgxChatUiMessagePartner;
   action?: INgxChatUiMessageAction;
   payload: INgxChatUiMessagePayload;
+  meta?: any;
 }

@@ -1,6 +1,21 @@
 <ngx-chat-ui-container
-  [state]="state"
+  chatKey="first"
+  [state]="state.first"
   [partners]="partners"
-  [messages]="messages"
-  (response)="onResponse($event)"
+  [messages]="messages.first"
+  (response)="onResponse('first', $event)"
+></ngx-chat-ui-container>
+<ngx-chat-ui-container
+  chatKey="second"
+  [state]="state.second"
+  [partners]="partners"
+  [messages]="messages.second"
+  (response)="onResponse('second', $event)"
+></ngx-chat-ui-container>
+<ngx-chat-ui-container
+  chatKey="third"
+  [state]="state.third"
+  [partners]="partners"
+  [messages]="messages.third"
+  (response)="onResponse('third', $event)"
 ></ngx-chat-ui-container>

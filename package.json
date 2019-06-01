@@ -1,5 +1,5 @@
 {
-  "name": "ngx-chat-ui",
+  "name": "ngx-chat-ui-nx",
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
@@ -26,9 +26,10 @@
     "workspace-schematic": "./node_modules/.bin/nx workspace-schematic",
     "dep-graph": "./node_modules/.bin/nx dep-graph",
     "help": "./node_modules/.bin/nx help",
-    "postinstall": "patch-package"
+    "copy:libs:ngx-chat-ui:themes": "copy ./libs/ngx-chat-ui/src/themes/**/*.scss ./dist",
+    "build:libs:ngx-chat-ui": "ng build ngx-chat-ui",
+    "build:libs:ngx-chat-ui:full": "run-s build:libs:ngx-chat-ui copy:libs:ngx-chat-ui:themes"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "^7.0.0",
     "@angular/common": "^7.0.0",
@@ -40,32 +41,11 @@
     "@angular/router": "^7.0.0",
     "core-js": "^2.5.4",
     "rxjs": "6.3.3",
-    "zone.js": "^0.8.26",
-    "graphql": "^14.1.1",
-    "graphql-tag": "^2.10.1",
-    "apollo-angular": "^1.5.0",
-    "apollo-angular-link-http": "^1.5.0",
-    "apollo-cache-inmemory": "^1.5.1",
-    "apollo-client": "^2.4.0",
-    "apollo-link": "^1.2.8",
-    "apollo-link-context": "^1.0.14",
-    "apollo-link-ws": "^1.0.14",
-    "subscriptions-transport-ws": "^0.9.15",
-    "@auth0/angular-jwt": "^2.1.0",
-    "winston": "^3.2.1",
-    "convict": "^4.4.1",
-    "apollo-server": "^2.4.8",
-    "graphql-subscriptions": "^1.0.0",
-    "graphql-rabbitmq-subscriptions": "^1.1.0",
-    "@cdm-logger/server": "^5.0.5",
-    "graphql-middleware": "^3.0.2",
-    "graphql-tools": "^4.0.4",
-    "jsonwebtoken": "^8.5.0",
-    "uuid": "^3.3.2",
-    "patch-package": "*"
+    "zone.js": "^0.8.26"
   },
   "devDependencies": {
     "jest-preset-angular": "7.0.0",
+    "@angular-devkit/build-ng-packagr": "~0.13.0",
     "@nrwl/builders": "7.8.6",
     "jest": "24.1.0",
     "@types/jest": "24.0.9",
@@ -79,9 +59,14 @@
     "@nrwl/schematics": "7.8.6",
     "@types/node": "~8.9.4",
     "dotenv": "6.2.0",
+    "ng-packagr": "^4.2.0",
     "ts-node": "~7.0.0",
+    "tsickle": ">=0.34.0",
+    "tslib": "^1.9.0",
     "tslint": "~5.11.0",
     "typescript": "3.2.2",
-    "prettier": "1.16.4"
+    "prettier": "1.16.4",
+    "copy": "^0.3.2",
+    "npm-run-all": "^4.1.5"
   }
 }

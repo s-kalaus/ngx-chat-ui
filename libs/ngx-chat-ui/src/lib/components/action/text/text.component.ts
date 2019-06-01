@@ -1,11 +1,11 @@
 import { Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NgxChatUiService } from '../../../services/chat.service';
+import { NgxChatUiService } from '@ngx-chat-ui-lib/services/chat.service';
 import {
   INgxChatUiMessage,
   INgxChatUiMessagePayload,
   INgxChatUiMessageType,
-} from '../../../interfaces';
+} from '@ngx-chat-ui-lib/interfaces';
 
 @Component({
   selector: 'ngx-chat-ui-action-text',
@@ -42,6 +42,9 @@ export class NgxChatUiActionTextComponent implements OnInit {
   }
 
   submit() {
+    if (this.form.invalid) {
+      return;
+    }
     this.response.emit({
       type: INgxChatUiMessageType.text,
       text: this.form.value.text,

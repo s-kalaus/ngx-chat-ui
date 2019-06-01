@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, TemplateRef, ViewEncapsulation } from '@angular/core';
-import { NgxChatUiService } from '../../../services/chat.service';
-import { INgxChatUiMessage } from '../../../interfaces';
+import { NgxChatUiService } from '@ngx-chat-ui-lib/services/chat.service';
+import { INgxChatUiMessage } from '@ngx-chat-ui-lib/interfaces';
 
 @Component({
   selector: 'ngx-chat-ui-message-partner',
@@ -15,6 +15,8 @@ export class NgxChatUiMessagePartnerComponent implements OnInit {
 
   @Input() message: INgxChatUiMessage;
 
+  avatar: string;
+
   constructor(
     private ngxChatUiService: NgxChatUiService
   ) { }
@@ -23,5 +25,19 @@ export class NgxChatUiMessagePartnerComponent implements OnInit {
     this.ngxChatUiService
       .templatesGet('messagePartner')
       .subscribe(template => this.template = template);
+    this.updateAvatar();
+  }
+
+  updateAvatar() {
+    const avatar = [];
+    if (this.message.partner) {
+      if (this.message.partner.firstName) {
+        avatar.push(this.message.partner.firstName.slice(0, 1));
+      }
+      if (this.message.partner.lastName) {
+        avatar.push(this.message.partner.lastName.slice(0, 1));
+      }
+    }
+    this.avatar = avatar.join('');
   }
 }

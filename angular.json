@@ -100,6 +100,13 @@
       "projectType": "library",
       "prefix": "ngx-chat-ui",
       "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/ngx-chat-ui/tsconfig.lib.json",
+            "project": "libs/ngx-chat-ui/ng-package.json"
+          }
+        },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {

@@ -1,21 +1,23 @@
 import {
   ChangeDetectionStrategy,
-  Component, ElementRef,
+  Component,
   EventEmitter,
-  Input, OnChanges,
+  Input,
+  OnChanges,
   OnInit,
-  Output, SimpleChanges,
+  Output,
+  SimpleChanges,
   TemplateRef,
   ViewChild,
   ViewEncapsulation
 } from '@angular/core';
-import { NgxChatUiService } from '../../services/chat.service';
+import { NgxChatUiService } from '@ngx-chat-ui-lib/services/chat.service';
 import {
   INgxChatUiMessage,
   INgxChatUiMessagePartner,
   INgxChatUiMessagePayload,
   INgxChatUiState
-} from '../../interfaces';
+} from '@ngx-chat-ui-lib/interfaces';
 
 @Component({
   selector: 'ngx-chat-ui-container',
@@ -33,13 +35,11 @@ export class NgxChatUiContainerComponent implements OnInit, OnChanges {
   @ViewChild('messagePayloadTemplate') messagePayloadTemplate: TemplateRef<any>;
   @ViewChild('messagePayloadTextTemplateDefault') messagePayloadTextTemplateDefault: TemplateRef<any>;
   @ViewChild('messagePayloadSelectTemplateDefault') messagePayloadSelectTemplateDefault: TemplateRef<any>;
-  @ViewChild('messagePayloadZipcodeTemplateDefault') messagePayloadZipcodeTemplateDefault: TemplateRef<any>;
   @ViewChild('messageMetaTemplateDefault') messageMetaTemplateDefault: TemplateRef<any>;
   @ViewChild('actionTemplate') actionTemplate: TemplateRef<any>;
   @ViewChild('actionTextTemplateDefault') actionTextTemplateDefault: TemplateRef<any>;
   @ViewChild('actionSelectTemplateDefault') actionSelectTemplateDefault: TemplateRef<any>;
   @ViewChild('actionSelectItemTemplateDefault') actionSelectItemTemplateDefault: TemplateRef<any>;
-  @ViewChild('actionZipcodeTemplateDefault') actionZipcodeTemplateDefault: TemplateRef<any>;
 
   @Input() containerTemplate: TemplateRef<any>;
   @Input() messageTypingTemplate: TemplateRef<any>;
@@ -48,12 +48,10 @@ export class NgxChatUiContainerComponent implements OnInit, OnChanges {
   @Input() messagePartnerTemplate: TemplateRef<any>;
   @Input() messagePayloadTextTemplate: TemplateRef<any>;
   @Input() messagePayloadSelectTemplate: TemplateRef<any>;
-  @Input() messagePayloadZipcodeTemplate: TemplateRef<any>;
   @Input() messageMetaTemplate: TemplateRef<any>;
   @Input() actionTextTemplate: TemplateRef<any>;
   @Input() actionSelectTemplate: TemplateRef<any>;
   @Input() actionSelectItemTemplate: TemplateRef<any>;
-  @Input() actionZipcodeTemplate: TemplateRef<any>;
 
   @Input() chatKey = 'default';
   @Input() messages: INgxChatUiMessage[];
@@ -68,17 +66,17 @@ export class NgxChatUiContainerComponent implements OnInit, OnChanges {
   ) { }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes.messages !== undefined) {
-      this.ngxChatUiService
-        .messagesSet(changes.messages.currentValue);
-    }
     if (changes.partners !== undefined) {
       this.ngxChatUiService
-        .partnersSet(changes.partners.currentValue);
+        .partnersSet(changes.partners.currentValue, this.chatKey);
+    }
+    if (changes.messages !== undefined) {
+      this.ngxChatUiService
+        .messagesSet(changes.messages.currentValue, this.chatKey);
     }
     if (changes.state !== undefined) {
       this.ngxChatUiService
-        .stateSet(changes.state.currentValue);
+        .stateSet(changes.state.currentValue, this.chatKey);
     }
   }
 
@@ -92,13 +90,11 @@ export class NgxChatUiContainerComponent implements OnInit, OnChanges {
       messagePayload: this.messagePayloadTemplate,
       messagePayloadText: this.messagePayloadTextTemplate || this.messagePayloadTextTemplateDefault,
       messagePayloadSelect: this.messagePayloadSelectTemplate || this.messagePayloadSelectTemplateDefault,
-      messagePayloadZipcode: this.messagePayloadZipcodeTemplate || this.messagePayloadZipcodeTemplateDefault,
       messageMeta: this.messageMetaTemplate || this.messageMetaTemplateDefault,
       action: this.actionTemplate,
       actionText: this.actionTextTemplate || this.actionTextTemplateDefault,
       actionSelect: this.actionSelectTemplate || this.actionSelectTemplateDefault,
       actionSelectItem: this.actionSelectItemTemplate || this.actionSelectItemTemplateDefault,
-      actionZipcode: this.actionZipcodeTemplate || this.actionZipcodeTemplateDefault,
     });
     this.ngxChatUiService
       .templatesGet('container')
@@ -111,5 +107,4 @@ export class NgxChatUiContainerComponent implements OnInit, OnChanges {
     this.ngxChatUiService
       .stateSet({ isSending: true });
   }
-
 }

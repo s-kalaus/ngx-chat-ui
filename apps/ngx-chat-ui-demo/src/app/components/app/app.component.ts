@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  INgxChatUiMessageType,
   INgxChatUiMessage,
-  INgxChatUiMessagePayload, INgxChatUiMessagePartner, INgxChatUiState
+  INgxChatUiMessageType,
+  INgxChatUiMessagePayload,
+  INgxChatUiMessagePartner,
+  INgxChatUiState
 } from '@ngx-chat-ui/libs/ngx-chat-ui';
-import { ApiService, AuthService } from '../../services';
 
 @Component({
   selector: 'ngx-chat-ui-demo-root',
@@ -13,46 +14,132 @@ import { ApiService, AuthService } from '../../services';
 })
 export class AppComponent implements OnInit {
   partners: INgxChatUiMessagePartner[] = [];
-  messages: INgxChatUiMessage[] = [];
-  state: INgxChatUiState = {};
-
-  conversationId: string;
-
-  constructor(
-    private authService: AuthService,
-    private apiService: ApiService
-  ) {
-  }
+  messages: {
+    [chatKey: string]: INgxChatUiMessage[]
+  } = {
+    first: [],
+    second: [],
+    third: []
+  };
+  state: {
+    [chatKey: string]: INgxChatUiState
+  } = {
+    first: {},
+    second: {},
+    third: {}
+  };
 
   async ngOnInit() {
-    await this.apiService.getProfile().toPromise();
-    const { partners, conversationId, messages } = await this.apiService.getConversation('AddJob').toPromise();
+    this.partners = this.partners.concat([
+      {
+        messagePartnerId: 'me',
+        firstName: 'Sergey',
+        lastName: 'Kalaus'
+      },
+      {
+        messagePartnerId: 'it',
+        avatar: 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/4QBmRXhpZgAATU0AKgAAAAgABAEaAAUAAAABAAAAPgEbAAUAAAABAAAARgEoAAMAAAABAAIAAAExAAIAAAAQAAAATgAAAAAAAABgAAAAAQAAAGAAAAABcGFpbnQubmV0IDQuMS42AP/bAEMABQQEBAQDBQQEBAYFBQYIDQgIBwcIEAsMCQ0TEBQTEhASEhQXHRkUFhwWEhIaIxocHh8hISEUGSQnJCAmHSAhIP/bAEMBBQYGCAcIDwgIDyAVEhUgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIP/AABEIABgAGAMBIgACEQEDEQH/xAAfAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgv/xAC1EAACAQMDAgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+fr/xAAfAQADAQEBAQEBAQEBAAAAAAAAAQIDBAUGBwgJCgv/xAC1EQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/APsW7uoLGzlu7l9kUS7mP+e9YH/CbaH9hW43y+aW2m2Cgyr7kZxjHOc/rxVXx88kej2hVm8t7gRuqgnPyswJ5xgFR2P4V5nFb3yyBZL7fEgXafLAd8DneenPXgD8K8HH5jPD1fZwS26nqYXBxqw55dz3mORJYkljYMjgMrDoQehorjvh7eXkujXFjeytK9rIAjnuhHA644wRgAcAcUV7FCqq1NVI9Tz6kHTm4PodVe2NrqFqba8iEkZ5weoPqPQ1zf8Awgun+du+13Hl/wB3jP54/pRRUVcLRrNOpG7Kp16lNWg7HSWVja6darbWkQjjHPuT6k96KKK3jFRXLFWRk227s//Z'
+      }
+    ]);
 
-    this.partners = this.partners.concat(partners);
+    this.messages.first = this.messages.first.concat([
+      {
+        messagePartnerId: 'me',
+        payload: {
+          type: INgxChatUiMessageType.text,
+          text: 'Hello'
+        }
+      },
+      {
+        messageId: '1',
+        messagePartnerId: 'it',
+        isIncoming: true,
+        payload: {
+          type: INgxChatUiMessageType.text,
+          text: 'Wanna play?'
+        },
+        action: {
+          type: INgxChatUiMessageType.select,
+          items: [
+            {
+              icon: '👌',
+              id: 0,
+              className: 'ngx-chat-ui-action-select-item-cta'
+            },
+            {
+              text: 'No',
+              id: 1
+            }
+          ]
+        }
+      },
+    ]);
 
-    if (messages) {
-      messages.forEach(message => this.addMessages(message));
-    }
+    this.messages.second = this.messages.second.concat([
+      {
+        messagePartnerId: 'me',
+        payload: {
+          type: INgxChatUiMessageType.text,
+          text: 'Hello'
+        }
+      },
+      {
+        messageId: '2',
+        messagePartnerId: 'it',
+        isIncoming: true,
+        payload: {
+          type: INgxChatUiMessageType.text,
+          text: 'Wanna play?'
+        },
+        action: {
+          type: INgxChatUiMessageType.text
+        }
+      },
+    ]);
 
-    this.apiService
-      .subscribeConversation(conversationId)
-      .subscribe(result => this.addMessages(result.data.messageAdded));
-
-    this.apiService
-      .subscribeConversationState(conversationId)
-      .subscribe(result => this.state = result.data.conversationStateChanged);
-
-    this.conversationId = conversationId;
+    this.messages.third = this.messages.third.concat([
+      {
+        messagePartnerId: 'me',
+        payload: {
+          type: INgxChatUiMessageType.text,
+          text: 'Hello'
+        }
+      },
+      {
+        messageId: '1',
+        messagePartnerId: 'it',
+        isIncoming: true,
+        payload: {
+          type: INgxChatUiMessageType.text,
+          text: 'Wanna play?'
+        },
+        action: {
+          type: INgxChatUiMessageType.select,
+          className: 'ngx-chat-ui-action-select-list',
+          items: [
+            {
+              text: 'Yes',
+              id: 0,
+              className: 'ngx-chat-ui-action-select-item-cta'
+            },
+            {
+              text: 'No',
+              id: 1
+            }
+          ]
+        }
+      },
+    ]);
   }
 
-  addMessages(message: INgxChatUiMessage) {
-    this.messages = this.messages.concat([{
-      ...message,
-      isIncoming: message.messagePartnerId !== this.authService.getUserId()
-    }]);
-  }
-
-  async onResponse(payload: INgxChatUiMessagePayload) {
-    await this.apiService.addMessage(this.conversationId, payload).toPromise();
+  onResponse(chatKey: string, payload: INgxChatUiMessagePayload) {
+    setTimeout(() => {
+      this.messages[chatKey] = this.messages[chatKey].concat([
+        {
+          messagePartnerId: 'me',
+          payload
+        }
+      ]);
+    });
   }
 }

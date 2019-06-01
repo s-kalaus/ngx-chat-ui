@@ -48,6 +48,7 @@
 <ng-template
   #messageItemTemplateDefault
   let-message="message"
+  let-chatKey="chatKey"
 >
   <ngx-chat-ui-message-partner
     [chatKey]="chatKey"
@@ -67,8 +68,12 @@
 <ng-template
   #messagePartnerTemplateDefault
   let-message="message"
+  let-avatar="avatar"
 >
-  {{message.partner.firstName}}
+  <ng-container *ngIf="message.partner && message.partner.avatar; else avatarTpl"><img [src]="message.partner.avatar"></ng-container>
+  <ng-template #avatarTpl>
+    <ng-container *ngIf="avatar">{{avatar}}</ng-container>
+  </ng-template>
 </ng-template>
 
 <ng-template
@@ -82,6 +87,7 @@
   #messagePayloadTemplate
   let-message="message"
   let-MessageType="MessageType"
+  let-chatKey="chatKey"
 >
   <ng-container [ngSwitch]="message.payload.type">
     <ngx-chat-ui-message-payload-text
@@ -94,11 +100,6 @@
       [chatKey]="chatKey"
       [message]="message"
     ></ngx-chat-ui-message-payload-select>
-    <ngx-chat-ui-message-payload-zipcode
-      *ngSwitchCase="MessageType.zipcode"
-      [chatKey]="chatKey"
-      [message]="message"
-    ></ngx-chat-ui-message-payload-zipcode>
   </ng-container>
 </ng-template>
 
@@ -122,13 +123,6 @@
     class="ngx-chat-ui-action-select-item-text"
     *ngIf="item.text"
   >{{ item.text }}</div>
-</ng-template>
-
-<ng-template
-  #messagePayloadZipcodeTemplateDefault
-  let-message="message"
->
-  {{message.payload.zipcode}}
 </ng-template>
 
 <ng-template
@@ -156,12 +150,6 @@
       [message]="message"
       (response)="response.emit($event)"
     ></ngx-chat-ui-action-select>
-    <ngx-chat-ui-action-zipcode
-      *ngSwitchCase="MessageType.zipcode"
-      [chatKey]="chatKey"
-      [message]="message"
-      (response)="response.emit($event)"
-    ></ngx-chat-ui-action-zipcode>
   </div>
 </ng-template>
 
@@ -226,21 +214,3 @@
   </a>
 </ng-template>
 
-<ng-template
-  #actionZipcodeTemplateDefault
-  let-message
-  let-submit="submit"
-  let-form="form"
->
-  <form
-    novalidate
-    [formGroup]="form"
-    (ngSubmit)="submit()"
-  >
-    <input
-      formControlName="zipcode"
-      type="text"
-    >
-    <button></button>
-  </form>
-</ng-template>

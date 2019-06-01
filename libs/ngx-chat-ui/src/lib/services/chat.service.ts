@@ -4,7 +4,7 @@ import {
   INgxChatUiMessage,
   INgxChatUiMessagePartner,
   INgxChatUiState,
-} from '../interfaces';
+} from '@ngx-chat-ui-lib/interfaces';
 
 type templateStoreType = {
   [templateKey: string]: BehaviorSubject<TemplateRef<any>>
@@ -30,10 +30,6 @@ type partnersStoreType = {
   [chatKey: string]: BehaviorSubject<INgxChatUiMessagePartner[]>
 };
 
-const defaultPartner: INgxChatUiMessagePartner = {
-  firstName: 'User'
-};
-
 @Injectable({
   providedIn: 'root'
 })
@@ -47,13 +43,11 @@ export class NgxChatUiService {
     messagePayload$: new BehaviorSubject<TemplateRef<any>>(null),
     messagePayloadText$: new BehaviorSubject<TemplateRef<any>>(null),
     messagePayloadSelect$: new BehaviorSubject<TemplateRef<any>>(null),
-    messagePayloadZipcode$: new BehaviorSubject<TemplateRef<any>>(null),
     messageMeta$: new BehaviorSubject<TemplateRef<any>>(null),
     action$: new BehaviorSubject<TemplateRef<any>>(null),
     actionText$: new BehaviorSubject<TemplateRef<any>>(null),
     actionSelect$: new BehaviorSubject<TemplateRef<any>>(null),
     actionSelectItem$: new BehaviorSubject<TemplateRef<any>>(null),
-    actionZipcode$: new BehaviorSubject<TemplateRef<any>>(null),
   };
 
   private partnersStore: partnersStoreType = {};
@@ -129,7 +123,7 @@ export class NgxChatUiService {
   processMessage(message: INgxChatUiMessage, chatKey: string = 'default'): INgxChatUiMessage {
     const msg = { ... message };
     if (msg.messagePartnerId && !msg.partner) {
-      msg.partner = this.partnersGet(chatKey).getValue().find(messagePartner => messagePartner.messagePartnerId === msg.messagePartnerId) || defaultPartner;
+      msg.partner = this.partnersGet(chatKey).getValue().find(messagePartner => messagePartner.messagePartnerId === msg.messagePartnerId);
     }
     return msg;
   }
