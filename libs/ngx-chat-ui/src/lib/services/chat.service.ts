@@ -128,8 +128,8 @@ export class NgxChatUiService {
 
   processMessage(message: INgxChatUiMessage, chatKey: string = 'default'): INgxChatUiMessage {
     const msg = { ... message };
-    if (typeof msg.partner === 'string') {
-      msg.partner = this.partnersGet(chatKey).getValue().find(partner => partner.id === message.partner) || defaultPartner;
+    if (msg.messagePartnerId && !msg.partner) {
+      msg.partner = this.partnersGet(chatKey).getValue().find(messagePartner => messagePartner.messagePartnerId === msg.messagePartnerId) || defaultPartner;
     }
     return msg;
   }

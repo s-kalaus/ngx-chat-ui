@@ -1,5 +1,5 @@
 export interface INgxChatUiMessagePartner {
-  id?: string;
+  messagePartnerId?: string;
   firstName: string;
   lastName?: string;
   avatar?: string;

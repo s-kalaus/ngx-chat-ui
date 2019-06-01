@@ -10,6 +10,7 @@ services:
     working_dir: /ngx-chat-ui
     ports:
       - "7171:7171"
+      - "7172:7172"
     volumes:
       - .:/ngx-chat-ui
     networks:
@@ -17,3 +18,9 @@ services:
     entrypoint:
       - sh
       - ./entrypoint.sh
+
+  ngx-chat-ui-rabbitmq-development:
+    image: rabbitmq:latest
+    tty: true
+    networks:
+      ngx-chat-ui:

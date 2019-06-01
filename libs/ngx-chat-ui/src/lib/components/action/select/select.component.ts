@@ -1,6 +1,11 @@
 import { Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewEncapsulation } from '@angular/core';
 import { NgxChatUiService } from '../../../services/chat.service';
-import { INgxChatUiMessage, INgxChatUiMessagePayload, INgxChatUiMessageType } from '../../../interfaces';
+import {
+  INgxChatUiMessage,
+  INgxChatUiMessageActionSelectItem,
+  INgxChatUiMessagePayload,
+  INgxChatUiMessageType
+} from '../../../interfaces';
 
 @Component({
   selector: 'ngx-chat-ui-action-select',
@@ -25,11 +30,11 @@ export class NgxChatUiActionSelectComponent implements OnInit {
       .subscribe(template => this.template = template);
   }
 
-  submit() {
+  submit(item: INgxChatUiMessageActionSelectItem) {
     this.response.emit({
       type: INgxChatUiMessageType.select,
-      item: 0,
-      messageId: this.message.id,
+      item: item.id,
+      messageId: this.message.messageId,
     });
   }
 }

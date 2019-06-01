@@ -4,6 +4,7 @@ import {
   INgxChatUiMessage,
   INgxChatUiMessagePayload, INgxChatUiMessagePartner, INgxChatUiState
 } from '@ngx-chat-ui/libs/ngx-chat-ui';
+import { ApiService, AuthService } from '../../services';
 
 @Component({
   selector: 'ngx-chat-ui-demo-root',
@@ -14,176 +15,44 @@ export class AppComponent implements OnInit {
   partners: INgxChatUiMessagePartner[] = [];
   messages: INgxChatUiMessage[] = [];
   state: INgxChatUiState = {};
-  dialog: any[] = [
-    {
-      id: 'start',
-      messages: [
-        {
-          partner: '2',
-          isIncoming: true,
-          payload: {
-            type: INgxChatUiMessageType.text,
-            text: 'Hey, 👋'
-          },
-        },
-        {
-          partner: '2',
-          isIncoming: true,
-          payload: {
-            type: INgxChatUiMessageType.text,
-            text: 'My Name is Jim'
-          },
-        },
-        {
-          partner: '2',
-          isIncoming: true,
-          payload: {
-            type: INgxChatUiMessageType.text,
-            text: 'I am here to help you post a job!'
-          },
-        },
-        {
-          partner: '2',
-          isIncoming: true,
-          id: '1',
-          action: {
-            type: INgxChatUiMessageType.select,
-            items: [
-              {
-                id: 0,
-                icon: '👌',
-                className: 'ngx-chat-ui-action-select-item-cta'
-              },
-              {
-                id: 1,
-                text: 'Nope...'
-              },
-            ],
-          },
-          payload: {
-            type: INgxChatUiMessageType.text,
-            text: 'Do you have a work to do?'
-          },
-        },
-      ],
-    },
-    {
-      id: 'zipcode',
-      messages: [
-        {
-          partner: '2',
-          isIncoming: true,
-          id: '2',
-          action: {
-            type: INgxChatUiMessageType.zipcode,
-          },
-          payload: {
-            type: INgxChatUiMessageType.text,
-            text: 'Where do you live?',
-          },
-        },
-      ],
-    },
-    {
-      id: 'talk',
-      messages: [
-        {
-          partner: '2',
-          isIncoming: true,
-          id: '2',
-          action: {
-            type: INgxChatUiMessageType.text,
-          },
-          payload: {
-            type: INgxChatUiMessageType.text,
-            text: 'Lets just talk!',
-          },
-        },
-      ],
-    },
-    {
-      id: 'finish',
-      messages: [
-        {
-          partner: '2',
-          isIncoming: true,
-          id: '3',
-          action: {
-            type: INgxChatUiMessageType.select,
-            items: [
-              {
-                id: 0,
-                icon: '🤟',
-                className: 'ngx-chat-ui-action-select-item-cta'
-              },
-              {
-                id: 1,
-                text: 'OK'
-              },
-            ],
-          },
-          payload: {
-            type: INgxChatUiMessageType.text,
-            text: '👍 Great. Job has been posted!',
-          },
-        },
-      ],
-    },
-  ];
 
-  dialogCursor = 0;
+  conversationId: string;
 
-  dialogResult: { [key: string]: any } = {};
-
-  ngOnInit() {
-    this.partners = this.partners.concat([
-      {
-        id: '1',
-        firstName: 'Sergey',
-        lastName: 'Kalaus'
-      },
-      {
-        id: '2',
-        firstName: 'John',
-        lastName: 'Doe',
-        avatar: '//via.placeholder.com/50'
-      }
-    ]);
-    this.dialogNext();
+  constructor(
+    private authService: AuthService,
+    private apiService: ApiService
+  ) {
   }
 
-  dialogNext() {
-    this.state = { isTyping: '2' };
-    setTimeout(() => {
-      const phrase = this.dialog[this.dialogCursor];
-      phrase.messages.reduce((previousPromise, message) =>
-        previousPromise.then(() => new Promise(resolve => this.sendMessage(message, () => resolve()))),
-        Promise.resolve(),
-      );
-    }, 1000);
+  async ngOnInit() {
+    await this.apiService.getProfile().toPromise();
+    const { partners, conversationId, messages } = await this.apiService.getConversation('AddJob').toPromise();
+
+    this.partners = this.partners.concat(partners);
+
+    if (messages) {
+      messages.forEach(message => this.addMessages(message));
+    }
+
+    this.apiService
+      .subscribeConversation(conversationId)
+      .subscribe(result => this.addMessages(result.data.messageAdded));
+
+    this.apiService
+      .subscribeConversationState(conversationId)
+      .subscribe(result => this.state = result.data.conversationStateChanged);
+
+    this.conversationId = conversationId;
   }
 
-  sendMessage(message: INgxChatUiMessage, callback) {
-    this.state = { isTyping: '2' };
-    setTimeout(() => {
-      this.messages = this.messages.concat(message);
-      callback();
-    }, 1000);
+  addMessages(message: INgxChatUiMessage) {
+    this.messages = this.messages.concat([{
+      ...message,
+      isIncoming: message.messagePartnerId !== this.authService.getUserId()
+    }]);
   }
 
-  onResponse(payload: INgxChatUiMessagePayload) {
-    const phrase = this.dialog[this.dialogCursor];
-    setTimeout(() => {
-      this.dialogResult[phrase.id] = payload;
-      this.messages = this.messages.concat({
-        date: 'date-' + new Date().getTime(),
-        partner: '1',
-        payload,
-      });
-      if (this.dialog.length - 1 > this.dialogCursor) {
-        this.dialogCursor += 1;
-        setTimeout(() => this.dialogNext(), 500);
-      }
-    });
+  async onResponse(payload: INgxChatUiMessagePayload) {
+    await this.apiService.addMessage(this.conversationId, payload).toPromise();
   }
 }

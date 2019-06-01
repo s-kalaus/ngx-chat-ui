@@ -3,10 +3,11 @@ import { INgxChatUiMessageAction } from './message-action';
 import { INgxChatUiMessagePayload } from './message-payload';
 
 export interface INgxChatUiMessage {
-  id?: string;
+  messageId?: string;
   date: string;
   isIncoming?: boolean;
-  partner: string | INgxChatUiMessagePartner;
+  messagePartnerId?: string;
+  partner: INgxChatUiMessagePartner;
   action?: INgxChatUiMessageAction;
   payload: INgxChatUiMessagePayload;
 }

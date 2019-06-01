@@ -5,6 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host=0.0.0.0 --port 7171",
+    "graphql": "node ./graphql/bin/graphql",
     "build": "ng build",
     "test": "ng test",
     "lint": "./node_modules/.bin/nx lint && ng lint",
@@ -24,7 +25,8 @@
     "update:check": "ng update",
     "workspace-schematic": "./node_modules/.bin/nx workspace-schematic",
     "dep-graph": "./node_modules/.bin/nx dep-graph",
-    "help": "./node_modules/.bin/nx help"
+    "help": "./node_modules/.bin/nx help",
+    "postinstall": "patch-package"
   },
   "private": true,
   "dependencies": {
@@ -38,7 +40,29 @@
     "@angular/router": "^7.0.0",
     "core-js": "^2.5.4",
     "rxjs": "6.3.3",
-    "zone.js": "^0.8.26"
+    "zone.js": "^0.8.26",
+    "graphql": "^14.1.1",
+    "graphql-tag": "^2.10.1",
+    "apollo-angular": "^1.5.0",
+    "apollo-angular-link-http": "^1.5.0",
+    "apollo-cache-inmemory": "^1.5.1",
+    "apollo-client": "^2.4.0",
+    "apollo-link": "^1.2.8",
+    "apollo-link-context": "^1.0.14",
+    "apollo-link-ws": "^1.0.14",
+    "subscriptions-transport-ws": "^0.9.15",
+    "@auth0/angular-jwt": "^2.1.0",
+    "winston": "^3.2.1",
+    "convict": "^4.4.1",
+    "apollo-server": "^2.4.8",
+    "graphql-subscriptions": "^1.0.0",
+    "graphql-rabbitmq-subscriptions": "^1.1.0",
+    "@cdm-logger/server": "^5.0.5",
+    "graphql-middleware": "^3.0.2",
+    "graphql-tools": "^4.0.4",
+    "jsonwebtoken": "^8.5.0",
+    "uuid": "^3.3.2",
+    "patch-package": "*"
   },
   "devDependencies": {
     "jest-preset-angular": "7.0.0",

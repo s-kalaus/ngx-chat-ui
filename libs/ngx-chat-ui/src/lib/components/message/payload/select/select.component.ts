@@ -36,7 +36,7 @@ export class NgxChatUiMessagePayloadSelectComponent implements OnInit {
     const message = this.ngxChatUiService
       .messagesGet(this.chatKey)
       .getValue()
-      .find(message => message.id === this.message.payload.messageId);
+      .find(message => message.messageId === this.message.payload.messageId);
     this.item = (message.action as INgxChatUiMessageActionSelect).items[(this.message.payload as INgxChatUiMessagePayloadSelect).item];
   }
 }

@@ -82,31 +82,69 @@ ngx-chat-ui-message-meta {
   display: none;
 }
 
-ngx-chat-ui-action-select {
+.ngx-chat-ui-action-select-frame {
   display: flex;
   padding: 15px 20px;
-  align-items: center;
 
-  ngx-chat-ui-action-select-item {
-    margin-left: 20px;
-
-    a {
-      text-decoration: none;
-      color: #000000;
+  &.ngx-chat-ui-action-select-button {
+    .ngx-chat-ui-action-select-items {
+      display: flex;
+      align-items: center;
     }
 
-    .ngx-chat-ui-action-select-item-cta,
-    .ngx-chat-ui-action-select-item-secondary {
-      font-size: 24px;
-      line-height: 44px;
-      padding: 7px 20px;
-      background-color: #97D2FF;
-      border-radius: 22px;
-      box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+    ngx-chat-ui-action-select-item {
+      margin-left: 20px;
+
+      a {
+        text-decoration: none;
+        color: #000000;
+      }
+
+      .ngx-chat-ui-action-select-item-cta,
+      .ngx-chat-ui-action-select-item-secondary {
+        font-size: 24px;
+        line-height: 44px;
+        padding: 7px 20px;
+        background-color: #97D2FF;
+        border-radius: 22px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+      }
+
+      .ngx-chat-ui-action-select-item-secondary {
+        background-color: #97ffa4;
+      }
+    }
+  }
+
+  &.ngx-chat-ui-action-select-list {
+    .ngx-chat-ui-action-select-items {
+      width: 100%;
+
+      @media (min-width: 500px) {
+        width: 60%;
+      }
     }
 
-    .ngx-chat-ui-action-select-item-secondary {
-      background-color: #97ffa4;
+    ngx-chat-ui-action-select-item {
+      margin-bottom: 15px;
+      display: block;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      a {
+        display: block;
+        background-color: #ffffff;
+        box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+        text-decoration: none;
+        color: #000000;
+        padding: 7px 15px;
+
+        &:hover {
+          background-color: #f1f1f1;
+        }
+      }
     }
   }
 }

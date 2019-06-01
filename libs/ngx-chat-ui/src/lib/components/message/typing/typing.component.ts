@@ -35,7 +35,7 @@ export class NgxChatUiMessageTypingComponent implements OnInit {
         && (this.ngxChatUiService
              .partnersGet(this.chatKey)
              .getValue()
-             .find(partner => partner.id === state.isTyping) || !!state.isTyping)
+             .find(messagePartner => messagePartner.messagePartnerId === state.isTyping) || !!state.isTyping)
     ) || null;
   }
 }

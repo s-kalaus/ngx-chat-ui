@@ -189,12 +189,19 @@
   let-message="message"
   let-submit="submit"
 >
-  <div class="ngx-chat-ui-message-spacer"></div>
-  <ngx-chat-ui-action-select-item
-    *ngFor="let item of message.action.items"
-    [item]="item"
-    (response)="submit($event)"
-  ></ngx-chat-ui-action-select-item>
+  <div
+    class="ngx-chat-ui-action-select-frame"
+    [ngClass]="message.action.className || 'ngx-chat-ui-action-select-button'"
+  >
+    <div class="ngx-chat-ui-message-spacer"></div>
+    <div class="ngx-chat-ui-action-select-items">
+      <ngx-chat-ui-action-select-item
+        *ngFor="let item of message.action.items"
+        [item]="item"
+        (response)="submit($event)"
+      ></ngx-chat-ui-action-select-item>
+    </div>
+  </div>
 </ng-template>
 
 <ng-template
@@ -204,7 +211,8 @@
 >
   <a
     (click)="response.emit(item)"
-    [ngClass]="item.className || ''"
+    class="ngx-chat-ui-action-select-item-frame"
+    [ngClass]="item.className || 'ngx-chat-ui-action-select-item-regular'"
     href="javascript:;"
   >
     <span

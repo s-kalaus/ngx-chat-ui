@@ -1,0 +1,19 @@
+{
+  "logger": {
+    "console": {
+      "level": "info"
+    }
+  },
+  "rabbitmq": {
+    "host": "ngx-chat-ui-rabbitmq-development",
+    "port": 5672
+  },
+  "graphql": {
+    "port": 7172
+  },
+  "url": "http://192.168.2.2:7171",
+  "token": {
+    "ttl": 2592000,
+    "secret": "MOHGN&R^$"
+  }
+}
