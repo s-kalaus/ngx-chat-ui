@@ -1033,7 +1033,7 @@ var NgxChatUiMessagePayloadSelectComponent = /** @class */ (function () {
         var message = this.ngxChatUiService
             .messagesGet(this.chatKey)
             .getValue()
-            .find(function (message) { return message.messageId === _this.message.payload.messageId; });
+            .find(function (theMessage) { return theMessage.messageId === _this.message.payload.messageId; });
         this.item = message.action.items[this.message.payload.item];
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -1618,7 +1618,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ngx-chat-ui-container\r\n  chatKey=\"first\"\r\n  [state]=\"state.first\"\r\n  [partners]=\"partners\"\r\n  [messages]=\"messages.first\"\r\n  (response)=\"onResponse('first', $event)\"\r\n></ngx-chat-ui-container>\r\n<ngx-chat-ui-container\r\n  chatKey=\"second\"\r\n  [state]=\"state.second\"\r\n  [partners]=\"partners\"\r\n  [messages]=\"messages.second\"\r\n  (response)=\"onResponse('second', $event)\"\r\n></ngx-chat-ui-container>\r\n<ngx-chat-ui-container\r\n  chatKey=\"third\"\r\n  [state]=\"state.third\"\r\n  [partners]=\"partners\"\r\n  [messages]=\"messages.third\"\r\n  (response)=\"onResponse('third', $event)\"\r\n></ngx-chat-ui-container>\r\n"
+module.exports = "<h2>Select Action Payload</h2>\r\n<ngx-chat-ui-container\r\n  chatKey=\"first\"\r\n  [state]=\"state.first\"\r\n  [partners]=\"partners\"\r\n  [messages]=\"messages.first\"\r\n  (response)=\"onResponse('first', $event)\"\r\n></ngx-chat-ui-container>\r\n\r\n<h2>Text Action Payload</h2>\r\n<ngx-chat-ui-container\r\n  chatKey=\"second\"\r\n  [state]=\"state.second\"\r\n  [partners]=\"partners\"\r\n  [messages]=\"messages.second\"\r\n  (response)=\"onResponse('second', $event)\"\r\n></ngx-chat-ui-container>\r\n\r\n<h2>List Action Payload</h2>\r\n<ngx-chat-ui-container\r\n  chatKey=\"third\"\r\n  [state]=\"state.third\"\r\n  [partners]=\"partners\"\r\n  [messages]=\"messages.third\"\r\n  (response)=\"onResponse('third', $event)\"\r\n></ngx-chat-ui-container>\r\n"
 
 /***/ }),
 

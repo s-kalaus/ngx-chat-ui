@@ -6,35 +6,35 @@ import {
   INgxChatUiState,
 } from '../interfaces';
 
-type templateStoreType = {
-  [templateKey: string]: BehaviorSubject<TemplateRef<any>>
-};
+interface TemplateStoreType {
+  [templateKey: string]: BehaviorSubject<TemplateRef<any>>;
+}
 
-type templateParamType = {
-  [templateKey: string]: TemplateRef<any>
-};
+interface TemplateParamType {
+  [templateKey: string]: TemplateRef<any>;
+}
 
-type messagesStoreType = {
-  [chatKey: string]: BehaviorSubject<INgxChatUiMessage[]>
-};
+interface MessagesStoreType {
+  [chatKey: string]: BehaviorSubject<INgxChatUiMessage[]>;
+}
 
-type actionsStoreType = {
-  [chatKey: string]: BehaviorSubject<INgxChatUiMessage>
-};
+interface ActionsStoreType {
+  [chatKey: string]: BehaviorSubject<INgxChatUiMessage>;
+}
 
-type statesStoreType = {
-  [chatKey: string]: BehaviorSubject<INgxChatUiState>
-};
+interface StatesStoreType {
+  [chatKey: string]: BehaviorSubject<INgxChatUiState>;
+}
 
-type partnersStoreType = {
-  [chatKey: string]: BehaviorSubject<INgxChatUiMessagePartner[]>
-};
+interface PartnersStoreType {
+  [chatKey: string]: BehaviorSubject<INgxChatUiMessagePartner[]>;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class NgxChatUiService {
-  private templatesStore: templateStoreType = {
+  private templatesStore: TemplateStoreType = {
     container$: new BehaviorSubject<TemplateRef<any>>(null),
     messageTyping$: new BehaviorSubject<TemplateRef<any>>(null),
     messageList$: new BehaviorSubject<TemplateRef<any>>(null),
@@ -50,12 +50,12 @@ export class NgxChatUiService {
     actionSelectItem$: new BehaviorSubject<TemplateRef<any>>(null),
   };
 
-  private partnersStore: partnersStoreType = {};
-  private messagesStore: messagesStoreType = {};
-  private actionsStore: actionsStoreType = {};
-  private statesStore: statesStoreType = {};
+  private partnersStore: PartnersStoreType = {};
+  private messagesStore: MessagesStoreType = {};
+  private actionsStore: ActionsStoreType = {};
+  private statesStore: StatesStoreType = {};
 
-  templatesSet(templates: templateParamType) {
+  templatesSet(templates: TemplateParamType) {
     Object.keys(this.templatesStore)
       .forEach(templateKey => {
         const key = templateKey.replace(/\$/, '');
