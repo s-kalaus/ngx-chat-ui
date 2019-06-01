@@ -74,17 +74,7 @@ Universal Chat UI based on Angular
               text: 'Hi'
             },
             action: {
-              type: INgxChatUiMessageType.select,
-              items: [
-                {
-                  icon: 'Yes',
-                  id: 0
-                },
-                {
-                  text: 'No',
-                  id: 1
-                }
-              ]
+              type: INgxChatUiMessageType.text
             }
           }
         ]);
