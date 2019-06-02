@@ -110,7 +110,7 @@ Universal Chat UI based on Angular. It Supports override of every template compo
       let-chatKey="chatKey"
       let-response="response"
     >
-      <p>Custom tempalte example</p>
+      <p>Custom template example</p>
       <ngx-chat-ui-message-list
         [chatKey]="chatKey"
       ></ngx-chat-ui-message-list>

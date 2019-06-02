@@ -1,9 +1,11 @@
 import { Component, Input, OnInit, TemplateRef, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgxChatUiService } from '../../../../services/chat.service';
 import {
   INgxChatUiMessage,
   INgxChatUiMessageActionSelect,
-  INgxChatUiMessageActionSelectItem,
+  INgxChatUiMessageActionSelectItem, INgxChatUiMessageActionSelectItemActionRedirect,
+  INgxChatUiMessageActionSelectItemActionType,
   INgxChatUiMessagePayloadSelect,
 } from '../../../../interfaces';
 
@@ -22,7 +24,8 @@ export class NgxChatUiMessagePayloadSelectComponent implements OnInit {
   @Input() message: INgxChatUiMessage;
 
   constructor(
-    private ngxChatUiService: NgxChatUiService
+    private ngxChatUiService: NgxChatUiService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -38,5 +41,18 @@ export class NgxChatUiMessagePayloadSelectComponent implements OnInit {
       .getValue()
       .find(theMessage => theMessage.messageId === this.message.payload.messageId);
     this.item = (message.action as INgxChatUiMessageActionSelect).items[(this.message.payload as INgxChatUiMessagePayloadSelect).item];
+    this.processItemAction();
+  }
+
+  processItemAction() {
+    if (!this.item || !this.item.action) {
+      return;
+    }
+
+    switch (this.item.action.type) {
+      case INgxChatUiMessageActionSelectItemActionType.redirect:
+        this.router.navigate([(this.item.action as INgxChatUiMessageActionSelectItemActionRedirect).url]);
+        break;
+    }
   }
 }
