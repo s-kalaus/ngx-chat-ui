@@ -4,7 +4,7 @@
 /*!**************************************************!*\
   !*** /ngx-chat-ui/libs/ngx-chat-ui/src/index.ts ***!
   \**************************************************/
-/*! exports provided: NgxChatUiModule, NgxChatUiService, INgxChatUiMessageType */
+/*! exports provided: NgxChatUiModule, NgxChatUiService, INgxChatUiMessageType, INgxChatUiMessageActionSelectItemActionType */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -15,6 +15,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "NgxChatUiService", function() { return _lib_ngx_chat_ui_module__WEBPACK_IMPORTED_MODULE_0__["NgxChatUiService"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "INgxChatUiMessageType", function() { return _lib_ngx_chat_ui_module__WEBPACK_IMPORTED_MODULE_0__["INgxChatUiMessageType"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "INgxChatUiMessageActionSelectItemActionType", function() { return _lib_ngx_chat_ui_module__WEBPACK_IMPORTED_MODULE_0__["INgxChatUiMessageActionSelectItemActionType"]; });
 
 
 
@@ -28,7 +30,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng-container *ngTemplateOutlet=\"template; context: {\n  message: message,\n  response: response,\n  chatKey: chatKey,\n  MessageType: MessageType,\n  isSending: isSending\n}\"></ng-container>\n"
+module.exports = "<ng-container *ngTemplateOutlet=\"template; context: {\n  message: message,\n  chatKey: chatKey,\n  MessageType: MessageType,\n  isSending: isSending\n}\"></ng-container>\n"
 
 /***/ }),
 
@@ -68,7 +70,6 @@ var NgxChatUiActionComponent = /** @class */ (function () {
         this.isSending = false;
         this.message = null;
         this.MessageType = _interfaces__WEBPACK_IMPORTED_MODULE_3__["INgxChatUiMessageType"];
-        this.response = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
     }
     NgxChatUiActionComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -86,10 +87,6 @@ var NgxChatUiActionComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
     ], NgxChatUiActionComponent.prototype, "chatKey", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
-    ], NgxChatUiActionComponent.prototype, "response", void 0);
     NgxChatUiActionComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'ngx-chat-ui-action',
@@ -100,6 +97,126 @@ var NgxChatUiActionComponent = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_chat_service__WEBPACK_IMPORTED_MODULE_2__["NgxChatUiService"]])
     ], NgxChatUiActionComponent);
     return NgxChatUiActionComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../libs/ngx-chat-ui/src/lib/components/action/autocomplete/autocomplete.component.html":
+/*!********************************************************************************************************!*\
+  !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/action/autocomplete/autocomplete.component.html ***!
+  \********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ng-container *ngTemplateOutlet=\"template; context: {\n  message: message,\n  response: ngxChatUiService.response$,\n  chatKey: chatKey,\n  onChange: onChange,\n  onFocused: onFocused,\n  removeTag: removeTag,\n  select: select,\n  submit: submit,\n  data: data,\n  value: value,\n  searchCallback: searchCallback,\n  isSingle: isSingle\n}\"></ng-container>\n"
+
+/***/ }),
+
+/***/ "../../libs/ngx-chat-ui/src/lib/components/action/autocomplete/autocomplete.component.scss":
+/*!********************************************************************************************************!*\
+  !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/action/autocomplete/autocomplete.component.scss ***!
+  \********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsaWJzL25neC1jaGF0LXVpL3NyYy9saWIvY29tcG9uZW50cy9hY3Rpb24vYXV0b2NvbXBsZXRlL2F1dG9jb21wbGV0ZS5jb21wb25lbnQuc2NzcyJ9 */"
+
+/***/ }),
+
+/***/ "../../libs/ngx-chat-ui/src/lib/components/action/autocomplete/autocomplete.component.ts":
+/*!******************************************************************************************************!*\
+  !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/action/autocomplete/autocomplete.component.ts ***!
+  \******************************************************************************************************/
+/*! exports provided: NgxChatUiActionAutocompleteComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NgxChatUiActionAutocompleteComponent", function() { return NgxChatUiActionAutocompleteComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_chat_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/chat.service */ "../../libs/ngx-chat-ui/src/lib/services/chat.service.ts");
+/* harmony import */ var _interfaces__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../interfaces */ "../../libs/ngx-chat-ui/src/lib/interfaces/index.ts");
+
+
+
+
+var NgxChatUiActionAutocompleteComponent = /** @class */ (function () {
+    function NgxChatUiActionAutocompleteComponent(ngxChatUiService) {
+        this.ngxChatUiService = ngxChatUiService;
+        this.chatKey = 'default';
+        this.value = [];
+        this.data = [];
+        this.isSingle = false;
+    }
+    NgxChatUiActionAutocompleteComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.ngxChatUiService
+            .templatesGet('actionAutocomplete')
+            .subscribe(function (template) { return _this.template = template; });
+        this.ngxChatUiService
+            .callbacksGet(this.chatKey)
+            .subscribe(function (callbacks) {
+            var action = _this.message.action;
+            _this.searchCallback = callbacks[action.callback];
+            _this.isSingle = action.meta && action.meta.single;
+        });
+    };
+    NgxChatUiActionAutocompleteComponent.prototype.onChange = function (autocomplete, query) {
+        var _this = this;
+        this.searchCallback(query, function (data) { return _this.data = data
+            .filter(function (item) { return !_this.value.find(function (theValue) { return theValue === item; }); }); });
+    };
+    NgxChatUiActionAutocompleteComponent.prototype.onFocused = function (autocomplete) {
+        autocomplete.clear();
+        autocomplete.close();
+        this.data = [];
+    };
+    NgxChatUiActionAutocompleteComponent.prototype.select = function (autocomplete, value) {
+        this.value.push(value);
+        this.onFocused(autocomplete);
+        if (this.isSingle) {
+            this.submit();
+        }
+    };
+    NgxChatUiActionAutocompleteComponent.prototype.removeTag = function (value) {
+        var index = this.value.findIndex(function (theValue) { return theValue === value; });
+        if (index !== -1) {
+            this.value.splice(index, 1);
+        }
+    };
+    NgxChatUiActionAutocompleteComponent.prototype.submit = function () {
+        if (!this.value.length) {
+            return;
+        }
+        this.response.emit({
+            chatKey: this.chatKey,
+            payload: {
+                type: _interfaces__WEBPACK_IMPORTED_MODULE_3__["INgxChatUiMessageType"].autocomplete,
+                value: this.value,
+            },
+        });
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], NgxChatUiActionAutocompleteComponent.prototype, "chatKey", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], NgxChatUiActionAutocompleteComponent.prototype, "message", void 0);
+    NgxChatUiActionAutocompleteComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'ngx-chat-ui-action-autocomplete',
+            template: __webpack_require__(/*! ./autocomplete.component.html */ "../../libs/ngx-chat-ui/src/lib/components/action/autocomplete/autocomplete.component.html"),
+            encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
+            styles: [__webpack_require__(/*! ./autocomplete.component.scss */ "../../libs/ngx-chat-ui/src/lib/components/action/autocomplete/autocomplete.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_chat_service__WEBPACK_IMPORTED_MODULE_2__["NgxChatUiService"]])
+    ], NgxChatUiActionAutocompleteComponent);
+    return NgxChatUiActionAutocompleteComponent;
 }());
 
 
@@ -191,7 +308,7 @@ var NgxChatUiActionSelectItemComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng-container *ngTemplateOutlet=\"template; context: {\n  message: message,\n  response: response,\n  submit: submit\n}\"></ng-container>\n"
+module.exports = "<ng-container *ngTemplateOutlet=\"template; context: {\n  message: message,\n  response: ngxChatUiService.response$,\n  submit: submit,\n  chatKey: chatKey\n}\"></ng-container>\n"
 
 /***/ }),
 
@@ -228,7 +345,6 @@ var NgxChatUiActionSelectComponent = /** @class */ (function () {
     function NgxChatUiActionSelectComponent(ngxChatUiService) {
         this.ngxChatUiService = ngxChatUiService;
         this.chatKey = 'default';
-        this.response = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
     }
     NgxChatUiActionSelectComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -237,9 +353,12 @@ var NgxChatUiActionSelectComponent = /** @class */ (function () {
     };
     NgxChatUiActionSelectComponent.prototype.submit = function (item) {
         this.response.emit({
-            type: _interfaces__WEBPACK_IMPORTED_MODULE_3__["INgxChatUiMessageType"].select,
-            item: item.id,
-            messageId: this.message.messageId,
+            chatKey: this.chatKey,
+            payload: {
+                type: _interfaces__WEBPACK_IMPORTED_MODULE_3__["INgxChatUiMessageType"].select,
+                value: item.id,
+                messageId: this.message.messageId,
+            },
         });
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -250,10 +369,6 @@ var NgxChatUiActionSelectComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
     ], NgxChatUiActionSelectComponent.prototype, "message", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
-    ], NgxChatUiActionSelectComponent.prototype, "response", void 0);
     NgxChatUiActionSelectComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'ngx-chat-ui-action-select',
@@ -277,7 +392,7 @@ var NgxChatUiActionSelectComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng-container *ngTemplateOutlet=\"template; context: {\n  message: message,\n  response: response,\n  submit: submit,\n  form: form\n}\"></ng-container>\n"
+module.exports = "<ng-container *ngTemplateOutlet=\"template; context: {\n  message: message,\n  response: ngxChatUiService.response$,\n  submit: submit,\n  form: form,\n  chatKey: chatKey\n}\"></ng-container>\n"
 
 /***/ }),
 
@@ -317,7 +432,6 @@ var NgxChatUiActionTextComponent = /** @class */ (function () {
         this.formBuilder = formBuilder;
         this.ngxChatUiService = ngxChatUiService;
         this.chatKey = 'default';
-        this.response = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.createForm();
     }
     NgxChatUiActionTextComponent.prototype.createForm = function () {
@@ -336,8 +450,11 @@ var NgxChatUiActionTextComponent = /** @class */ (function () {
             return;
         }
         this.response.emit({
-            type: _interfaces__WEBPACK_IMPORTED_MODULE_4__["INgxChatUiMessageType"].text,
-            text: this.form.value.text,
+            chatKey: this.chatKey,
+            payload: {
+                type: _interfaces__WEBPACK_IMPORTED_MODULE_4__["INgxChatUiMessageType"].text,
+                value: this.form.value.text,
+            },
         });
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -348,10 +465,6 @@ var NgxChatUiActionTextComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
     ], NgxChatUiActionTextComponent.prototype, "message", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
-    ], NgxChatUiActionTextComponent.prototype, "response", void 0);
     NgxChatUiActionTextComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'ngx-chat-ui-action-text',
@@ -369,6 +482,133 @@ var NgxChatUiActionTextComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "../../libs/ngx-chat-ui/src/lib/components/action/upload/upload.component.html":
+/*!********************************************************************************************!*\
+  !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/action/upload/upload.component.html ***!
+  \********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ng-container *ngTemplateOutlet=\"template; context: {\n  message: message,\n  response: ngxChatUiService.response$,\n  chatKey: chatKey,\n  submit: submit,\n  config: config,\n  onUploadSuccess: onUploadSuccess,\n  onUploadError: onUploadError,\n  onAddedFile: onAddedFile,\n  onComplete: onComplete,\n  uploadCallback: uploadCallback,\n  removeDropzoneFile: removeDropzoneFile,\n  removeFile: removeFile,\n  isUploading: isUploading,\n  isSingle: isSingle,\n  value: value\n}\"></ng-container>\n"
+
+/***/ }),
+
+/***/ "../../libs/ngx-chat-ui/src/lib/components/action/upload/upload.component.scss":
+/*!********************************************************************************************!*\
+  !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/action/upload/upload.component.scss ***!
+  \********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsaWJzL25neC1jaGF0LXVpL3NyYy9saWIvY29tcG9uZW50cy9hY3Rpb24vdXBsb2FkL3VwbG9hZC5jb21wb25lbnQuc2NzcyJ9 */"
+
+/***/ }),
+
+/***/ "../../libs/ngx-chat-ui/src/lib/components/action/upload/upload.component.ts":
+/*!******************************************************************************************!*\
+  !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/action/upload/upload.component.ts ***!
+  \******************************************************************************************/
+/*! exports provided: NgxChatUiActionUploadComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NgxChatUiActionUploadComponent", function() { return NgxChatUiActionUploadComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_chat_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/chat.service */ "../../libs/ngx-chat-ui/src/lib/services/chat.service.ts");
+/* harmony import */ var _interfaces__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../interfaces */ "../../libs/ngx-chat-ui/src/lib/interfaces/index.ts");
+
+
+
+
+var NgxChatUiActionUploadComponent = /** @class */ (function () {
+    function NgxChatUiActionUploadComponent(ngxChatUiService) {
+        this.ngxChatUiService = ngxChatUiService;
+        this.chatKey = 'default';
+        this.value = [];
+        this.isSingle = false;
+        this.isUploading = false;
+    }
+    NgxChatUiActionUploadComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.ngxChatUiService
+            .templatesGet('actionUpload')
+            .subscribe(function (template) { return _this.template = template; });
+        this.ngxChatUiService
+            .callbacksGet(this.chatKey)
+            .subscribe(function (callbacks) {
+            var action = _this.message.action;
+            _this.uploadCallback = callbacks[action.callback];
+            _this.config = (action.meta && action.meta.config) || {};
+            _this.isSingle = action.meta && action.meta.single;
+        });
+    };
+    NgxChatUiActionUploadComponent.prototype.onUploadSuccess = function (dropzone, file) {
+        var _this = this;
+        this.uploadCallback(file[1], function (data) {
+            _this.value.push(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({}, data));
+            _this.removeDropzoneFile(dropzone, file[0]);
+            if (_this.isSingle) {
+                _this.submit();
+            }
+        });
+    };
+    NgxChatUiActionUploadComponent.prototype.onUploadError = function (dropzone, file) {
+        this.removeDropzoneFile(dropzone, file[0]);
+    };
+    NgxChatUiActionUploadComponent.prototype.onAddedFile = function () {
+        this.isUploading = true;
+    };
+    NgxChatUiActionUploadComponent.prototype.onComplete = function () {
+        this.isUploading = false;
+    };
+    NgxChatUiActionUploadComponent.prototype.removeDropzoneFile = function (dropzone, file) {
+        var dropzoneRef = dropzone.dropzone();
+        dropzoneRef.removeFile(file);
+    };
+    NgxChatUiActionUploadComponent.prototype.removeFile = function (file) {
+        var index = this.value.findIndex(function (theFile) { return theFile === file; });
+        if (index !== -1) {
+            this.value.splice(index, 1);
+        }
+    };
+    NgxChatUiActionUploadComponent.prototype.submit = function () {
+        this.response.emit({
+            chatKey: this.chatKey,
+            payload: {
+                type: _interfaces__WEBPACK_IMPORTED_MODULE_3__["INgxChatUiMessageType"].upload,
+                value: this.value.map(function (file) { return ({
+                    name: file.name,
+                    url: file.url,
+                }); }),
+            },
+        });
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], NgxChatUiActionUploadComponent.prototype, "chatKey", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], NgxChatUiActionUploadComponent.prototype, "message", void 0);
+    NgxChatUiActionUploadComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'ngx-chat-ui-action-upload',
+            template: __webpack_require__(/*! ./upload.component.html */ "../../libs/ngx-chat-ui/src/lib/components/action/upload/upload.component.html"),
+            encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
+            styles: [__webpack_require__(/*! ./upload.component.scss */ "../../libs/ngx-chat-ui/src/lib/components/action/upload/upload.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_chat_service__WEBPACK_IMPORTED_MODULE_2__["NgxChatUiService"]])
+    ], NgxChatUiActionUploadComponent);
+    return NgxChatUiActionUploadComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../libs/ngx-chat-ui/src/lib/components/container/container.component.html":
 /*!*******************************************************************************************!*\
   !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/container/container.component.html ***!
@@ -376,7 +616,7 @@ var NgxChatUiActionTextComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng-container *ngTemplateOutlet=\"template; context: {\n  chatKey: chatKey,\n  response: response\n}\"></ng-container>\n\n<ng-template\n  #containerTemplateDefault\n  let-chatKey=\"chatKey\"\n  let-response=\"response\"\n>\n  <ngx-chat-ui-message-list\n    [chatKey]=\"chatKey\"\n  ></ngx-chat-ui-message-list>\n  <ngx-chat-ui-action\n    [chatKey]=\"chatKey\"\n    (response)=\"response.emit($event)\"\n  ></ngx-chat-ui-action>\n</ng-template>\n\n<ng-template\n  #messageTypingTemplateDefault\n  let-partner=\"partner\"\n>\n  <div\n    *ngIf=\"partner\"\n    class=\"ngx-chat-ui-message-typing\"\n  >{{ partner.firstName }}</div>\n</ng-template>\n\n<ng-template\n  #messageListTemplateDefault\n  let-messages=\"messages\"\n  let-chatKey=\"chatKey\"\n  let-trackByFn=\"trackByFn\"\n>\n  <div class=\"ngx-chat-ui-message-spacer\"></div>\n  <ngx-chat-ui-message-item\n    *ngFor=\"let message of messages; trackBy: trackByFn\"\n    [class.ngx-chat-ui-message-item-incoming]=\"message.isIncoming\"\n    [chatKey]=\"chatKey\"\n    [message]=\"message\"\n  ></ngx-chat-ui-message-item>\n  <ngx-chat-ui-message-typing\n    [chatKey]=\"chatKey\"\n  ></ngx-chat-ui-message-typing>\n</ng-template>\n\n<ng-template\n  #messageItemTemplateDefault\n  let-message=\"message\"\n  let-chatKey=\"chatKey\"\n>\n  <ngx-chat-ui-message-partner\n    [chatKey]=\"chatKey\"\n    [message]=\"message\"\n  ></ngx-chat-ui-message-partner>\n  <ngx-chat-ui-message-meta\n    [chatKey]=\"chatKey\"\n    [message]=\"message\"\n  ></ngx-chat-ui-message-meta>\n  <ngx-chat-ui-message-payload\n    *ngIf=\"message.payload\"\n    [chatKey]=\"chatKey\"\n    [message]=\"message\"\n  ></ngx-chat-ui-message-payload>\n</ng-template>\n\n<ng-template\n  #messagePartnerTemplateDefault\n  let-message=\"message\"\n  let-avatar=\"avatar\"\n>\n  <ng-container *ngIf=\"message.partner && message.partner.avatar; else avatarTpl\"><img [src]=\"message.partner.avatar\"></ng-container>\n  <ng-template #avatarTpl>\n    <ng-container *ngIf=\"avatar\">{{avatar}}</ng-container>\n  </ng-template>\n</ng-template>\n\n<ng-template\n  #messageMetaTemplateDefault\n  let-message=\"message\"\n>\n  {{message.date | date}}\n</ng-template>\n\n<ng-template\n  #messagePayloadTemplate\n  let-message=\"message\"\n  let-MessageType=\"MessageType\"\n  let-chatKey=\"chatKey\"\n>\n  <ng-container [ngSwitch]=\"message.payload.type\">\n    <ngx-chat-ui-message-payload-text\n      *ngSwitchCase=\"MessageType.text\"\n      [chatKey]=\"chatKey\"\n      [message]=\"message\"\n    ></ngx-chat-ui-message-payload-text>\n    <ngx-chat-ui-message-payload-select\n      *ngSwitchCase=\"MessageType.select\"\n      [chatKey]=\"chatKey\"\n      [message]=\"message\"\n    ></ngx-chat-ui-message-payload-select>\n  </ng-container>\n</ng-template>\n\n<ng-template\n  #messagePayloadTextTemplateDefault\n  let-message=\"message\"\n>\n  {{message.payload.text}}\n</ng-template>\n\n<ng-template\n  #messagePayloadSelectTemplateDefault\n  let-message=\"message\"\n  let-item=\"item\"\n>\n  <div\n    class=\"ngx-chat-ui-action-select-item-icon\"\n    *ngIf=\"item.icon\"\n  >{{ item.icon }}</div>\n  <div\n    class=\"ngx-chat-ui-action-select-item-text\"\n    *ngIf=\"item.text\"\n  >{{ item.text }}</div>\n</ng-template>\n\n<ng-template\n  #actionTemplate\n  let-message=\"message\"\n  let-MessageType=\"MessageType\"\n  let-chatKey=\"chatKey\"\n  let-response=\"response\"\n  let-isSending=\"isSending\"\n>\n  <div\n    *ngIf=\"message && message.action\"\n    [class.ngx-chat-ui-action-sending]=\"isSending\"\n    [ngSwitch]=\"message.action.type\"\n  >\n    <ngx-chat-ui-action-text\n      *ngSwitchCase=\"MessageType.text\"\n      [chatKey]=\"chatKey\"\n      [message]=\"message\"\n      (response)=\"response.emit($event)\"\n    ></ngx-chat-ui-action-text>\n    <ngx-chat-ui-action-select\n      *ngSwitchCase=\"MessageType.select\"\n      [chatKey]=\"chatKey\"\n      [message]=\"message\"\n      (response)=\"response.emit($event)\"\n    ></ngx-chat-ui-action-select>\n  </div>\n</ng-template>\n\n<ng-template\n  #actionTextTemplateDefault\n  let-message=\"message\"\n  let-submit=\"submit\"\n  let-form=\"form\"\n>\n  <form\n    novalidate\n    [formGroup]=\"form\"\n    (ngSubmit)=\"submit()\"\n  >\n    <input\n      formControlName=\"text\"\n      type=\"text\"\n    >\n    <button></button>\n  </form>\n</ng-template>\n\n<ng-template\n  #actionSelectTemplateDefault\n  let-message=\"message\"\n  let-submit=\"submit\"\n>\n  <div\n    class=\"ngx-chat-ui-action-select-frame\"\n    [ngClass]=\"message.action.className || 'ngx-chat-ui-action-select-button'\"\n  >\n    <div class=\"ngx-chat-ui-message-spacer\"></div>\n    <div class=\"ngx-chat-ui-action-select-items\">\n      <ngx-chat-ui-action-select-item\n        *ngFor=\"let item of message.action.items\"\n        [item]=\"item\"\n        (response)=\"submit($event)\"\n      ></ngx-chat-ui-action-select-item>\n    </div>\n  </div>\n</ng-template>\n\n<ng-template\n  #actionSelectItemTemplateDefault\n  let-item=\"item\"\n  let-response=\"response\"\n>\n  <a\n    (click)=\"response.emit(item)\"\n    class=\"ngx-chat-ui-action-select-item-frame\"\n    [ngClass]=\"item.className || 'ngx-chat-ui-action-select-item-regular'\"\n    href=\"javascript:;\"\n  >\n    <span\n      class=\"ngx-chat-ui-action-select-item-icon\"\n      *ngIf=\"item.icon\"\n    >{{ item.icon }}</span>\n    <span\n      class=\"ngx-chat-ui-action-select-item-text\"\n      *ngIf=\"item.text\"\n    >{{ item.text }}</span>\n  </a>\n</ng-template>\n\n"
+module.exports = "<ng-container *ngTemplateOutlet=\"template; context: {\n  chatKey: chatKey\n}\"></ng-container>\n\n<ng-template\n  #containerTemplateDefault\n  let-chatKey=\"chatKey\"\n>\n  <ngx-chat-ui-message-list\n    [chatKey]=\"chatKey\"\n  ></ngx-chat-ui-message-list>\n  <ngx-chat-ui-action\n    [chatKey]=\"chatKey\"\n  ></ngx-chat-ui-action>\n</ng-template>\n\n<ng-template\n  #messageTypingTemplateDefault\n  let-partner=\"partner\"\n>\n  <div\n    *ngIf=\"partner\"\n    class=\"ngx-chat-ui-message-typing\"\n  >{{ partner.firstName }}</div>\n</ng-template>\n\n<ng-template\n  #messageListTemplateDefault\n  let-messages=\"messages\"\n  let-chatKey=\"chatKey\"\n  let-trackByFn=\"trackByFn\"\n>\n  <div class=\"ngx-chat-ui-message-spacer\"></div>\n  <ngx-chat-ui-message-item\n    *ngFor=\"let message of messages; trackBy: trackByFn\"\n    [class.ngx-chat-ui-message-item-incoming]=\"message.isIncoming\"\n    [chatKey]=\"chatKey\"\n    [message]=\"message\"\n  ></ngx-chat-ui-message-item>\n  <ngx-chat-ui-message-typing\n    [chatKey]=\"chatKey\"\n  ></ngx-chat-ui-message-typing>\n</ng-template>\n\n<ng-template\n  #messageItemTemplateDefault\n  let-message=\"message\"\n  let-chatKey=\"chatKey\"\n>\n  <ngx-chat-ui-message-partner\n    [chatKey]=\"chatKey\"\n    [message]=\"message\"\n  ></ngx-chat-ui-message-partner>\n  <ngx-chat-ui-message-meta\n    [chatKey]=\"chatKey\"\n    [message]=\"message\"\n  ></ngx-chat-ui-message-meta>\n  <ngx-chat-ui-message-payload\n    *ngIf=\"message.payload\"\n    [chatKey]=\"chatKey\"\n    [message]=\"message\"\n  ></ngx-chat-ui-message-payload>\n</ng-template>\n\n<ng-template\n  #messagePartnerTemplateDefault\n  let-message=\"message\"\n  let-avatar=\"avatar\"\n>\n  <ng-container *ngIf=\"message.partner && message.partner.avatar; else avatarTpl\"><img [src]=\"message.partner.avatar\"></ng-container>\n  <ng-template #avatarTpl>\n    <ng-container *ngIf=\"avatar\">{{avatar}}</ng-container>\n  </ng-template>\n</ng-template>\n\n<ng-template\n  #messageMetaTemplateDefault\n  let-message=\"message\"\n>\n  {{message.date | date}}\n</ng-template>\n\n<ng-template\n  #messagePayloadTemplate\n  let-message=\"message\"\n  let-MessageType=\"MessageType\"\n  let-chatKey=\"chatKey\"\n>\n  <ng-container [ngSwitch]=\"message.payload.type\">\n    <ngx-chat-ui-message-payload-text\n      *ngSwitchCase=\"MessageType.text\"\n      [chatKey]=\"chatKey\"\n      [message]=\"message\"\n    ></ngx-chat-ui-message-payload-text>\n    <ngx-chat-ui-message-payload-select\n      *ngSwitchCase=\"MessageType.select\"\n      [chatKey]=\"chatKey\"\n      [message]=\"message\"\n    ></ngx-chat-ui-message-payload-select>\n    <ngx-chat-ui-message-payload-autocomplete\n      *ngSwitchCase=\"MessageType.autocomplete\"\n      [chatKey]=\"chatKey\"\n      [message]=\"message\"\n    ></ngx-chat-ui-message-payload-autocomplete>\n    <ngx-chat-ui-message-payload-upload\n      *ngSwitchCase=\"MessageType.upload\"\n      [chatKey]=\"chatKey\"\n      [message]=\"message\"\n    ></ngx-chat-ui-message-payload-upload>\n  </ng-container>\n</ng-template>\n\n<ng-template\n  #messagePayloadTextTemplateDefault\n  let-message=\"message\"\n>\n  {{ message.payload.value }}\n</ng-template>\n\n<ng-template\n  #messagePayloadAutocompleteTemplateDefault\n  let-value=\"value\"\n>\n  {{ value }}\n</ng-template>\n\n<ng-template\n  #messagePayloadSelectTemplateDefault\n  let-message=\"message\"\n  let-item=\"item\"\n>\n  <div\n    class=\"ngx-chat-ui-action-select-item-icon\"\n    *ngIf=\"item.icon\"\n  >{{ item.icon }}</div>\n  <div\n    class=\"ngx-chat-ui-action-select-item-text\"\n    *ngIf=\"item.text\"\n  >{{ item.text }}</div>\n</ng-template>\n\n<ng-template\n  #messagePayloadUploadTemplateDefault\n  let-message=\"message\"\n  let-value=\"value\"\n>\n  <a\n    class=\"ngx-chat-ui-message-payload-upload-files-item\"\n    *ngFor=\"let file of message.payload.value\"\n    [href]=\"file.url\"\n    target=\"_blank\"\n  >\n    <div\n      class=\"ngx-chat-ui-message-payload-upload-files-item-image\"\n      [style.background-image]=\"'url(' + (file.preview || file.url) + ')'\"\n    ></div>\n  </a>\n</ng-template>\n\n<ng-template\n  #actionTemplate\n  let-message=\"message\"\n  let-MessageType=\"MessageType\"\n  let-chatKey=\"chatKey\"\n  let-isSending=\"isSending\"\n>\n  <div\n    *ngIf=\"message && message.action\"\n    [class.ngx-chat-ui-action-sending]=\"isSending\"\n    [ngSwitch]=\"message.action.type\"\n  >\n    <ngx-chat-ui-action-text\n      *ngSwitchCase=\"MessageType.text\"\n      [chatKey]=\"chatKey\"\n      [message]=\"message\"\n    ></ngx-chat-ui-action-text>\n    <ngx-chat-ui-action-select\n      *ngSwitchCase=\"MessageType.select\"\n      [chatKey]=\"chatKey\"\n      [message]=\"message\"\n    ></ngx-chat-ui-action-select>\n    <ngx-chat-ui-action-autocomplete\n      *ngSwitchCase=\"MessageType.autocomplete\"\n      [chatKey]=\"chatKey\"\n      [message]=\"message\"\n    ></ngx-chat-ui-action-autocomplete>\n    <ngx-chat-ui-action-upload\n      *ngSwitchCase=\"MessageType.upload\"\n      [chatKey]=\"chatKey\"\n      [message]=\"message\"\n    ></ngx-chat-ui-action-upload>\n  </div>\n</ng-template>\n\n<ng-template\n  #actionTextTemplateDefault\n  let-message=\"message\"\n  let-submit=\"submit\"\n  let-form=\"form\"\n>\n  <form\n    novalidate\n    [formGroup]=\"form\"\n    (ngSubmit)=\"submit()\"\n  >\n    <input\n      formControlName=\"text\"\n      type=\"text\"\n    >\n    <button></button>\n  </form>\n</ng-template>\n\n<ng-template\n  #actionUploadTemplateDefault\n  let-message=\"message\"\n  let-submit=\"submit\"\n  let-config=\"config\"\n  let-value=\"value\"\n  let-onUploadSuccess=\"onUploadSuccess\"\n  let-onUploadError=\"onUploadError\"\n  let-onAddedFile=\"onAddedFile\"\n  let-onComplete=\"onComplete\"\n  let-directiveRef=\"directiveRef\"\n  let-removeFile=\"removeFile\"\n  let-isUploading=\"isUploading\"\n  let-isSingle=\"isSingle\"\n>\n  <div\n    [class.ngx-chat-ui-action-upload-uploading]=\"isUploading\"\n  >\n    <div\n      class=\"ngx-chat-ui-action-upload-files\"\n      *ngIf=\"value.length\"\n    >\n      <div\n        class=\"ngx-chat-ui-action-upload-files-item\"\n        *ngFor=\"let file of value\"\n      >\n        <div\n          class=\"ngx-chat-ui-action-upload-files-item-image\"\n          [style.background-image]=\"'url(' + (file.preview || file.url) + ')'\"\n        ></div>\n        <a\n          class=\"ngx-chat-ui-action-upload-files-item-remove\"\n          href=\"javascript:;\"\n          (click)=\"removeFile(file)\"\n        ></a>\n      </div>\n    </div>\n    <div\n      class=\"ngx-chat-ui-action-upload-dropzone\"\n    >\n      <div\n        *ngIf=\"config\"\n        #dropzone=\"ngxDropzone\"\n        class=\"dropzone\"\n        [dropzone]=\"config\"\n        (error)=\"onUploadError(dropzone, $event)\"\n        (success)=\"onUploadSuccess(dropzone, $event)\"\n        (addedfile)=\"onAddedFile(dropzone, $event)\"\n        (complete)=\"onComplete(dropzone, $event)\"\n      ></div>\n      <button *ngIf=\"!isSingle\" (click)=\"submit()\"></button>\n    </div>\n  </div>\n</ng-template>\n\n<ng-template\n  #actionAutocompleteTemplateDefault\n  let-message=\"message\"\n  let-onChange=\"onChange\"\n  let-onFocused=\"onFocused\"\n  let-select=\"select\"\n  let-value=\"value\"\n  let-data=\"data\"\n  let-removeTag=\"removeTag\"\n  let-submit=\"submit\"\n>\n\n  <div\n    class=\"ngx-chat-ui-action-autocomplete-tags\"\n    *ngIf=\"value.length\"\n  >\n    <div\n      class=\"ngx-chat-ui-action-autocomplete-tags-item\"\n      *ngFor=\"let tag of value\"\n    >\n      <div\n        class=\"ngx-chat-ui-action-autocomplete-tags-tag\"\n      >{{ tag }}</div>\n      <a\n        class=\"ngx-chat-ui-action-autocomplete-tags-item-remove\"\n        href=\"javascript:;\"\n        (click)=\"removeTag(tag)\"\n      ></a>\n    </div>\n  </div>\n  <div\n    class=\"ngx-chat-ui-action-autocomplete-picker\"\n  >\n    <ng-autocomplete\n      #autocomplete\n      [data]=\"data\"\n      (selected)=\"select(autocomplete, $event)\"\n      (inputChanged)=\"onChange(autocomplete, $event)\"\n      (inputFocused)=\"onFocused(autocomplete)\"\n      [itemTemplate]=\"itemTemplate\"\n      [notFoundTemplate]=\"notFoundTemplate\">\n    </ng-autocomplete>\n\n    <button (click)=\"submit()\"></button>\n\n    <ng-template #itemTemplate let-item>\n      <a [innerHTML]=\"item\"></a>\n    </ng-template>\n\n    <ng-template #notFoundTemplate let-notFound>\n      <div [innerHTML]=\"notFound\"></div>\n    </ng-template>\n  </div>\n</ng-template>\n\n<ng-template\n  #actionSelectTemplateDefault\n  let-message=\"message\"\n  let-submit=\"submit\"\n>\n  <div\n    class=\"ngx-chat-ui-action-select-frame\"\n    [ngClass]=\"message.action.className || 'ngx-chat-ui-action-select-button'\"\n  >\n    <div class=\"ngx-chat-ui-message-spacer\"></div>\n    <div class=\"ngx-chat-ui-action-select-items\">\n      <ngx-chat-ui-action-select-item\n        *ngFor=\"let item of message.action.items\"\n        [item]=\"item\"\n        (response)=\"submit($event)\"\n      ></ngx-chat-ui-action-select-item>\n    </div>\n  </div>\n</ng-template>\n\n<ng-template\n  #actionSelectItemTemplateDefault\n  let-item=\"item\"\n  let-response=\"response\"\n>\n  <a\n    (click)=\"response.emit(item)\"\n    class=\"ngx-chat-ui-action-select-item-frame\"\n    [ngClass]=\"item.className || 'ngx-chat-ui-action-select-item-regular'\"\n    href=\"javascript:;\"\n  >\n    <span\n      class=\"ngx-chat-ui-action-select-item-icon\"\n      *ngIf=\"item.icon\"\n    >{{ item.icon }}</span>\n    <span\n      class=\"ngx-chat-ui-action-select-item-text\"\n      *ngIf=\"item.text\"\n    >{{ item.text }}</span>\n  </a>\n</ng-template>\n\n"
 
 /***/ }),
 
@@ -411,6 +651,7 @@ var NgxChatUiContainerComponent = /** @class */ (function () {
     function NgxChatUiContainerComponent(ngxChatUiService) {
         this.ngxChatUiService = ngxChatUiService;
         this.chatKey = 'default';
+        this.itemAction = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.response = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
     }
     NgxChatUiContainerComponent.prototype.ngOnChanges = function (changes) {
@@ -426,6 +667,10 @@ var NgxChatUiContainerComponent = /** @class */ (function () {
             this.ngxChatUiService
                 .stateSet(changes.state.currentValue, this.chatKey);
         }
+        if (changes.callbacks !== undefined) {
+            this.ngxChatUiService
+                .callbacksSet(changes.callbacks.currentValue, this.chatKey);
+        }
     };
     NgxChatUiContainerComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -437,22 +682,44 @@ var NgxChatUiContainerComponent = /** @class */ (function () {
             messagePartner: this.messagePartnerTemplate || this.messagePartnerTemplateDefault,
             messagePayload: this.messagePayloadTemplate,
             messagePayloadText: this.messagePayloadTextTemplate || this.messagePayloadTextTemplateDefault,
+            messagePayloadUpload: this.messagePayloadUploadTemplate || this.messagePayloadUploadTemplateDefault,
             messagePayloadSelect: this.messagePayloadSelectTemplate || this.messagePayloadSelectTemplateDefault,
+            messagePayloadAutocomplete: this.messagePayloadAutocompleteTemplate || this.messagePayloadAutocompleteTemplateDefault,
             messageMeta: this.messageMetaTemplate || this.messageMetaTemplateDefault,
             action: this.actionTemplate,
             actionText: this.actionTextTemplate || this.actionTextTemplateDefault,
+            actionAutocomplete: this.actionAutocompleteTemplate || this.actionAutocompleteTemplateDefault,
             actionSelect: this.actionSelectTemplate || this.actionSelectTemplateDefault,
             actionSelectItem: this.actionSelectItemTemplate || this.actionSelectItemTemplateDefault,
+            actionUpload: this.actionSelectTemplate || this.actionUploadTemplateDefault,
         });
         this.ngxChatUiService
             .templatesGet('container')
             .subscribe(function (template) { return _this.template = template; });
-        this.response
-            .subscribe(function () { return _this.onResponse(); });
+        this.ngxChatUiService
+            .response$
+            .subscribe(function (response) { return _this.onResponse(response); });
+        this.ngxChatUiService
+            .itemAction$
+            .subscribe(function (itemAction) { return _this.onItemAction(itemAction); });
     };
-    NgxChatUiContainerComponent.prototype.onResponse = function () {
+    NgxChatUiContainerComponent.prototype.onResponse = function (response) {
+        if (response.chatKey !== this.chatKey) {
+            return;
+        }
+        if (this.response) {
+            this.response.emit(response.payload);
+        }
         this.ngxChatUiService
             .stateSet({ isSending: true });
+    };
+    NgxChatUiContainerComponent.prototype.onItemAction = function (itemAction) {
+        if (itemAction.chatKey !== this.chatKey) {
+            return;
+        }
+        if (this.itemAction) {
+            this.itemAction.emit(itemAction.payload);
+        }
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('containerTemplateDefault'),
@@ -483,9 +750,17 @@ var NgxChatUiContainerComponent = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
     ], NgxChatUiContainerComponent.prototype, "messagePayloadTextTemplateDefault", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('messagePayloadUploadTemplateDefault'),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
+    ], NgxChatUiContainerComponent.prototype, "messagePayloadUploadTemplateDefault", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('messagePayloadSelectTemplateDefault'),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
     ], NgxChatUiContainerComponent.prototype, "messagePayloadSelectTemplateDefault", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('messagePayloadAutocompleteTemplateDefault'),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
+    ], NgxChatUiContainerComponent.prototype, "messagePayloadAutocompleteTemplateDefault", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('messageMetaTemplateDefault'),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
@@ -499,6 +774,10 @@ var NgxChatUiContainerComponent = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
     ], NgxChatUiContainerComponent.prototype, "actionTextTemplateDefault", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('actionAutocompleteTemplateDefault'),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
+    ], NgxChatUiContainerComponent.prototype, "actionAutocompleteTemplateDefault", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('actionSelectTemplateDefault'),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
     ], NgxChatUiContainerComponent.prototype, "actionSelectTemplateDefault", void 0);
@@ -506,6 +785,10 @@ var NgxChatUiContainerComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('actionSelectItemTemplateDefault'),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
     ], NgxChatUiContainerComponent.prototype, "actionSelectItemTemplateDefault", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('actionUploadTemplateDefault'),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
+    ], NgxChatUiContainerComponent.prototype, "actionUploadTemplateDefault", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
@@ -533,7 +816,15 @@ var NgxChatUiContainerComponent = /** @class */ (function () {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
+    ], NgxChatUiContainerComponent.prototype, "messagePayloadUploadTemplate", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
     ], NgxChatUiContainerComponent.prototype, "messagePayloadSelectTemplate", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
+    ], NgxChatUiContainerComponent.prototype, "messagePayloadAutocompleteTemplate", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
@@ -545,11 +836,19 @@ var NgxChatUiContainerComponent = /** @class */ (function () {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
+    ], NgxChatUiContainerComponent.prototype, "actionAutocompleteTemplate", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
     ], NgxChatUiContainerComponent.prototype, "actionSelectTemplate", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
     ], NgxChatUiContainerComponent.prototype, "actionSelectItemTemplate", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
+    ], NgxChatUiContainerComponent.prototype, "actionUploadTemplate", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
@@ -566,6 +865,14 @@ var NgxChatUiContainerComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
     ], NgxChatUiContainerComponent.prototype, "state", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], NgxChatUiContainerComponent.prototype, "callbacks", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+    ], NgxChatUiContainerComponent.prototype, "itemAction", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
@@ -902,6 +1209,80 @@ var NgxChatUiMessagePartnerComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "../../libs/ngx-chat-ui/src/lib/components/message/payload/autocomplete/autocomplete.component.html":
+/*!*****************************************************************************************************************!*\
+  !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/message/payload/autocomplete/autocomplete.component.html ***!
+  \*****************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ng-container *ngTemplateOutlet=\"template; context: {\n  message: message,\n  value: value\n}\"></ng-container>\n"
+
+/***/ }),
+
+/***/ "../../libs/ngx-chat-ui/src/lib/components/message/payload/autocomplete/autocomplete.component.scss":
+/*!*****************************************************************************************************************!*\
+  !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/message/payload/autocomplete/autocomplete.component.scss ***!
+  \*****************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsaWJzL25neC1jaGF0LXVpL3NyYy9saWIvY29tcG9uZW50cy9tZXNzYWdlL3BheWxvYWQvYXV0b2NvbXBsZXRlL2F1dG9jb21wbGV0ZS5jb21wb25lbnQuc2NzcyJ9 */"
+
+/***/ }),
+
+/***/ "../../libs/ngx-chat-ui/src/lib/components/message/payload/autocomplete/autocomplete.component.ts":
+/*!***************************************************************************************************************!*\
+  !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/message/payload/autocomplete/autocomplete.component.ts ***!
+  \***************************************************************************************************************/
+/*! exports provided: NgxChatUiMessagePayloadAutocompleteComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NgxChatUiMessagePayloadAutocompleteComponent", function() { return NgxChatUiMessagePayloadAutocompleteComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_chat_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../services/chat.service */ "../../libs/ngx-chat-ui/src/lib/services/chat.service.ts");
+
+
+
+var NgxChatUiMessagePayloadAutocompleteComponent = /** @class */ (function () {
+    function NgxChatUiMessagePayloadAutocompleteComponent(ngxChatUiService) {
+        this.ngxChatUiService = ngxChatUiService;
+        this.chatKey = 'default';
+    }
+    NgxChatUiMessagePayloadAutocompleteComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.ngxChatUiService
+            .templatesGet('messagePayloadAutocomplete')
+            .subscribe(function (template) { _this.template = template; });
+        this.value = this.message.payload.value.join(', ');
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], NgxChatUiMessagePayloadAutocompleteComponent.prototype, "chatKey", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], NgxChatUiMessagePayloadAutocompleteComponent.prototype, "message", void 0);
+    NgxChatUiMessagePayloadAutocompleteComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'ngx-chat-ui-message-payload-autocomplete',
+            template: __webpack_require__(/*! ./autocomplete.component.html */ "../../libs/ngx-chat-ui/src/lib/components/message/payload/autocomplete/autocomplete.component.html"),
+            encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
+            styles: [__webpack_require__(/*! ./autocomplete.component.scss */ "../../libs/ngx-chat-ui/src/lib/components/message/payload/autocomplete/autocomplete.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_chat_service__WEBPACK_IMPORTED_MODULE_2__["NgxChatUiService"]])
+    ], NgxChatUiMessagePayloadAutocompleteComponent);
+    return NgxChatUiMessagePayloadAutocompleteComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../libs/ngx-chat-ui/src/lib/components/message/payload/payload.component.html":
 /*!***********************************************************************************************!*\
   !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/message/payload/payload.component.html ***!
@@ -1029,12 +1410,8 @@ var NgxChatUiMessagePayloadSelectComponent = /** @class */ (function () {
         this.initMessage();
     };
     NgxChatUiMessagePayloadSelectComponent.prototype.initMessage = function () {
-        var _this = this;
-        var message = this.ngxChatUiService
-            .messagesGet(this.chatKey)
-            .getValue()
-            .find(function (theMessage) { return theMessage.messageId === _this.message.payload.messageId; });
-        this.item = message.action.items[this.message.payload.item];
+        this.item = this.ngxChatUiService
+            .getItemForItemAction(this.message, this.chatKey);
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
@@ -1133,6 +1510,79 @@ var NgxChatUiMessagePayloadTextComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "../../libs/ngx-chat-ui/src/lib/components/message/payload/upload/upload.component.html":
+/*!*****************************************************************************************************!*\
+  !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/message/payload/upload/upload.component.html ***!
+  \*****************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ng-container *ngTemplateOutlet=\"template; context: {\n  message: message\n}\"></ng-container>\n"
+
+/***/ }),
+
+/***/ "../../libs/ngx-chat-ui/src/lib/components/message/payload/upload/upload.component.scss":
+/*!*****************************************************************************************************!*\
+  !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/message/payload/upload/upload.component.scss ***!
+  \*****************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsaWJzL25neC1jaGF0LXVpL3NyYy9saWIvY29tcG9uZW50cy9tZXNzYWdlL3BheWxvYWQvdXBsb2FkL3VwbG9hZC5jb21wb25lbnQuc2NzcyJ9 */"
+
+/***/ }),
+
+/***/ "../../libs/ngx-chat-ui/src/lib/components/message/payload/upload/upload.component.ts":
+/*!***************************************************************************************************!*\
+  !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/message/payload/upload/upload.component.ts ***!
+  \***************************************************************************************************/
+/*! exports provided: NgxChatUiMessagePayloadUploadComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NgxChatUiMessagePayloadUploadComponent", function() { return NgxChatUiMessagePayloadUploadComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_chat_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../services/chat.service */ "../../libs/ngx-chat-ui/src/lib/services/chat.service.ts");
+
+
+
+var NgxChatUiMessagePayloadUploadComponent = /** @class */ (function () {
+    function NgxChatUiMessagePayloadUploadComponent(ngxChatUiService) {
+        this.ngxChatUiService = ngxChatUiService;
+        this.chatKey = 'default';
+    }
+    NgxChatUiMessagePayloadUploadComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.ngxChatUiService
+            .templatesGet('messagePayloadUpload')
+            .subscribe(function (template) { _this.template = template; });
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], NgxChatUiMessagePayloadUploadComponent.prototype, "chatKey", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], NgxChatUiMessagePayloadUploadComponent.prototype, "message", void 0);
+    NgxChatUiMessagePayloadUploadComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'ngx-chat-ui-message-payload-upload',
+            template: __webpack_require__(/*! ./upload.component.html */ "../../libs/ngx-chat-ui/src/lib/components/message/payload/upload/upload.component.html"),
+            encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
+            styles: [__webpack_require__(/*! ./upload.component.scss */ "../../libs/ngx-chat-ui/src/lib/components/message/payload/upload/upload.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_chat_service__WEBPACK_IMPORTED_MODULE_2__["NgxChatUiService"]])
+    ], NgxChatUiMessagePayloadUploadComponent);
+    return NgxChatUiMessagePayloadUploadComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../libs/ngx-chat-ui/src/lib/components/message/typing/typing.component.html":
 /*!*********************************************************************************************!*\
   !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/message/typing/typing.component.html ***!
@@ -1217,7 +1667,7 @@ var NgxChatUiMessageTypingComponent = /** @class */ (function () {
 /*!*****************************************************************!*\
   !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/interfaces/index.ts ***!
   \*****************************************************************/
-/*! exports provided: INgxChatUiMessageType */
+/*! exports provided: INgxChatUiMessageType, INgxChatUiMessageActionSelectItemActionType */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1225,7 +1675,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _message_type__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./message-type */ "../../libs/ngx-chat-ui/src/lib/interfaces/message-type.ts");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "INgxChatUiMessageType", function() { return _message_type__WEBPACK_IMPORTED_MODULE_0__["INgxChatUiMessageType"]; });
 
+/* harmony import */ var _message_action_select_item_action_type__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./message-action-select-item-action-type */ "../../libs/ngx-chat-ui/src/lib/interfaces/message-action-select-item-action-type.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "INgxChatUiMessageActionSelectItemActionType", function() { return _message_action_select_item_action_type__WEBPACK_IMPORTED_MODULE_1__["INgxChatUiMessageActionSelectItemActionType"]; });
 
+
+
+
+
+/***/ }),
+
+/***/ "../../libs/ngx-chat-ui/src/lib/interfaces/message-action-select-item-action-type.ts":
+/*!**************************************************************************************************!*\
+  !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/interfaces/message-action-select-item-action-type.ts ***!
+  \**************************************************************************************************/
+/*! exports provided: INgxChatUiMessageActionSelectItemActionType */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "INgxChatUiMessageActionSelectItemActionType", function() { return INgxChatUiMessageActionSelectItemActionType; });
+var INgxChatUiMessageActionSelectItemActionType;
+(function (INgxChatUiMessageActionSelectItemActionType) {
+    INgxChatUiMessageActionSelectItemActionType[INgxChatUiMessageActionSelectItemActionType["flow"] = 0] = "flow";
+    INgxChatUiMessageActionSelectItemActionType[INgxChatUiMessageActionSelectItemActionType["redirect"] = 1] = "redirect";
+})(INgxChatUiMessageActionSelectItemActionType || (INgxChatUiMessageActionSelectItemActionType = {}));
 
 
 /***/ }),
@@ -1244,6 +1717,8 @@ var INgxChatUiMessageType;
 (function (INgxChatUiMessageType) {
     INgxChatUiMessageType[INgxChatUiMessageType["text"] = 0] = "text";
     INgxChatUiMessageType[INgxChatUiMessageType["select"] = 1] = "select";
+    INgxChatUiMessageType[INgxChatUiMessageType["autocomplete"] = 2] = "autocomplete";
+    INgxChatUiMessageType[INgxChatUiMessageType["upload"] = 3] = "upload";
 })(INgxChatUiMessageType || (INgxChatUiMessageType = {}));
 
 
@@ -1253,7 +1728,7 @@ var INgxChatUiMessageType;
 /*!*******************************************************************!*\
   !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/ngx-chat-ui.module.ts ***!
   \*******************************************************************/
-/*! exports provided: NgxChatUiModule, NgxChatUiService, INgxChatUiMessageType */
+/*! exports provided: NgxChatUiModule, NgxChatUiService, INgxChatUiMessageType, INgxChatUiMessageActionSelectItemActionType */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1263,24 +1738,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "../../node_modules/@angular/common/fesm5/common.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "../../node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _components_container_container_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/container/container.component */ "../../libs/ngx-chat-ui/src/lib/components/container/container.component.ts");
-/* harmony import */ var _components_message_list_list_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/message/list/list.component */ "../../libs/ngx-chat-ui/src/lib/components/message/list/list.component.ts");
-/* harmony import */ var _components_message_item_item_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/message/item/item.component */ "../../libs/ngx-chat-ui/src/lib/components/message/item/item.component.ts");
-/* harmony import */ var _components_action_action_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/action/action.component */ "../../libs/ngx-chat-ui/src/lib/components/action/action.component.ts");
-/* harmony import */ var _components_message_partner_partner_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/message/partner/partner.component */ "../../libs/ngx-chat-ui/src/lib/components/message/partner/partner.component.ts");
-/* harmony import */ var _components_message_payload_payload_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/message/payload/payload.component */ "../../libs/ngx-chat-ui/src/lib/components/message/payload/payload.component.ts");
-/* harmony import */ var _components_message_payload_text_text_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/message/payload/text/text.component */ "../../libs/ngx-chat-ui/src/lib/components/message/payload/text/text.component.ts");
-/* harmony import */ var _components_message_payload_select_select_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/message/payload/select/select.component */ "../../libs/ngx-chat-ui/src/lib/components/message/payload/select/select.component.ts");
-/* harmony import */ var _components_message_meta_meta_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/message/meta/meta.component */ "../../libs/ngx-chat-ui/src/lib/components/message/meta/meta.component.ts");
-/* harmony import */ var _components_action_text_text_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/action/text/text.component */ "../../libs/ngx-chat-ui/src/lib/components/action/text/text.component.ts");
-/* harmony import */ var _components_action_select_select_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/action/select/select.component */ "../../libs/ngx-chat-ui/src/lib/components/action/select/select.component.ts");
-/* harmony import */ var _components_action_select_item_item_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/action/select/item/item.component */ "../../libs/ngx-chat-ui/src/lib/components/action/select/item/item.component.ts");
-/* harmony import */ var _components_message_typing_typing_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/message/typing/typing.component */ "../../libs/ngx-chat-ui/src/lib/components/message/typing/typing.component.ts");
-/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./services */ "../../libs/ngx-chat-ui/src/lib/services/index.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "NgxChatUiService", function() { return _services__WEBPACK_IMPORTED_MODULE_17__["NgxChatUiService"]; });
+/* harmony import */ var angular_ng_autocomplete__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! angular-ng-autocomplete */ "../../node_modules/angular-ng-autocomplete/fesm5/angular-ng-autocomplete.js");
+/* harmony import */ var ngx_dropzone_wrapper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-dropzone-wrapper */ "../../node_modules/ngx-dropzone-wrapper/dist/ngx-dropzone-wrapper.es5.js");
+/* harmony import */ var _components_container_container_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/container/container.component */ "../../libs/ngx-chat-ui/src/lib/components/container/container.component.ts");
+/* harmony import */ var _components_message_list_list_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/message/list/list.component */ "../../libs/ngx-chat-ui/src/lib/components/message/list/list.component.ts");
+/* harmony import */ var _components_message_item_item_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/message/item/item.component */ "../../libs/ngx-chat-ui/src/lib/components/message/item/item.component.ts");
+/* harmony import */ var _components_action_action_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/action/action.component */ "../../libs/ngx-chat-ui/src/lib/components/action/action.component.ts");
+/* harmony import */ var _components_message_partner_partner_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/message/partner/partner.component */ "../../libs/ngx-chat-ui/src/lib/components/message/partner/partner.component.ts");
+/* harmony import */ var _components_message_payload_payload_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/message/payload/payload.component */ "../../libs/ngx-chat-ui/src/lib/components/message/payload/payload.component.ts");
+/* harmony import */ var _components_message_payload_text_text_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/message/payload/text/text.component */ "../../libs/ngx-chat-ui/src/lib/components/message/payload/text/text.component.ts");
+/* harmony import */ var _components_message_payload_select_select_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/message/payload/select/select.component */ "../../libs/ngx-chat-ui/src/lib/components/message/payload/select/select.component.ts");
+/* harmony import */ var _components_message_meta_meta_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/message/meta/meta.component */ "../../libs/ngx-chat-ui/src/lib/components/message/meta/meta.component.ts");
+/* harmony import */ var _components_action_text_text_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/action/text/text.component */ "../../libs/ngx-chat-ui/src/lib/components/action/text/text.component.ts");
+/* harmony import */ var _components_action_autocomplete_autocomplete_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/action/autocomplete/autocomplete.component */ "../../libs/ngx-chat-ui/src/lib/components/action/autocomplete/autocomplete.component.ts");
+/* harmony import */ var _components_action_select_select_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/action/select/select.component */ "../../libs/ngx-chat-ui/src/lib/components/action/select/select.component.ts");
+/* harmony import */ var _components_action_select_item_item_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/action/select/item/item.component */ "../../libs/ngx-chat-ui/src/lib/components/action/select/item/item.component.ts");
+/* harmony import */ var _components_message_typing_typing_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/message/typing/typing.component */ "../../libs/ngx-chat-ui/src/lib/components/message/typing/typing.component.ts");
+/* harmony import */ var _components_message_payload_autocomplete_autocomplete_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/message/payload/autocomplete/autocomplete.component */ "../../libs/ngx-chat-ui/src/lib/components/message/payload/autocomplete/autocomplete.component.ts");
+/* harmony import */ var _components_action_upload_upload_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/action/upload/upload.component */ "../../libs/ngx-chat-ui/src/lib/components/action/upload/upload.component.ts");
+/* harmony import */ var _components_message_payload_upload_upload_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/message/payload/upload/upload.component */ "../../libs/ngx-chat-ui/src/lib/components/message/payload/upload/upload.component.ts");
+/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./services */ "../../libs/ngx-chat-ui/src/lib/services/index.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "NgxChatUiService", function() { return _services__WEBPACK_IMPORTED_MODULE_23__["NgxChatUiService"]; });
 
-/* harmony import */ var _interfaces__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./interfaces */ "../../libs/ngx-chat-ui/src/lib/interfaces/index.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "INgxChatUiMessageType", function() { return _interfaces__WEBPACK_IMPORTED_MODULE_18__["INgxChatUiMessageType"]; });
+/* harmony import */ var _interfaces__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./interfaces */ "../../libs/ngx-chat-ui/src/lib/interfaces/index.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "INgxChatUiMessageType", function() { return _interfaces__WEBPACK_IMPORTED_MODULE_24__["INgxChatUiMessageType"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "INgxChatUiMessageActionSelectItemActionType", function() { return _interfaces__WEBPACK_IMPORTED_MODULE_24__["INgxChatUiMessageActionSelectItemActionType"]; });
+
+
+
+
+
+
 
 
 
@@ -1311,36 +1800,46 @@ var NgxChatUiModule = /** @class */ (function () {
                 _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
+                angular_ng_autocomplete__WEBPACK_IMPORTED_MODULE_4__["AutocompleteLibModule"],
+                ngx_dropzone_wrapper__WEBPACK_IMPORTED_MODULE_5__["DropzoneModule"],
             ],
             declarations: [
-                _components_container_container_component__WEBPACK_IMPORTED_MODULE_4__["NgxChatUiContainerComponent"],
-                _components_message_typing_typing_component__WEBPACK_IMPORTED_MODULE_16__["NgxChatUiMessageTypingComponent"],
-                _components_message_list_list_component__WEBPACK_IMPORTED_MODULE_5__["NgxChatUiMessageListComponent"],
-                _components_message_item_item_component__WEBPACK_IMPORTED_MODULE_6__["NgxChatUiMessageItemComponent"],
-                _components_message_partner_partner_component__WEBPACK_IMPORTED_MODULE_8__["NgxChatUiMessagePartnerComponent"],
-                _components_message_payload_payload_component__WEBPACK_IMPORTED_MODULE_9__["NgxChatUiMessagePayloadComponent"],
-                _components_message_payload_text_text_component__WEBPACK_IMPORTED_MODULE_10__["NgxChatUiMessagePayloadTextComponent"],
-                _components_message_payload_select_select_component__WEBPACK_IMPORTED_MODULE_11__["NgxChatUiMessagePayloadSelectComponent"],
-                _components_message_meta_meta_component__WEBPACK_IMPORTED_MODULE_12__["NgxChatUiMessageMetaComponent"],
-                _components_action_action_component__WEBPACK_IMPORTED_MODULE_7__["NgxChatUiActionComponent"],
-                _components_action_text_text_component__WEBPACK_IMPORTED_MODULE_13__["NgxChatUiActionTextComponent"],
-                _components_action_select_select_component__WEBPACK_IMPORTED_MODULE_14__["NgxChatUiActionSelectComponent"],
-                _components_action_select_item_item_component__WEBPACK_IMPORTED_MODULE_15__["NgxChatUiActionSelectItemComponent"]
+                _components_container_container_component__WEBPACK_IMPORTED_MODULE_6__["NgxChatUiContainerComponent"],
+                _components_message_typing_typing_component__WEBPACK_IMPORTED_MODULE_19__["NgxChatUiMessageTypingComponent"],
+                _components_message_list_list_component__WEBPACK_IMPORTED_MODULE_7__["NgxChatUiMessageListComponent"],
+                _components_message_item_item_component__WEBPACK_IMPORTED_MODULE_8__["NgxChatUiMessageItemComponent"],
+                _components_message_partner_partner_component__WEBPACK_IMPORTED_MODULE_10__["NgxChatUiMessagePartnerComponent"],
+                _components_message_payload_payload_component__WEBPACK_IMPORTED_MODULE_11__["NgxChatUiMessagePayloadComponent"],
+                _components_message_payload_text_text_component__WEBPACK_IMPORTED_MODULE_12__["NgxChatUiMessagePayloadTextComponent"],
+                _components_message_payload_select_select_component__WEBPACK_IMPORTED_MODULE_13__["NgxChatUiMessagePayloadSelectComponent"],
+                _components_message_payload_autocomplete_autocomplete_component__WEBPACK_IMPORTED_MODULE_20__["NgxChatUiMessagePayloadAutocompleteComponent"],
+                _components_message_payload_upload_upload_component__WEBPACK_IMPORTED_MODULE_22__["NgxChatUiMessagePayloadUploadComponent"],
+                _components_message_meta_meta_component__WEBPACK_IMPORTED_MODULE_14__["NgxChatUiMessageMetaComponent"],
+                _components_action_action_component__WEBPACK_IMPORTED_MODULE_9__["NgxChatUiActionComponent"],
+                _components_action_text_text_component__WEBPACK_IMPORTED_MODULE_15__["NgxChatUiActionTextComponent"],
+                _components_action_autocomplete_autocomplete_component__WEBPACK_IMPORTED_MODULE_16__["NgxChatUiActionAutocompleteComponent"],
+                _components_action_upload_upload_component__WEBPACK_IMPORTED_MODULE_21__["NgxChatUiActionUploadComponent"],
+                _components_action_select_select_component__WEBPACK_IMPORTED_MODULE_17__["NgxChatUiActionSelectComponent"],
+                _components_action_select_item_item_component__WEBPACK_IMPORTED_MODULE_18__["NgxChatUiActionSelectItemComponent"]
             ],
             exports: [
-                _components_container_container_component__WEBPACK_IMPORTED_MODULE_4__["NgxChatUiContainerComponent"],
-                _components_message_typing_typing_component__WEBPACK_IMPORTED_MODULE_16__["NgxChatUiMessageTypingComponent"],
-                _components_message_list_list_component__WEBPACK_IMPORTED_MODULE_5__["NgxChatUiMessageListComponent"],
-                _components_message_item_item_component__WEBPACK_IMPORTED_MODULE_6__["NgxChatUiMessageItemComponent"],
-                _components_message_partner_partner_component__WEBPACK_IMPORTED_MODULE_8__["NgxChatUiMessagePartnerComponent"],
-                _components_message_payload_payload_component__WEBPACK_IMPORTED_MODULE_9__["NgxChatUiMessagePayloadComponent"],
-                _components_message_payload_text_text_component__WEBPACK_IMPORTED_MODULE_10__["NgxChatUiMessagePayloadTextComponent"],
-                _components_message_payload_select_select_component__WEBPACK_IMPORTED_MODULE_11__["NgxChatUiMessagePayloadSelectComponent"],
-                _components_message_meta_meta_component__WEBPACK_IMPORTED_MODULE_12__["NgxChatUiMessageMetaComponent"],
-                _components_action_action_component__WEBPACK_IMPORTED_MODULE_7__["NgxChatUiActionComponent"],
-                _components_action_text_text_component__WEBPACK_IMPORTED_MODULE_13__["NgxChatUiActionTextComponent"],
-                _components_action_select_select_component__WEBPACK_IMPORTED_MODULE_14__["NgxChatUiActionSelectComponent"],
-                _components_action_select_item_item_component__WEBPACK_IMPORTED_MODULE_15__["NgxChatUiActionSelectItemComponent"]
+                _components_container_container_component__WEBPACK_IMPORTED_MODULE_6__["NgxChatUiContainerComponent"],
+                _components_message_typing_typing_component__WEBPACK_IMPORTED_MODULE_19__["NgxChatUiMessageTypingComponent"],
+                _components_message_list_list_component__WEBPACK_IMPORTED_MODULE_7__["NgxChatUiMessageListComponent"],
+                _components_message_item_item_component__WEBPACK_IMPORTED_MODULE_8__["NgxChatUiMessageItemComponent"],
+                _components_message_partner_partner_component__WEBPACK_IMPORTED_MODULE_10__["NgxChatUiMessagePartnerComponent"],
+                _components_message_payload_payload_component__WEBPACK_IMPORTED_MODULE_11__["NgxChatUiMessagePayloadComponent"],
+                _components_message_payload_text_text_component__WEBPACK_IMPORTED_MODULE_12__["NgxChatUiMessagePayloadTextComponent"],
+                _components_message_payload_select_select_component__WEBPACK_IMPORTED_MODULE_13__["NgxChatUiMessagePayloadSelectComponent"],
+                _components_message_payload_autocomplete_autocomplete_component__WEBPACK_IMPORTED_MODULE_20__["NgxChatUiMessagePayloadAutocompleteComponent"],
+                _components_message_payload_upload_upload_component__WEBPACK_IMPORTED_MODULE_22__["NgxChatUiMessagePayloadUploadComponent"],
+                _components_message_meta_meta_component__WEBPACK_IMPORTED_MODULE_14__["NgxChatUiMessageMetaComponent"],
+                _components_action_action_component__WEBPACK_IMPORTED_MODULE_9__["NgxChatUiActionComponent"],
+                _components_action_text_text_component__WEBPACK_IMPORTED_MODULE_15__["NgxChatUiActionTextComponent"],
+                _components_action_autocomplete_autocomplete_component__WEBPACK_IMPORTED_MODULE_16__["NgxChatUiActionAutocompleteComponent"],
+                _components_action_upload_upload_component__WEBPACK_IMPORTED_MODULE_21__["NgxChatUiActionUploadComponent"],
+                _components_action_select_select_component__WEBPACK_IMPORTED_MODULE_17__["NgxChatUiActionSelectComponent"],
+                _components_action_select_item_item_component__WEBPACK_IMPORTED_MODULE_18__["NgxChatUiActionSelectItemComponent"]
             ]
         })
     ], NgxChatUiModule);
@@ -1364,6 +1863,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "../../node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _interfaces__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../interfaces */ "../../libs/ngx-chat-ui/src/lib/interfaces/index.ts");
+
 
 
 
@@ -1378,16 +1879,23 @@ var NgxChatUiService = /** @class */ (function () {
             messagePayload$: new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](null),
             messagePayloadText$: new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](null),
             messagePayloadSelect$: new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](null),
+            messagePayloadAutocomplete$: new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](null),
+            messagePayloadUpload$: new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](null),
             messageMeta$: new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](null),
             action$: new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](null),
             actionText$: new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](null),
+            actionAutocomplete$: new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](null),
             actionSelect$: new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](null),
             actionSelectItem$: new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](null),
+            actionUpload$: new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](null),
         };
         this.partnersStore = {};
         this.messagesStore = {};
         this.actionsStore = {};
         this.statesStore = {};
+        this.callbacksStore = {};
+        this.itemAction$ = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.response$ = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
     }
     NgxChatUiService.prototype.templatesSet = function (templates) {
         var _this = this;
@@ -1414,6 +1922,13 @@ var NgxChatUiService = /** @class */ (function () {
         var key = chatKey + "$";
         if (!this.statesStore[key]) {
             this.statesStore[key] = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](null);
+        }
+    };
+    NgxChatUiService.prototype.ensureCallbacksKey = function (chatKey) {
+        if (chatKey === void 0) { chatKey = 'default'; }
+        var key = chatKey + "$";
+        if (!this.callbacksStore[key]) {
+            this.callbacksStore[key] = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](null);
         }
     };
     NgxChatUiService.prototype.ensureMessagesKey = function (chatKey) {
@@ -1447,14 +1962,20 @@ var NgxChatUiService = /** @class */ (function () {
     NgxChatUiService.prototype.messagesAdd = function (messages, chatKey) {
         var _this = this;
         if (chatKey === void 0) { chatKey = 'default'; }
-        var subject = this.messagesGet(chatKey);
-        var current = subject.getValue();
-        subject.next(current.concat(messages.map(function (message) { return _this.processMessage(message, chatKey); })));
+        messages.forEach(function (message) {
+            var subject = _this.messagesGet(chatKey);
+            var current = subject.getValue();
+            subject.next(current.concat([_this.processMessage(message, chatKey)]));
+        });
     };
     NgxChatUiService.prototype.messagesSet = function (messages, chatKey) {
-        var _this = this;
         if (chatKey === void 0) { chatKey = 'default'; }
-        this.messagesGet(chatKey).next(messages.map(function (message) { return _this.processMessage(message, chatKey); }));
+        this.messagesClear(chatKey);
+        this.messagesAdd(messages, chatKey);
+    };
+    NgxChatUiService.prototype.messagesClear = function (chatKey) {
+        if (chatKey === void 0) { chatKey = 'default'; }
+        this.messagesGet(chatKey).next([]);
     };
     NgxChatUiService.prototype.processMessage = function (message, chatKey) {
         if (chatKey === void 0) { chatKey = 'default'; }
@@ -1462,11 +1983,36 @@ var NgxChatUiService = /** @class */ (function () {
         if (msg.messagePartnerId && !msg.partner) {
             msg.partner = this.partnersGet(chatKey).getValue().find(function (messagePartner) { return messagePartner.messagePartnerId === msg.messagePartnerId; });
         }
+        var item = this.getItemForItemAction(message, chatKey);
+        if (item && item.action) {
+            this.itemAction$.emit({
+                chatKey: chatKey,
+                payload: item.action
+            });
+        }
         return msg;
     };
-    NgxChatUiService.prototype.messagesClear = function (chatKey) {
+    NgxChatUiService.prototype.getItemForItemAction = function (message, chatKey) {
         if (chatKey === void 0) { chatKey = 'default'; }
-        this.messagesGet(chatKey).next([]);
+        if (message.payload.type !== _interfaces__WEBPACK_IMPORTED_MODULE_3__["INgxChatUiMessageType"].select) {
+            return null;
+        }
+        var actionMessage;
+        var messages = this.messagesGet(chatKey)
+            .getValue().slice().reverse();
+        if (message.payload.messageId) {
+            actionMessage = messages
+                .find(function (theMessage) { return theMessage.messageId === message.payload.messageId; });
+        }
+        else {
+            actionMessage = messages
+                .find(function (theMessage) { return theMessage.messageId !== message.messageId
+                && theMessage.action.type === _interfaces__WEBPACK_IMPORTED_MODULE_3__["INgxChatUiMessageType"].select; });
+        }
+        var action = actionMessage && actionMessage.action;
+        return action
+            && action.items
+            && action.items[message.payload.value];
     };
     NgxChatUiService.prototype.messagesGet = function (chatKey) {
         if (chatKey === void 0) { chatKey = 'default'; }
@@ -1518,6 +2064,15 @@ var NgxChatUiService = /** @class */ (function () {
     NgxChatUiService.prototype.stateSet = function (state, chatKey) {
         if (chatKey === void 0) { chatKey = 'default'; }
         this.stateGet(chatKey).next(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({}, this.stateGet(chatKey).getValue(), state));
+    };
+    NgxChatUiService.prototype.callbacksGet = function (chatKey) {
+        if (chatKey === void 0) { chatKey = 'default'; }
+        this.ensureCallbacksKey(chatKey);
+        return this.callbacksStore[chatKey + "$"];
+    };
+    NgxChatUiService.prototype.callbacksSet = function (callbacks, chatKey) {
+        if (chatKey === void 0) { chatKey = 'default'; }
+        this.callbacksGet(chatKey).next(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({}, this.callbacksGet(chatKey).getValue(), callbacks));
     };
     NgxChatUiService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
@@ -1584,24 +2139,39 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser */ "../../node_modules/@angular/platform-browser/fesm5/platform-browser.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _components_app_app_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/app/app.component */ "./src/app/components/app/app.component.ts");
-/* harmony import */ var _ngx_chat_ui_libs_ngx_chat_ui__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ngx-chat-ui/libs/ngx-chat-ui */ "../../libs/ngx-chat-ui/src/index.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "../../node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var ngx_dropzone_wrapper__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-dropzone-wrapper */ "../../node_modules/ngx-dropzone-wrapper/dist/ngx-dropzone-wrapper.es5.js");
+/* harmony import */ var _components_app_app_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/app/app.component */ "./src/app/components/app/app.component.ts");
+/* harmony import */ var _ngx_chat_ui_libs_ngx_chat_ui__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ngx-chat-ui/libs/ngx-chat-ui */ "../../libs/ngx-chat-ui/src/index.ts");
 
 
 
 
 
+
+
+var DEFAULT_DROPZONE_CONFIG = {
+    url: '/',
+    acceptedFiles: 'image/*',
+};
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
-            declarations: [_components_app_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]],
+            declarations: [_components_app_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
-                _ngx_chat_ui_libs_ngx_chat_ui__WEBPACK_IMPORTED_MODULE_4__["NgxChatUiModule"]
+                _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forRoot([]),
+                _ngx_chat_ui_libs_ngx_chat_ui__WEBPACK_IMPORTED_MODULE_6__["NgxChatUiModule"]
             ],
-            bootstrap: [_components_app_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
+            providers: [
+                {
+                    provide: ngx_dropzone_wrapper__WEBPACK_IMPORTED_MODULE_4__["DROPZONE_CONFIG"],
+                    useValue: DEFAULT_DROPZONE_CONFIG,
+                }
+            ],
+            bootstrap: [_components_app_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -1618,7 +2188,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h2>Select Action Payload</h2>\r\n<ngx-chat-ui-container\r\n  chatKey=\"first\"\r\n  [state]=\"state.first\"\r\n  [partners]=\"partners\"\r\n  [messages]=\"messages.first\"\r\n  (response)=\"onResponse('first', $event)\"\r\n></ngx-chat-ui-container>\r\n\r\n<h2>Text Action Payload</h2>\r\n<ngx-chat-ui-container\r\n  chatKey=\"second\"\r\n  [state]=\"state.second\"\r\n  [partners]=\"partners\"\r\n  [messages]=\"messages.second\"\r\n  (response)=\"onResponse('second', $event)\"\r\n></ngx-chat-ui-container>\r\n\r\n<h2>List Action Payload</h2>\r\n<ngx-chat-ui-container\r\n  chatKey=\"third\"\r\n  [state]=\"state.third\"\r\n  [partners]=\"partners\"\r\n  [messages]=\"messages.third\"\r\n  (response)=\"onResponse('third', $event)\"\r\n></ngx-chat-ui-container>\r\n"
+module.exports = "<h2>Select Action Payload</h2>\r\n<ngx-chat-ui-container\r\n  chatKey=\"demoSelect\"\r\n  [state]=\"state.demoSelect\"\r\n  [partners]=\"partners\"\r\n  [messages]=\"messages.demoSelect\"\r\n  (response)=\"onResponse('demoSelect', $event)\"\r\n></ngx-chat-ui-container>\r\n\r\n<h2>Text Action Payload</h2>\r\n<ngx-chat-ui-container\r\n  chatKey=\"demoText\"\r\n  [state]=\"state.demoText\"\r\n  [partners]=\"partners\"\r\n  [messages]=\"messages.demoText\"\r\n  (response)=\"onResponse('demoText', $event)\"\r\n></ngx-chat-ui-container>\r\n\r\n<h2>List Action Payload</h2>\r\n<ngx-chat-ui-container\r\n  chatKey=\"demoList\"\r\n  [state]=\"state.demoList\"\r\n  [partners]=\"partners\"\r\n  [messages]=\"messages.demoList\"\r\n  (response)=\"onResponse('demoList', $event)\"\r\n></ngx-chat-ui-container>\r\n\r\n<h2>Autocomplete Action Payload</h2>\r\n<ngx-chat-ui-container\r\n  chatKey=\"demoAutocomplete\"\r\n  [state]=\"state.demoAutocomplete\"\r\n  [partners]=\"partners\"\r\n  [messages]=\"messages.demoAutocomplete\"\r\n  (response)=\"onResponse('demoAutocomplete', $event)\"\r\n  [callbacks]=\"callbacks.demoAutocomplete\"\r\n></ngx-chat-ui-container>\r\n\r\n<h2>Upload Action Payload</h2>\r\n<ngx-chat-ui-container\r\n  chatKey=\"demoUpload\"\r\n  [state]=\"state.demoUpload\"\r\n  [partners]=\"partners\"\r\n  [messages]=\"messages.demoUpload\"\r\n  (response)=\"onResponse('demoUpload', $event)\"\r\n  [callbacks]=\"callbacks.demoUpload\"\r\n></ngx-chat-ui-container>\r\n"
 
 /***/ }),
 
@@ -1653,14 +2223,26 @@ var AppComponent = /** @class */ (function () {
     function AppComponent() {
         this.partners = [];
         this.messages = {
-            first: [],
-            second: [],
-            third: []
+            demoSelect: [],
+            demoText: [],
+            demoList: [],
+            demoAutocomplete: [],
+            demoUpload: []
         };
         this.state = {
-            first: {},
-            second: {},
-            third: {}
+            demoSelect: {},
+            demoText: {},
+            demoList: {},
+            demoAutocomplete: {},
+            demoUpload: {}
+        };
+        this.callbacks = {
+            demoAutocomplete: {
+                autocomplete: this.autocompleteTags.bind(this),
+            },
+            demoUpload: {
+                upload: this.uploadFiles.bind(this),
+            }
         };
     }
     AppComponent.prototype.ngOnInit = function () {
@@ -1675,13 +2257,13 @@ var AppComponent = /** @class */ (function () {
                 avatar: 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/4QBmRXhpZgAATU0AKgAAAAgABAEaAAUAAAABAAAAPgEbAAUAAAABAAAARgEoAAMAAAABAAIAAAExAAIAAAAQAAAATgAAAAAAAABgAAAAAQAAAGAAAAABcGFpbnQubmV0IDQuMS42AP/bAEMABQQEBAQDBQQEBAYFBQYIDQgIBwcIEAsMCQ0TEBQTEhASEhQXHRkUFhwWEhIaIxocHh8hISEUGSQnJCAmHSAhIP/bAEMBBQYGCAcIDwgIDyAVEhUgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIP/AABEIABgAGAMBIgACEQEDEQH/xAAfAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgv/xAC1EAACAQMDAgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+fr/xAAfAQADAQEBAQEBAQEBAAAAAAAAAQIDBAUGBwgJCgv/xAC1EQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/APsW7uoLGzlu7l9kUS7mP+e9YH/CbaH9hW43y+aW2m2Cgyr7kZxjHOc/rxVXx88kej2hVm8t7gRuqgnPyswJ5xgFR2P4V5nFb3yyBZL7fEgXafLAd8DneenPXgD8K8HH5jPD1fZwS26nqYXBxqw55dz3mORJYkljYMjgMrDoQehorjvh7eXkujXFjeytK9rIAjnuhHA644wRgAcAcUV7FCqq1NVI9Tz6kHTm4PodVe2NrqFqba8iEkZ5weoPqPQ1zf8Awgun+du+13Hl/wB3jP54/pRRUVcLRrNOpG7Kp16lNWg7HSWVja6darbWkQjjHPuT6k96KKK3jFRXLFWRk227s//Z'
             }
         ]);
-        this.messages.first = this.messages.first.concat([
+        this.messages.demoSelect = this.messages.demoSelect.concat([
             {
                 date: new Date(),
                 messagePartnerId: 'me',
                 payload: {
                     type: _ngx_chat_ui_libs_ngx_chat_ui__WEBPACK_IMPORTED_MODULE_2__["INgxChatUiMessageType"].text,
-                    text: 'Hello'
+                    value: 'Hello'
                 }
             },
             {
@@ -1691,7 +2273,7 @@ var AppComponent = /** @class */ (function () {
                 isIncoming: true,
                 payload: {
                     type: _ngx_chat_ui_libs_ngx_chat_ui__WEBPACK_IMPORTED_MODULE_2__["INgxChatUiMessageType"].text,
-                    text: 'Wanna play?'
+                    value: 'Wanna play?'
                 },
                 action: {
                     type: _ngx_chat_ui_libs_ngx_chat_ui__WEBPACK_IMPORTED_MODULE_2__["INgxChatUiMessageType"].select,
@@ -1709,13 +2291,13 @@ var AppComponent = /** @class */ (function () {
                 }
             },
         ]);
-        this.messages.second = this.messages.second.concat([
+        this.messages.demoText = this.messages.demoText.concat([
             {
                 date: new Date(),
                 messagePartnerId: 'me',
                 payload: {
                     type: _ngx_chat_ui_libs_ngx_chat_ui__WEBPACK_IMPORTED_MODULE_2__["INgxChatUiMessageType"].text,
-                    text: 'Hello'
+                    value: 'Hello'
                 }
             },
             {
@@ -1725,30 +2307,30 @@ var AppComponent = /** @class */ (function () {
                 isIncoming: true,
                 payload: {
                     type: _ngx_chat_ui_libs_ngx_chat_ui__WEBPACK_IMPORTED_MODULE_2__["INgxChatUiMessageType"].text,
-                    text: 'Wanna play?'
+                    value: 'Wanna play?'
                 },
                 action: {
                     type: _ngx_chat_ui_libs_ngx_chat_ui__WEBPACK_IMPORTED_MODULE_2__["INgxChatUiMessageType"].text
                 }
             },
         ]);
-        this.messages.third = this.messages.third.concat([
+        this.messages.demoList = this.messages.demoList.concat([
             {
                 date: new Date(),
                 messagePartnerId: 'me',
                 payload: {
                     type: _ngx_chat_ui_libs_ngx_chat_ui__WEBPACK_IMPORTED_MODULE_2__["INgxChatUiMessageType"].text,
-                    text: 'Hello'
+                    value: 'Hello'
                 }
             },
             {
                 date: new Date(),
-                messageId: '1',
+                messageId: '2',
                 messagePartnerId: 'it',
                 isIncoming: true,
                 payload: {
                     type: _ngx_chat_ui_libs_ngx_chat_ui__WEBPACK_IMPORTED_MODULE_2__["INgxChatUiMessageType"].text,
-                    text: 'Wanna play?'
+                    value: 'Wanna play?'
                 },
                 action: {
                     type: _ngx_chat_ui_libs_ngx_chat_ui__WEBPACK_IMPORTED_MODULE_2__["INgxChatUiMessageType"].select,
@@ -1767,6 +2349,52 @@ var AppComponent = /** @class */ (function () {
                 }
             },
         ]);
+        this.messages.demoAutocomplete = this.messages.demoAutocomplete.concat([
+            {
+                date: new Date(),
+                messagePartnerId: 'me',
+                payload: {
+                    type: _ngx_chat_ui_libs_ngx_chat_ui__WEBPACK_IMPORTED_MODULE_2__["INgxChatUiMessageType"].text,
+                    value: 'Hello'
+                }
+            },
+            {
+                date: new Date(),
+                messagePartnerId: 'it',
+                isIncoming: true,
+                payload: {
+                    type: _ngx_chat_ui_libs_ngx_chat_ui__WEBPACK_IMPORTED_MODULE_2__["INgxChatUiMessageType"].text,
+                    value: 'Wanna play?'
+                },
+                action: {
+                    type: _ngx_chat_ui_libs_ngx_chat_ui__WEBPACK_IMPORTED_MODULE_2__["INgxChatUiMessageType"].autocomplete,
+                    callback: 'autocomplete',
+                }
+            },
+        ]);
+        this.messages.demoUpload = this.messages.demoUpload.concat([
+            {
+                date: new Date(),
+                messagePartnerId: 'me',
+                payload: {
+                    type: _ngx_chat_ui_libs_ngx_chat_ui__WEBPACK_IMPORTED_MODULE_2__["INgxChatUiMessageType"].text,
+                    value: 'Hello'
+                }
+            },
+            {
+                date: new Date(),
+                messagePartnerId: 'it',
+                isIncoming: true,
+                payload: {
+                    type: _ngx_chat_ui_libs_ngx_chat_ui__WEBPACK_IMPORTED_MODULE_2__["INgxChatUiMessageType"].text,
+                    value: 'Wanna play?'
+                },
+                action: {
+                    type: _ngx_chat_ui_libs_ngx_chat_ui__WEBPACK_IMPORTED_MODULE_2__["INgxChatUiMessageType"].upload,
+                    callback: 'upload',
+                }
+            },
+        ]);
     };
     AppComponent.prototype.onResponse = function (chatKey, payload) {
         var _this = this;
@@ -1778,6 +2406,23 @@ var AppComponent = /** @class */ (function () {
                     payload: payload
                 }
             ]);
+        });
+    };
+    AppComponent.prototype.autocompleteTags = function (query, callback) {
+        callback([
+            '#aabbccdd',
+            '#eeffgghh',
+            '#iijjkkll',
+            '#mmnnoopp',
+            '#qqrrsstt',
+            '#uuvvwwxx',
+            '#yyzz',
+        ]);
+    };
+    AppComponent.prototype.uploadFiles = function (data, callback) {
+        callback({
+            name: 'Test.jpg',
+            url: 'https://via.placeholder.com/150',
         });
     };
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
