@@ -17,9 +17,7 @@
   },
   "peerDependencies": {
     "@angular/common": "^7.0.0",
-    "@angular/core": "^7.0.0"
-  },
-  "dependencies": {
+    "@angular/core": "^7.0.0",
     "angular-ng-autocomplete": "^1.1.13",
     "ngx-dropzone-wrapper": "^7.2.1"
   }
