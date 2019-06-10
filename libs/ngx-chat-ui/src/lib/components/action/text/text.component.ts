@@ -1,9 +1,8 @@
-import { Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnInit, TemplateRef, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgxChatUiService } from '../../../services/chat.service';
 import {
   INgxChatUiMessage,
-  INgxChatUiMessagePayload,
   INgxChatUiMessageType,
 } from '../../../interfaces';
 
@@ -20,11 +19,10 @@ export class NgxChatUiActionTextComponent implements OnInit {
   template: TemplateRef<any>;
 
   @Input() message: INgxChatUiMessage;
-  @Output() response: EventEmitter<INgxChatUiMessagePayload> = new EventEmitter();
 
   constructor(
     private formBuilder: FormBuilder,
-    private ngxChatUiService: NgxChatUiService
+    public ngxChatUiService: NgxChatUiService
   ) {
     this.createForm();
   }
@@ -45,9 +43,12 @@ export class NgxChatUiActionTextComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }
-    this.response.emit({
-      type: INgxChatUiMessageType.text,
-      text: this.form.value.text,
+    (this as any).response.emit({
+      chatKey: this.chatKey,
+      payload: {
+        type: INgxChatUiMessageType.text,
+        value: this.form.value.text,
+      },
     });
   }
 }

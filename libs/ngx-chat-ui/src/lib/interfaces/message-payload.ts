@@ -1,5 +1,7 @@
-import { INgxChatUiMessagePayloadSelect } from './message-payload-select';
-import { INgxChatUiMessagePayloadText } from './message-payload-text';
+import { INgxChatUiMessageType } from './message-type';
 
-export type INgxChatUiMessagePayload = INgxChatUiMessagePayloadText
-  | INgxChatUiMessagePayloadSelect;
+export interface INgxChatUiMessagePayload {
+  type: INgxChatUiMessageType;
+  messageId?: string;
+  value: any;
+}

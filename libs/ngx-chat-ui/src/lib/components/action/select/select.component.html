@@ -1,5 +1,6 @@
 <ng-container *ngTemplateOutlet="template; context: {
   message: message,
-  response: response,
-  submit: submit
+  response: ngxChatUiService.response$,
+  submit: submit,
+  chatKey: chatKey
 }"></ng-container>

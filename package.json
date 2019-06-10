@@ -1,6 +1,6 @@
 {
   "name": "ngx-chat-ui-nx",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -41,7 +41,9 @@
     "@angular/router": "^7.0.0",
     "core-js": "^2.5.4",
     "rxjs": "6.3.3",
-    "zone.js": "^0.8.26"
+    "zone.js": "^0.8.26",
+    "angular-ng-autocomplete": "^1.1.13",
+    "ngx-dropzone-wrapper": "^7.2.1"
   },
   "devDependencies": {
     "jest-preset-angular": "7.0.0",

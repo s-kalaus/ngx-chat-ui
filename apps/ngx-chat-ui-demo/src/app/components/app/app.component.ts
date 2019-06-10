@@ -17,16 +17,30 @@ export class AppComponent implements OnInit {
   messages: {
     [chatKey: string]: INgxChatUiMessage[]
   } = {
-    first: [],
-    second: [],
-    third: []
+    demoSelect: [],
+    demoText: [],
+    demoList: [],
+    demoAutocomplete: [],
+    demoUpload: []
   };
   state: {
     [chatKey: string]: INgxChatUiState
   } = {
-    first: {},
-    second: {},
-    third: {}
+    demoSelect: {},
+    demoText: {},
+    demoList: {},
+    demoAutocomplete: {},
+    demoUpload: {}
+  };
+  callbacks: {
+    [chatKey: string]: { [name: string]: Function }
+  } = {
+    demoAutocomplete: {
+      autocomplete: this.autocompleteTags.bind(this),
+    },
+    demoUpload: {
+      upload: this.uploadFiles.bind(this),
+    }
   };
 
   ngOnInit() {
@@ -42,13 +56,13 @@ export class AppComponent implements OnInit {
       }
     ]);
 
-    this.messages.first = this.messages.first.concat([
+    this.messages.demoSelect = this.messages.demoSelect.concat([
       {
         date: new Date(),
         messagePartnerId: 'me',
         payload: {
           type: INgxChatUiMessageType.text,
-          text: 'Hello'
+          value: 'Hello'
         }
       },
       {
@@ -58,7 +72,7 @@ export class AppComponent implements OnInit {
         isIncoming: true,
         payload: {
           type: INgxChatUiMessageType.text,
-          text: 'Wanna play?'
+          value: 'Wanna play?'
         },
         action: {
           type: INgxChatUiMessageType.select,
@@ -77,13 +91,13 @@ export class AppComponent implements OnInit {
       },
     ]);
 
-    this.messages.second = this.messages.second.concat([
+    this.messages.demoText = this.messages.demoText.concat([
       {
         date: new Date(),
         messagePartnerId: 'me',
         payload: {
           type: INgxChatUiMessageType.text,
-          text: 'Hello'
+          value: 'Hello'
         }
       },
       {
@@ -93,7 +107,7 @@ export class AppComponent implements OnInit {
         isIncoming: true,
         payload: {
           type: INgxChatUiMessageType.text,
-          text: 'Wanna play?'
+          value: 'Wanna play?'
         },
         action: {
           type: INgxChatUiMessageType.text
@@ -101,23 +115,23 @@ export class AppComponent implements OnInit {
       },
     ]);
 
-    this.messages.third = this.messages.third.concat([
+    this.messages.demoList = this.messages.demoList.concat([
       {
         date: new Date(),
         messagePartnerId: 'me',
         payload: {
           type: INgxChatUiMessageType.text,
-          text: 'Hello'
+          value: 'Hello'
         }
       },
       {
         date: new Date(),
-        messageId: '1',
+        messageId: '2',
         messagePartnerId: 'it',
         isIncoming: true,
         payload: {
           type: INgxChatUiMessageType.text,
-          text: 'Wanna play?'
+          value: 'Wanna play?'
         },
         action: {
           type: INgxChatUiMessageType.select,
@@ -136,6 +150,54 @@ export class AppComponent implements OnInit {
         }
       },
     ]);
+
+    this.messages.demoAutocomplete = this.messages.demoAutocomplete.concat([
+      {
+        date: new Date(),
+        messagePartnerId: 'me',
+        payload: {
+          type: INgxChatUiMessageType.text,
+          value: 'Hello'
+        }
+      },
+      {
+        date: new Date(),
+        messagePartnerId: 'it',
+        isIncoming: true,
+        payload: {
+          type: INgxChatUiMessageType.text,
+          value: 'Wanna play?'
+        },
+        action: {
+          type: INgxChatUiMessageType.autocomplete,
+          callback: 'autocomplete',
+        }
+      },
+    ]);
+
+    this.messages.demoUpload = this.messages.demoUpload.concat([
+      {
+        date: new Date(),
+        messagePartnerId: 'me',
+        payload: {
+          type: INgxChatUiMessageType.text,
+          value: 'Hello'
+        }
+      },
+      {
+        date: new Date(),
+        messagePartnerId: 'it',
+        isIncoming: true,
+        payload: {
+          type: INgxChatUiMessageType.text,
+          value: 'Wanna play?'
+        },
+        action: {
+          type: INgxChatUiMessageType.upload,
+          callback: 'upload',
+        }
+      },
+    ]);
   }
 
   onResponse(chatKey: string, payload: INgxChatUiMessagePayload) {
@@ -147,6 +209,25 @@ export class AppComponent implements OnInit {
           payload
         }
       ]);
+    });
+  }
+
+  autocompleteTags(query: string, callback: Function) {
+    callback([
+      '#aabbccdd',
+      '#eeffgghh',
+      '#iijjkkll',
+      '#mmnnoopp',
+      '#qqrrsstt',
+      '#uuvvwwxx',
+      '#yyzz',
+    ]);
+  }
+
+  uploadFiles(data: any, callback: Function) {
+    callback({
+      name: 'Test.jpg',
+      url: 'https://via.placeholder.com/150',
     });
   }
 }

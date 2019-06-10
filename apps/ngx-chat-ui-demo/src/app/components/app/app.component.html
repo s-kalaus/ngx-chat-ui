@@ -1,26 +1,46 @@
 <h2>Select Action Payload</h2>
 <ngx-chat-ui-container
-  chatKey="first"
-  [state]="state.first"
+  chatKey="demoSelect"
+  [state]="state.demoSelect"
   [partners]="partners"
-  [messages]="messages.first"
-  (response)="onResponse('first', $event)"
+  [messages]="messages.demoSelect"
+  (response)="onResponse('demoSelect', $event)"
 ></ngx-chat-ui-container>
 
 <h2>Text Action Payload</h2>
 <ngx-chat-ui-container
-  chatKey="second"
-  [state]="state.second"
+  chatKey="demoText"
+  [state]="state.demoText"
   [partners]="partners"
-  [messages]="messages.second"
-  (response)="onResponse('second', $event)"
+  [messages]="messages.demoText"
+  (response)="onResponse('demoText', $event)"
 ></ngx-chat-ui-container>
 
 <h2>List Action Payload</h2>
 <ngx-chat-ui-container
-  chatKey="third"
-  [state]="state.third"
+  chatKey="demoList"
+  [state]="state.demoList"
   [partners]="partners"
-  [messages]="messages.third"
-  (response)="onResponse('third', $event)"
+  [messages]="messages.demoList"
+  (response)="onResponse('demoList', $event)"
+></ngx-chat-ui-container>
+
+<h2>Autocomplete Action Payload</h2>
+<ngx-chat-ui-container
+  chatKey="demoAutocomplete"
+  [state]="state.demoAutocomplete"
+  [partners]="partners"
+  [messages]="messages.demoAutocomplete"
+  (response)="onResponse('demoAutocomplete', $event)"
+  [callbacks]="callbacks.demoAutocomplete"
+></ngx-chat-ui-container>
+
+<h2>Upload Action Payload</h2>
+<ngx-chat-ui-container
+  chatKey="demoUpload"
+  [state]="state.demoUpload"
+  [partners]="partners"
+  [messages]="messages.demoUpload"
+  (response)="onResponse('demoUpload', $event)"
+  [callbacks]="callbacks.demoUpload"
 ></ngx-chat-ui-container>

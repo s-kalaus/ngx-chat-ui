@@ -1,0 +1,17 @@
+<ng-container *ngTemplateOutlet="template; context: {
+  message: message,
+  response: ngxChatUiService.response$,
+  chatKey: chatKey,
+  submit: submit,
+  config: config,
+  onUploadSuccess: onUploadSuccess,
+  onUploadError: onUploadError,
+  onAddedFile: onAddedFile,
+  onComplete: onComplete,
+  uploadCallback: uploadCallback,
+  removeDropzoneFile: removeDropzoneFile,
+  removeFile: removeFile,
+  isUploading: isUploading,
+  isSingle: isSingle,
+  value: value
+}"></ng-container>

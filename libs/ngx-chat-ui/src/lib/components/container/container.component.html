@@ -1,19 +1,16 @@
 <ng-container *ngTemplateOutlet="template; context: {
-  chatKey: chatKey,
-  response: response
+  chatKey: chatKey
 }"></ng-container>
 
 <ng-template
   #containerTemplateDefault
   let-chatKey="chatKey"
-  let-response="response"
 >
   <ngx-chat-ui-message-list
     [chatKey]="chatKey"
   ></ngx-chat-ui-message-list>
   <ngx-chat-ui-action
     [chatKey]="chatKey"
-    (response)="response.emit($event)"
   ></ngx-chat-ui-action>
 </ng-template>
 
@@ -100,6 +97,16 @@
       [chatKey]="chatKey"
       [message]="message"
     ></ngx-chat-ui-message-payload-select>
+    <ngx-chat-ui-message-payload-autocomplete
+      *ngSwitchCase="MessageType.autocomplete"
+      [chatKey]="chatKey"
+      [message]="message"
+    ></ngx-chat-ui-message-payload-autocomplete>
+    <ngx-chat-ui-message-payload-upload
+      *ngSwitchCase="MessageType.upload"
+      [chatKey]="chatKey"
+      [message]="message"
+    ></ngx-chat-ui-message-payload-upload>
   </ng-container>
 </ng-template>
 
@@ -107,7 +114,14 @@
   #messagePayloadTextTemplateDefault
   let-message="message"
 >
-  {{message.payload.text}}
+  {{ message.payload.value }}
+</ng-template>
+
+<ng-template
+  #messagePayloadAutocompleteTemplateDefault
+  let-value="value"
+>
+  {{ value }}
 </ng-template>
 
 <ng-template
@@ -126,11 +140,28 @@
 </ng-template>
 
 <ng-template
+  #messagePayloadUploadTemplateDefault
+  let-message="message"
+  let-value="value"
+>
+  <a
+    class="ngx-chat-ui-message-payload-upload-files-item"
+    *ngFor="let file of message.payload.value"
+    [href]="file.url"
+    target="_blank"
+  >
+    <div
+      class="ngx-chat-ui-message-payload-upload-files-item-image"
+      [style.background-image]="'url(' + (file.preview || file.url) + ')'"
+    ></div>
+  </a>
+</ng-template>
+
+<ng-template
   #actionTemplate
   let-message="message"
   let-MessageType="MessageType"
   let-chatKey="chatKey"
-  let-response="response"
   let-isSending="isSending"
 >
   <div
@@ -142,14 +173,22 @@
       *ngSwitchCase="MessageType.text"
       [chatKey]="chatKey"
       [message]="message"
-      (response)="response.emit($event)"
     ></ngx-chat-ui-action-text>
     <ngx-chat-ui-action-select
       *ngSwitchCase="MessageType.select"
       [chatKey]="chatKey"
       [message]="message"
-      (response)="response.emit($event)"
     ></ngx-chat-ui-action-select>
+    <ngx-chat-ui-action-autocomplete
+      *ngSwitchCase="MessageType.autocomplete"
+      [chatKey]="chatKey"
+      [message]="message"
+    ></ngx-chat-ui-action-autocomplete>
+    <ngx-chat-ui-action-upload
+      *ngSwitchCase="MessageType.upload"
+      [chatKey]="chatKey"
+      [message]="message"
+    ></ngx-chat-ui-action-upload>
   </div>
 </ng-template>
 
@@ -170,6 +209,116 @@
     >
     <button></button>
   </form>
+</ng-template>
+
+<ng-template
+  #actionUploadTemplateDefault
+  let-message="message"
+  let-submit="submit"
+  let-config="config"
+  let-value="value"
+  let-onUploadSuccess="onUploadSuccess"
+  let-onUploadError="onUploadError"
+  let-onAddedFile="onAddedFile"
+  let-onComplete="onComplete"
+  let-directiveRef="directiveRef"
+  let-removeFile="removeFile"
+  let-isUploading="isUploading"
+  let-isSingle="isSingle"
+>
+  <div
+    [class.ngx-chat-ui-action-upload-uploading]="isUploading"
+  >
+    <div
+      class="ngx-chat-ui-action-upload-files"
+      *ngIf="value.length"
+    >
+      <div
+        class="ngx-chat-ui-action-upload-files-item"
+        *ngFor="let file of value"
+      >
+        <div
+          class="ngx-chat-ui-action-upload-files-item-image"
+          [style.background-image]="'url(' + (file.preview || file.url) + ')'"
+        ></div>
+        <a
+          class="ngx-chat-ui-action-upload-files-item-remove"
+          href="javascript:;"
+          (click)="removeFile(file)"
+        ></a>
+      </div>
+    </div>
+    <div
+      class="ngx-chat-ui-action-upload-dropzone"
+    >
+      <div
+        *ngIf="config"
+        #dropzone="ngxDropzone"
+        class="dropzone"
+        [dropzone]="config"
+        (error)="onUploadError(dropzone, $event)"
+        (success)="onUploadSuccess(dropzone, $event)"
+        (addedfile)="onAddedFile(dropzone, $event)"
+        (complete)="onComplete(dropzone, $event)"
+      ></div>
+      <button *ngIf="!isSingle" (click)="submit()"></button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template
+  #actionAutocompleteTemplateDefault
+  let-message="message"
+  let-onChange="onChange"
+  let-onFocused="onFocused"
+  let-select="select"
+  let-value="value"
+  let-data="data"
+  let-removeTag="removeTag"
+  let-submit="submit"
+>
+
+  <div
+    class="ngx-chat-ui-action-autocomplete-tags"
+    *ngIf="value.length"
+  >
+    <div
+      class="ngx-chat-ui-action-autocomplete-tags-item"
+      *ngFor="let tag of value"
+    >
+      <div
+        class="ngx-chat-ui-action-autocomplete-tags-tag"
+      >{{ tag }}</div>
+      <a
+        class="ngx-chat-ui-action-autocomplete-tags-item-remove"
+        href="javascript:;"
+        (click)="removeTag(tag)"
+      ></a>
+    </div>
+  </div>
+  <div
+    class="ngx-chat-ui-action-autocomplete-picker"
+  >
+    <ng-autocomplete
+      #autocomplete
+      [data]="data"
+      (selected)="select(autocomplete, $event)"
+      (inputChanged)="onChange(autocomplete, $event)"
+      (inputFocused)="onFocused(autocomplete)"
+      [itemTemplate]="itemTemplate"
+      [notFoundTemplate]="notFoundTemplate">
+    </ng-autocomplete>
+
+    <button (click)="submit()"></button>
+
+    <ng-template #itemTemplate let-item>
+      <a [innerHTML]="item"></a>
+    </ng-template>
+
+    <ng-template #notFoundTemplate let-notFound>
+      <div [innerHTML]="notFound"></div>
+    </ng-template>
+  </div>
 </ng-template>
 
 <ng-template

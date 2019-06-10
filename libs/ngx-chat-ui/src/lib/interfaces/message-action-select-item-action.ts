@@ -1,5 +1,7 @@
-import { INgxChatUiMessageActionSelectItemActionFlow } from './message-action-select-item-action-flow';
-import { INgxChatUiMessageActionSelectItemActionRedirect } from './message-action-select-item-action-redirect';
+import { INgxChatUiMessageActionSelectItemActionType } from './message-action-select-item-action-type';
 
-export type INgxChatUiMessageActionSelectItemAction = INgxChatUiMessageActionSelectItemActionFlow
-  | INgxChatUiMessageActionSelectItemActionRedirect;
+export interface INgxChatUiMessageActionSelectItemAction {
+  type: INgxChatUiMessageActionSelectItemActionType;
+  value: string;
+  meta: any;
+}

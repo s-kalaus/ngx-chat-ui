@@ -1,9 +1,14 @@
-import { Injectable, TemplateRef } from '@angular/core';
+import { EventEmitter, Injectable, TemplateRef } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import {
+  INgxChatUiItemAction,
   INgxChatUiMessage,
+  INgxChatUiMessageActionSelect,
+  INgxChatUiMessageActionSelectItem,
   INgxChatUiMessagePartner,
-  INgxChatUiState,
+  INgxChatUiMessageType,
+  INgxChatUiResponse,
+  INgxChatUiState
 } from '../interfaces';
 
 interface TemplateStoreType {
@@ -26,6 +31,10 @@ interface StatesStoreType {
   [chatKey: string]: BehaviorSubject<INgxChatUiState>;
 }
 
+interface CallbacksStoreType {
+  [chatKey: string]: BehaviorSubject<{ [name: string]: Function }>;
+}
+
 interface PartnersStoreType {
   [chatKey: string]: BehaviorSubject<INgxChatUiMessagePartner[]>;
 }
@@ -43,17 +52,25 @@ export class NgxChatUiService {
     messagePayload$: new BehaviorSubject<TemplateRef<any>>(null),
     messagePayloadText$: new BehaviorSubject<TemplateRef<any>>(null),
     messagePayloadSelect$: new BehaviorSubject<TemplateRef<any>>(null),
+    messagePayloadAutocomplete$: new BehaviorSubject<TemplateRef<any>>(null),
+    messagePayloadUpload$: new BehaviorSubject<TemplateRef<any>>(null),
     messageMeta$: new BehaviorSubject<TemplateRef<any>>(null),
     action$: new BehaviorSubject<TemplateRef<any>>(null),
     actionText$: new BehaviorSubject<TemplateRef<any>>(null),
+    actionAutocomplete$: new BehaviorSubject<TemplateRef<any>>(null),
     actionSelect$: new BehaviorSubject<TemplateRef<any>>(null),
     actionSelectItem$: new BehaviorSubject<TemplateRef<any>>(null),
+    actionUpload$: new BehaviorSubject<TemplateRef<any>>(null),
   };
 
   private partnersStore: PartnersStoreType = {};
   private messagesStore: MessagesStoreType = {};
   private actionsStore: ActionsStoreType = {};
   private statesStore: StatesStoreType = {};
+  private callbacksStore: CallbacksStoreType = {};
+
+  itemAction$: EventEmitter<INgxChatUiItemAction> = new EventEmitter();
+  response$: EventEmitter<INgxChatUiResponse> = new EventEmitter();
 
   templatesSet(templates: TemplateParamType) {
     Object.keys(this.templatesStore)
@@ -80,6 +97,13 @@ export class NgxChatUiService {
     const key = `${chatKey}$`;
     if (!this.statesStore[key]) {
       this.statesStore[key] = new BehaviorSubject<INgxChatUiState>(null);
+    }
+  }
+
+  ensureCallbacksKey(chatKey: string = 'default') {
+    const key = `${chatKey}$`;
+    if (!this.callbacksStore[key]) {
+      this.callbacksStore[key] = new BehaviorSubject<{ [name: string]: Function }>(null);
     }
   }
 
@@ -111,13 +135,20 @@ export class NgxChatUiService {
   }
 
   messagesAdd(messages: INgxChatUiMessage[], chatKey: string = 'default') {
-    const subject = this.messagesGet(chatKey);
-    const current = subject.getValue();
-    subject.next(current.concat(messages.map(message => this.processMessage(message, chatKey))));
+    messages.forEach(message => {
+      const subject = this.messagesGet(chatKey);
+      const current = subject.getValue();
+      subject.next(current.concat([this.processMessage(message, chatKey)]));
+    });
   }
 
   messagesSet(messages: INgxChatUiMessage[], chatKey: string = 'default') {
-    this.messagesGet(chatKey).next(messages.map(message => this.processMessage(message, chatKey)));
+    this.messagesClear(chatKey);
+    this.messagesAdd(messages, chatKey);
+  }
+
+  messagesClear(chatKey: string = 'default') {
+    this.messagesGet(chatKey).next([]);
   }
 
   processMessage(message: INgxChatUiMessage, chatKey: string = 'default'): INgxChatUiMessage {
@@ -125,11 +156,36 @@ export class NgxChatUiService {
     if (msg.messagePartnerId && !msg.partner) {
       msg.partner = this.partnersGet(chatKey).getValue().find(messagePartner => messagePartner.messagePartnerId === msg.messagePartnerId);
     }
+    const item = this.getItemForItemAction(message, chatKey);
+    if (item && item.action) {
+      this.itemAction$.emit({
+        chatKey,
+        payload: item.action
+      });
+    }
     return msg;
   }
 
-  messagesClear(chatKey: string = 'default') {
-    this.messagesGet(chatKey).next([]);
+  getItemForItemAction(message: INgxChatUiMessage, chatKey: string = 'default'): INgxChatUiMessageActionSelectItem {
+    if (message.payload.type !== INgxChatUiMessageType.select) {
+      return null;
+    }
+    let actionMessage;
+    const messages = [ ... this.messagesGet(chatKey)
+      .getValue() ].reverse();
+    if (message.payload.messageId) {
+      actionMessage = messages
+        .find(theMessage => theMessage.messageId === message.payload.messageId);
+    } else {
+      actionMessage = messages
+        .find(theMessage => theMessage.messageId !== message.messageId
+          && theMessage.action.type === INgxChatUiMessageType.select
+        );
+    }
+    const action = actionMessage && actionMessage.action;
+    return action
+      && action.items
+      && action.items[message.payload.value];
   }
 
   messagesGet(chatKey: string = 'default'): BehaviorSubject<INgxChatUiMessage[]> {
@@ -183,6 +239,18 @@ export class NgxChatUiService {
     this.stateGet(chatKey).next({
       ...this.stateGet(chatKey).getValue(),
       ...state,
+    });
+  }
+
+  callbacksGet(chatKey: string = 'default'): BehaviorSubject<{ [name: string]: Function }> {
+    this.ensureCallbacksKey(chatKey);
+    return this.callbacksStore[`${chatKey}$`];
+  }
+
+  callbacksSet(callbacks: { [name: string]: Function }, chatKey: string = 'default') {
+    this.callbacksGet(chatKey).next({
+      ...this.callbacksGet(chatKey).getValue(),
+      ...callbacks,
     });
   }
 }

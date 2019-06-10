@@ -1,9 +1,8 @@
-import { Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnInit, TemplateRef, ViewEncapsulation } from '@angular/core';
 import { NgxChatUiService } from '../../../services/chat.service';
 import {
   INgxChatUiMessage,
   INgxChatUiMessageActionSelectItem,
-  INgxChatUiMessagePayload,
   INgxChatUiMessageType
 } from '../../../interfaces';
 
@@ -19,10 +18,9 @@ export class NgxChatUiActionSelectComponent implements OnInit {
   template: TemplateRef<any>;
 
   @Input() message: INgxChatUiMessage;
-  @Output() response: EventEmitter<INgxChatUiMessagePayload> = new EventEmitter();
 
   constructor(
-    private ngxChatUiService: NgxChatUiService
+    public ngxChatUiService: NgxChatUiService
   ) { }
 
   ngOnInit() {
@@ -31,10 +29,13 @@ export class NgxChatUiActionSelectComponent implements OnInit {
   }
 
   submit(item: INgxChatUiMessageActionSelectItem) {
-    this.response.emit({
-      type: INgxChatUiMessageType.select,
-      item: item.id,
-      messageId: this.message.messageId,
+    (this as any).response.emit({
+      chatKey: this.chatKey,
+      payload: {
+        type: INgxChatUiMessageType.select,
+        value: item.id,
+        messageId: this.message.messageId,
+      },
     });
   }
 }

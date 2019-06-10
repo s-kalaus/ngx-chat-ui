@@ -151,6 +151,10 @@ ngx-chat-ui-message-meta {
     }
   }
 
+  &.ngx-chat-ui-action-select-hidden {
+    display: none;
+  }
+
   &.ngx-chat-ui-action-select-list {
     .ngx-chat-ui-action-select-items {
       width: 100%;
@@ -221,6 +225,211 @@ ngx-chat-ui-action-text {
       &:hover {
         background-color: darken(#97D2FF, 5%);
       }
+    }
+  }
+}
+
+ngx-chat-ui-action-autocomplete {
+  padding: 15px 20px;
+  display: block;
+
+  .ngx-chat-ui-action-autocomplete-tags {
+    margin: -5px -5px 5px -5px;
+
+    .ngx-chat-ui-action-autocomplete-tags-item {
+      position: relative;
+      padding-right: 18px;
+      margin: 5px;
+      display: inline-block;
+
+      .ngx-chat-ui-action-autocomplete-tags-item-remove {
+        position: absolute;
+        right: 0;
+        top: 4px;
+        display: block;
+        font-size: 10px;
+        line-height: 10px;
+        text-align: center;
+        text-decoration: none;
+
+        &:before {
+          content: '❌';
+        }
+      }
+    }
+  }
+
+  .ngx-chat-ui-action-autocomplete-picker {
+    display: flex;
+
+    ng-autocomplete {
+      flex: 1 0 auto;
+      width: auto;
+
+      .autocomplete-container {
+        box-shadow: none;
+        height: auto;
+      }
+
+      .suggestions-container {
+        bottom: 37px;
+      }
+
+      .not-found {
+        display: none;
+      }
+
+      input {
+        padding: 0 20px !important;
+        background-color: #ffffff;
+        border-radius: 16px;
+        box-shadow: 0 0 3px rgba(0, 0, 0, .2) !important;
+        border: 0;
+        outline: none;
+        line-height: 32px !important;
+        height: 32px !important;
+      }
+    }
+
+    button {
+      font-size: 18px;
+      line-height: 18px;
+      width: 32px;
+      padding: 7px;
+      background-color: #97D2FF;
+      border-radius: 22px;
+      border: 0;
+      box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+      margin-left: 15px;
+      outline: none;
+      cursor: pointer;
+
+      &:before {
+        content: '✔';
+      }
+
+      &:hover {
+        background-color: darken(#97D2FF, 5%);
+      }
+    }
+  }
+}
+
+ngx-chat-ui-action-upload {
+  padding: 15px 20px;
+  display: block;
+
+  .ngx-chat-ui-action-upload-uploading {
+    pointer-events: none;
+    position: relative;
+
+    &:after {
+      content: '';
+      background-color: rgba(241, 241, 241, .4);
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
+
+  .ngx-chat-ui-action-upload-dropzone {
+    display: flex;
+
+    .dz-preview {
+      display: none;
+    }
+
+    .dropzone {
+      flex: 1 0 auto;
+      background-color: #ffffff;
+      border: 1px dotted #cccccc;
+      padding: 7px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    button {
+      font-size: 18px;
+      line-height: 18px;
+      width: 32px;
+      padding: 7px;
+      background-color: #97D2FF;
+      border-radius: 22px;
+      border: 0;
+      box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+      margin-left: 15px;
+      outline: none;
+      cursor: pointer;
+
+      &:before {
+        content: '✔';
+      }
+
+      &:hover {
+        background-color: darken(#97D2FF, 5%);
+      }
+    }
+  }
+
+  .ngx-chat-ui-action-upload-files {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -5px -5px 5px -5px;
+
+    .ngx-chat-ui-action-upload-files-item {
+      overflow: hidden;
+      position: relative;
+      margin: 5px;
+      background-color: #ffffff;
+      box-shadow: 0 0 3px rgba(0, 0, 0, .2);
+      padding: 5px;
+
+      .ngx-chat-ui-action-upload-files-item-image {
+        width: 40px;
+        height: 40px;
+        background: no-repeat 50% 50%;
+        background-size: contain;
+      }
+
+      .ngx-chat-ui-action-upload-files-item-remove {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        display: block;
+        font-size: 10px;
+        line-height: 10px;
+        text-align: center;
+        text-decoration: none;
+
+        &:before {
+          content: '❌';
+        }
+      }
+    }
+  }
+}
+
+ngx-chat-ui-message-payload-upload {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -2px -5px;
+
+  .ngx-chat-ui-message-payload-upload-files-item {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    margin: 5px;
+    background-color: #ffffff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, .2);
+    padding: 5px;
+
+    .ngx-chat-ui-message-payload-upload-files-item-image {
+      width: 40px;
+      height: 40px;
+      background: no-repeat 50% 50%;
+      background-size: contain;
     }
   }
 }

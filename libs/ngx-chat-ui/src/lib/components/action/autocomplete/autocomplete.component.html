@@ -1,0 +1,14 @@
+<ng-container *ngTemplateOutlet="template; context: {
+  message: message,
+  response: ngxChatUiService.response$,
+  chatKey: chatKey,
+  onChange: onChange,
+  onFocused: onFocused,
+  removeTag: removeTag,
+  select: select,
+  submit: submit,
+  data: data,
+  value: value,
+  searchCallback: searchCallback,
+  isSingle: isSingle
+}"></ng-container>
