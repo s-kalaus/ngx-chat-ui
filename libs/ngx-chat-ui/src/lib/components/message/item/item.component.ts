@@ -1,6 +1,7 @@
-import { Component, Input, OnInit, TemplateRef, ViewEncapsulation } from '@angular/core';
+import { Component, Input, TemplateRef, ViewEncapsulation } from '@angular/core';
 import { NgxChatUiService } from '../../../services/chat.service';
 import { INgxChatUiMessage } from '../../../interfaces';
+import { BaseComponent } from '../../../classes';
 
 @Component({
   selector: 'ngx-chat-ui-message-item',
@@ -8,7 +9,7 @@ import { INgxChatUiMessage } from '../../../interfaces';
   styleUrls: ['./item.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class NgxChatUiMessageItemComponent implements OnInit {
+export class NgxChatUiMessageItemComponent extends BaseComponent {
   @Input() chatKey = 'default';
 
   template: TemplateRef<any>;
@@ -17,11 +18,15 @@ export class NgxChatUiMessageItemComponent implements OnInit {
 
   constructor(
     private ngxChatUiService: NgxChatUiService
-  ) { }
+  ) {
+    super();
+  }
 
-  ngOnInit() {
-    this.ngxChatUiService
-      .templatesGet('messageItem')
-      .subscribe(template => this.template = template);
+  init() {
+    this.subscriptions.push(
+      this.ngxChatUiService
+        .templatesGet('messageItem', this.chatKey)
+        .subscribe(template => this.template = template),
+    );
   }
 }

@@ -1,9 +1,10 @@
-import { Component, Input, OnInit, TemplateRef, ViewEncapsulation } from '@angular/core';
+import { Component, Input, TemplateRef, ViewEncapsulation } from '@angular/core';
 import { NgxChatUiService } from '../../../services/chat.service';
 import {
   INgxChatUiMessage,
   INgxChatUiMessageType
 } from '../../../interfaces';
+import { BaseComponent } from '../../../classes';
 
 @Component({
   selector: 'ngx-chat-ui-action-autocomplete',
@@ -11,7 +12,7 @@ import {
   styleUrls: ['./autocomplete.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class NgxChatUiActionAutocompleteComponent implements OnInit {
+export class NgxChatUiActionAutocompleteComponent extends BaseComponent {
   @Input() chatKey = 'default';
 
   template: TemplateRef<any>;
@@ -25,19 +26,22 @@ export class NgxChatUiActionAutocompleteComponent implements OnInit {
   constructor(
     public ngxChatUiService: NgxChatUiService
   ) {
+    super();
   }
 
-  ngOnInit() {
-    this.ngxChatUiService
-      .templatesGet('actionAutocomplete')
-      .subscribe(template => this.template = template);
-    this.ngxChatUiService
-      .callbacksGet(this.chatKey)
-      .subscribe(callbacks => {
-        const action = this.message.action as any;
-        this.searchCallback = callbacks[action.callback];
-        this.isSingle = action.meta && action.meta.single;
-      });
+  init() {
+    this.subscriptions.push(
+      this.ngxChatUiService
+        .templatesGet('actionAutocomplete', this.chatKey)
+        .subscribe(template => this.template = template),
+      this.ngxChatUiService
+        .callbacksGet(this.chatKey)
+        .subscribe(callbacks => {
+          const action = this.message.action as any;
+          this.searchCallback = callbacks[action.callback];
+          this.isSingle = action.meta && action.meta.single;
+        }),
+    );
   }
 
   onChange(autocomplete: any, query: string) {

@@ -81,7 +81,7 @@
 </ng-template>
 
 <ng-template
-  #messagePayloadTemplate
+  #messagePayloadTemplateDefault
   let-message="message"
   let-MessageType="MessageType"
   let-chatKey="chatKey"
@@ -158,7 +158,7 @@
 </ng-template>
 
 <ng-template
-  #actionTemplate
+  #actionTemplateDefault
   let-message="message"
   let-MessageType="MessageType"
   let-chatKey="chatKey"
@@ -335,6 +335,7 @@
       <ngx-chat-ui-action-select-item
         *ngFor="let item of message.action.items"
         [item]="item"
+        [chatKey]="chatKey"
         (response)="submit($event)"
       ></ngx-chat-ui-action-select-item>
     </div>

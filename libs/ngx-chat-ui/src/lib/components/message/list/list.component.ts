@@ -1,8 +1,9 @@
-import { Component, ElementRef, Input, OnInit, TemplateRef, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, Input, TemplateRef, ViewEncapsulation } from '@angular/core';
 import { NgxChatUiService } from '../../../services/chat.service';
 import {
   INgxChatUiMessage
 } from '../../../interfaces';
+import { BaseComponent } from '../../../classes';
 
 @Component({
   selector: 'ngx-chat-ui-message-list',
@@ -10,7 +11,7 @@ import {
   styleUrls: ['./list.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class NgxChatUiMessageListComponent implements OnInit {
+export class NgxChatUiMessageListComponent extends BaseComponent {
   @Input() chatKey = 'default';
 
   template: TemplateRef<any>;
@@ -20,16 +21,19 @@ export class NgxChatUiMessageListComponent implements OnInit {
   constructor(
     private element: ElementRef,
     private ngxChatUiService: NgxChatUiService
-  ) { }
+  ) {
+    super();
+  }
 
-  ngOnInit() {
-    this.ngxChatUiService
-      .templatesGet('messageList')
-      .subscribe(template => this.template = template);
-
-    this.ngxChatUiService
-      .messagesGet(this.chatKey)
-      .subscribe(messages => this.onMessageChanged(messages));
+  init() {
+    this.subscriptions.push(
+      this.ngxChatUiService
+        .templatesGet('messageList', this.chatKey)
+        .subscribe(template => this.template = template),
+      this.ngxChatUiService
+        .messagesGet(this.chatKey)
+        .subscribe(messages => this.onMessageChanged(messages)),
+    );
   }
 
   trackByFn(index) {

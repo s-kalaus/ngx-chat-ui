@@ -1,10 +1,11 @@
-import { Component, Input, OnInit, TemplateRef, ViewEncapsulation } from '@angular/core';
+import { Component, Input, TemplateRef, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgxChatUiService } from '../../../services/chat.service';
 import {
   INgxChatUiMessage,
   INgxChatUiMessageType,
 } from '../../../interfaces';
+import { BaseComponent } from '../../../classes';
 
 @Component({
   selector: 'ngx-chat-ui-action-text',
@@ -12,7 +13,7 @@ import {
   styleUrls: ['./text.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class NgxChatUiActionTextComponent implements OnInit {
+export class NgxChatUiActionTextComponent extends BaseComponent {
   @Input() chatKey = 'default';
 
   form: FormGroup;
@@ -24,6 +25,7 @@ export class NgxChatUiActionTextComponent implements OnInit {
     private formBuilder: FormBuilder,
     public ngxChatUiService: NgxChatUiService
   ) {
+    super();
     this.createForm();
   }
 
@@ -33,10 +35,12 @@ export class NgxChatUiActionTextComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-    this.ngxChatUiService
-      .templatesGet('actionText')
-      .subscribe(template => this.template = template);
+  init() {
+    this.subscriptions.push(
+      this.ngxChatUiService
+        .templatesGet('actionText', this.chatKey)
+        .subscribe(template => this.template = template),
+    );
   }
 
   submit() {

@@ -4,7 +4,6 @@ import {
   EventEmitter,
   Input,
   OnChanges,
-  OnInit,
   Output,
   SimpleChanges,
   TemplateRef,
@@ -21,6 +20,7 @@ import {
   INgxChatUiResponse,
   INgxChatUiState
 } from '../../interfaces';
+import { BaseComponent } from '../../classes';
 
 @Component({
   selector: 'ngx-chat-ui-container',
@@ -29,19 +29,19 @@ import {
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NgxChatUiContainerComponent implements OnInit, OnChanges {
+export class NgxChatUiContainerComponent extends BaseComponent implements OnChanges {
   @ViewChild('containerTemplateDefault') containerTemplateDefault: TemplateRef<any>;
   @ViewChild('messageTypingTemplateDefault') messageTypingTemplateDefault: TemplateRef<any>;
   @ViewChild('messageListTemplateDefault') messageListTemplateDefault: TemplateRef<any>;
   @ViewChild('messageItemTemplateDefault') messageItemTemplateDefault: TemplateRef<any>;
   @ViewChild('messagePartnerTemplateDefault') messagePartnerTemplateDefault: TemplateRef<any>;
-  @ViewChild('messagePayloadTemplate') messagePayloadTemplate: TemplateRef<any>;
+  @ViewChild('messagePayloadTemplateDefault') messagePayloadTemplateDefault: TemplateRef<any>;
   @ViewChild('messagePayloadTextTemplateDefault') messagePayloadTextTemplateDefault: TemplateRef<any>;
   @ViewChild('messagePayloadUploadTemplateDefault') messagePayloadUploadTemplateDefault: TemplateRef<any>;
   @ViewChild('messagePayloadSelectTemplateDefault') messagePayloadSelectTemplateDefault: TemplateRef<any>;
   @ViewChild('messagePayloadAutocompleteTemplateDefault') messagePayloadAutocompleteTemplateDefault: TemplateRef<any>;
   @ViewChild('messageMetaTemplateDefault') messageMetaTemplateDefault: TemplateRef<any>;
-  @ViewChild('actionTemplate') actionTemplate: TemplateRef<any>;
+  @ViewChild('actionTemplateDefault') actionTemplateDefault: TemplateRef<any>;
   @ViewChild('actionTextTemplateDefault') actionTextTemplateDefault: TemplateRef<any>;
   @ViewChild('actionAutocompleteTemplateDefault') actionAutocompleteTemplateDefault: TemplateRef<any>;
   @ViewChild('actionSelectTemplateDefault') actionSelectTemplateDefault: TemplateRef<any>;
@@ -53,11 +53,13 @@ export class NgxChatUiContainerComponent implements OnInit, OnChanges {
   @Input() messageListTemplate: TemplateRef<any>;
   @Input() messageItemTemplate: TemplateRef<any>;
   @Input() messagePartnerTemplate: TemplateRef<any>;
+  @Input() messagePayloadTemplate: TemplateRef<any>;
   @Input() messagePayloadTextTemplate: TemplateRef<any>;
   @Input() messagePayloadUploadTemplate: TemplateRef<any>;
   @Input() messagePayloadSelectTemplate: TemplateRef<any>;
   @Input() messagePayloadAutocompleteTemplate: TemplateRef<any>;
   @Input() messageMetaTemplate: TemplateRef<any>;
+  @Input() actionTemplate: TemplateRef<any>;
   @Input() actionTextTemplate: TemplateRef<any>;
   @Input() actionAutocompleteTemplate: TemplateRef<any>;
   @Input() actionSelectTemplate: TemplateRef<any>;
@@ -79,7 +81,9 @@ export class NgxChatUiContainerComponent implements OnInit, OnChanges {
 
   constructor(
     private ngxChatUiService: NgxChatUiService
-  ) { }
+  ) {
+    super();
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.partners !== undefined) {
@@ -100,35 +104,26 @@ export class NgxChatUiContainerComponent implements OnInit, OnChanges {
     }
   }
 
-  ngOnInit() {
-    this.ngxChatUiService.templatesSet({
-      container: this.containerTemplate || this.containerTemplateDefault,
-      messageTyping: this.messageTypingTemplate || this.messageTypingTemplateDefault,
-      messageList: this.messageListTemplate || this.messageListTemplateDefault,
-      messageItem: this.messageItemTemplate || this.messageItemTemplateDefault,
-      messagePartner: this.messagePartnerTemplate || this.messagePartnerTemplateDefault,
-      messagePayload: this.messagePayloadTemplate,
-      messagePayloadText: this.messagePayloadTextTemplate || this.messagePayloadTextTemplateDefault,
-      messagePayloadUpload: this.messagePayloadUploadTemplate || this.messagePayloadUploadTemplateDefault,
-      messagePayloadSelect: this.messagePayloadSelectTemplate || this.messagePayloadSelectTemplateDefault,
-      messagePayloadAutocomplete: this.messagePayloadAutocompleteTemplate || this.messagePayloadAutocompleteTemplateDefault,
-      messageMeta: this.messageMetaTemplate || this.messageMetaTemplateDefault,
-      action: this.actionTemplate,
-      actionText: this.actionTextTemplate || this.actionTextTemplateDefault,
-      actionAutocomplete: this.actionAutocompleteTemplate || this.actionAutocompleteTemplateDefault,
-      actionSelect: this.actionSelectTemplate || this.actionSelectTemplateDefault,
-      actionSelectItem: this.actionSelectItemTemplate || this.actionSelectItemTemplateDefault,
-      actionUpload: this.actionSelectTemplate || this.actionUploadTemplateDefault,
-    });
-    this.ngxChatUiService
-      .templatesGet('container')
-      .subscribe(template => this.template = template);
-    this.ngxChatUiService
-      .response$
-      .subscribe(response => this.onResponse(response));
-    this.ngxChatUiService
-      .itemAction$
-      .subscribe(itemAction => this.onItemAction(itemAction));
+  init() {
+    this.ngxChatUiService.templatesSet(this.ngxChatUiService.templateKeys.reduce(
+      (prev, key) => ({ ...prev, [key]: this[`${key}Template`] || this[`${key}TemplateDefault`]}),
+      {},
+    ), this.chatKey);
+    this.subscriptions.push(
+      this.ngxChatUiService
+        .templatesGet('container', this.chatKey)
+        .subscribe(template => this.template = template),
+      this.ngxChatUiService
+        .response$
+        .subscribe(response => this.onResponse(response)),
+      this.ngxChatUiService
+        .itemAction$
+        .subscribe(itemAction => this.onItemAction(itemAction)),
+    );
+  }
+
+  destroy() {
+    this.ngxChatUiService.cleanup(this.chatKey);
   }
 
   onResponse(response: INgxChatUiResponse) {

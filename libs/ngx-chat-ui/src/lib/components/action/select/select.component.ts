@@ -1,10 +1,11 @@
-import { Component, Input, OnInit, TemplateRef, ViewEncapsulation } from '@angular/core';
+import { Component, Input, TemplateRef, ViewEncapsulation } from '@angular/core';
 import { NgxChatUiService } from '../../../services/chat.service';
 import {
   INgxChatUiMessage,
   INgxChatUiMessageActionSelectItem,
   INgxChatUiMessageType
 } from '../../../interfaces';
+import { BaseComponent } from '../../../classes';
 
 @Component({
   selector: 'ngx-chat-ui-action-select',
@@ -12,7 +13,7 @@ import {
   styleUrls: ['./select.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class NgxChatUiActionSelectComponent implements OnInit {
+export class NgxChatUiActionSelectComponent extends BaseComponent {
   @Input() chatKey = 'default';
 
   template: TemplateRef<any>;
@@ -21,11 +22,15 @@ export class NgxChatUiActionSelectComponent implements OnInit {
 
   constructor(
     public ngxChatUiService: NgxChatUiService
-  ) { }
+  ) {
+    super();
+  }
 
-  ngOnInit() {
-    this.ngxChatUiService.templatesGet('actionSelect')
-      .subscribe(template => this.template = template);
+  init() {
+    this.subscriptions.push(
+      this.ngxChatUiService.templatesGet('actionSelect', this.chatKey)
+        .subscribe(template => this.template = template),
+    );
   }
 
   submit(item: INgxChatUiMessageActionSelectItem) {

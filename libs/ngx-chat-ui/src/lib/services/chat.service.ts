@@ -3,7 +3,6 @@ import { BehaviorSubject } from 'rxjs';
 import {
   INgxChatUiItemAction,
   INgxChatUiMessage,
-  INgxChatUiMessageActionSelect,
   INgxChatUiMessageActionSelectItem,
   INgxChatUiMessagePartner,
   INgxChatUiMessageType,
@@ -12,7 +11,9 @@ import {
 } from '../interfaces';
 
 interface TemplateStoreType {
-  [templateKey: string]: BehaviorSubject<TemplateRef<any>>;
+  [chatKey: string]: {
+    [templateKey: string]: BehaviorSubject<TemplateRef<any>>;
+  };
 }
 
 interface TemplateParamType {
@@ -43,47 +44,58 @@ interface PartnersStoreType {
   providedIn: 'root'
 })
 export class NgxChatUiService {
-  private templatesStore: TemplateStoreType = {
-    container$: new BehaviorSubject<TemplateRef<any>>(null),
-    messageTyping$: new BehaviorSubject<TemplateRef<any>>(null),
-    messageList$: new BehaviorSubject<TemplateRef<any>>(null),
-    messageItem$: new BehaviorSubject<TemplateRef<any>>(null),
-    messagePartner$: new BehaviorSubject<TemplateRef<any>>(null),
-    messagePayload$: new BehaviorSubject<TemplateRef<any>>(null),
-    messagePayloadText$: new BehaviorSubject<TemplateRef<any>>(null),
-    messagePayloadSelect$: new BehaviorSubject<TemplateRef<any>>(null),
-    messagePayloadAutocomplete$: new BehaviorSubject<TemplateRef<any>>(null),
-    messagePayloadUpload$: new BehaviorSubject<TemplateRef<any>>(null),
-    messageMeta$: new BehaviorSubject<TemplateRef<any>>(null),
-    action$: new BehaviorSubject<TemplateRef<any>>(null),
-    actionText$: new BehaviorSubject<TemplateRef<any>>(null),
-    actionAutocomplete$: new BehaviorSubject<TemplateRef<any>>(null),
-    actionSelect$: new BehaviorSubject<TemplateRef<any>>(null),
-    actionSelectItem$: new BehaviorSubject<TemplateRef<any>>(null),
-    actionUpload$: new BehaviorSubject<TemplateRef<any>>(null),
-  };
+  readonly templateKeys = [
+    'container',
+    'messageTyping',
+    'messageList',
+    'messageItem',
+    'messagePartner',
+    'messagePayload',
+    'messagePayloadText',
+    'messagePayloadSelect',
+    'messagePayloadAutocomplete',
+    'messagePayloadUpload',
+    'messageMeta',
+    'action',
+    'actionText',
+    'actionAutocomplete',
+    'actionSelect',
+    'actionSelectItem',
+    'actionUpload',
+  ];
 
+  private templatesStore: TemplateStoreType = {};
   private partnersStore: PartnersStoreType = {};
   private messagesStore: MessagesStoreType = {};
   private actionsStore: ActionsStoreType = {};
   private statesStore: StatesStoreType = {};
   private callbacksStore: CallbacksStoreType = {};
-
   itemAction$: EventEmitter<INgxChatUiItemAction> = new EventEmitter();
   response$: EventEmitter<INgxChatUiResponse> = new EventEmitter();
 
-  templatesSet(templates: TemplateParamType) {
-    Object.keys(this.templatesStore)
+  templatesSet(templates: TemplateParamType, chatKey: string = 'default') {
+    this.ensureTemplatesKey(chatKey);
+    this.templateKeys
       .forEach(templateKey => {
-        const key = templateKey.replace(/\$/, '');
-        if (templates[key] !== undefined) {
-          this.templatesStore[templateKey].next(templates[key]);
+        if (templates[templateKey] !== undefined) {
+          this.templatesStore[`${chatKey}$`][`${templateKey}$`].next(templates[templateKey]);
         }
       });
   }
 
-  templatesGet(templateKey: string): BehaviorSubject<TemplateRef<any>> {
-    return this.templatesStore[`${templateKey}$`];
+  templatesGet(templateKey: string, chatKey: string = 'default'): BehaviorSubject<TemplateRef<any>> {
+    this.ensureTemplatesKey(chatKey);
+    return this.templatesStore[`${chatKey}$`][`${templateKey}$`];
+  }
+
+  ensureTemplatesKey(chatKey: string = 'default') {
+    const key = `${chatKey}$`;
+    if (!this.templatesStore[key]) {
+      this.templatesStore[key] = this.templateKeys.reduce(
+        (prev, templateKey) => ({ ...prev, [`${templateKey}$`]: new BehaviorSubject<TemplateRef<any>>(null)}),
+        {},
+      );
+    }
   }
 
   ensureActionsKey(chatKey: string = 'default') {
@@ -252,5 +264,8 @@ export class NgxChatUiService {
       ...this.callbacksGet(chatKey).getValue(),
       ...callbacks,
     });
+  }
+
+  cleanup(chatKey: string = 'default') {
   }
 }

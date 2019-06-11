@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Input, Output, TemplateRef, ViewEncapsulation } from '@angular/core';
 import { NgxChatUiService } from '../../../../services/chat.service';
 import { INgxChatUiMessageActionSelectItem } from '../../../../interfaces';
+import { BaseComponent } from '../../../../classes';
 
 @Component({
   selector: 'ngx-chat-ui-action-select-item',
@@ -8,7 +9,7 @@ import { INgxChatUiMessageActionSelectItem } from '../../../../interfaces';
   styleUrls: ['./item.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class NgxChatUiActionSelectItemComponent implements OnInit {
+export class NgxChatUiActionSelectItemComponent extends BaseComponent {
   @Input() chatKey = 'default';
 
   template: TemplateRef<any>;
@@ -18,11 +19,15 @@ export class NgxChatUiActionSelectItemComponent implements OnInit {
 
   constructor(
     private ngxChatUiService: NgxChatUiService
-  ) { }
+  ) {
+    super();
+  }
 
-  ngOnInit() {
-    this.ngxChatUiService
-      .templatesGet('actionSelectItem')
-      .subscribe(template => this.template = template);
+  init() {
+    this.subscriptions.push(
+      this.ngxChatUiService
+        .templatesGet('actionSelectItem', this.chatKey)
+        .subscribe(template => this.template = template),
+    );
   }
 }

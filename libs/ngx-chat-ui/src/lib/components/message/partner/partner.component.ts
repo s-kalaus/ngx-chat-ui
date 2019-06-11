@@ -1,6 +1,7 @@
-import { Component, Input, OnInit, TemplateRef, ViewEncapsulation } from '@angular/core';
+import { Component, Input, TemplateRef, ViewEncapsulation } from '@angular/core';
 import { NgxChatUiService } from '../../../services/chat.service';
 import { INgxChatUiMessage } from '../../../interfaces';
+import { BaseComponent } from '../../../classes';
 
 @Component({
   selector: 'ngx-chat-ui-message-partner',
@@ -8,7 +9,7 @@ import { INgxChatUiMessage } from '../../../interfaces';
   styleUrls: ['./partner.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class NgxChatUiMessagePartnerComponent implements OnInit {
+export class NgxChatUiMessagePartnerComponent extends BaseComponent {
   @Input() chatKey = 'default';
 
   template: TemplateRef<any>;
@@ -19,12 +20,16 @@ export class NgxChatUiMessagePartnerComponent implements OnInit {
 
   constructor(
     private ngxChatUiService: NgxChatUiService
-  ) { }
+  ) {
+    super();
+  }
 
-  ngOnInit() {
-    this.ngxChatUiService
-      .templatesGet('messagePartner')
-      .subscribe(template => this.template = template);
+  init() {
+    this.subscriptions.push(
+      this.ngxChatUiService
+        .templatesGet('messagePartner', this.chatKey)
+        .subscribe(template => this.template = template),
+    );
     this.updateAvatar();
   }
 

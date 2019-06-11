@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, TemplateRef, ViewEncapsulation } from '@angular/core';
+import { Component, Input, TemplateRef, ViewEncapsulation } from '@angular/core';
 import { DropzoneConfigInterface, DropzoneDirective } from 'ngx-dropzone-wrapper';
 import { NgxChatUiService } from '../../../services/chat.service';
 import {
@@ -6,6 +6,7 @@ import {
   INgxChatUiMessageActionUploadFile,
   INgxChatUiMessageType
 } from '../../../interfaces';
+import { BaseComponent } from '../../../classes';
 
 @Component({
   selector: 'ngx-chat-ui-action-upload',
@@ -13,7 +14,7 @@ import {
   styleUrls: ['./upload.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class NgxChatUiActionUploadComponent implements OnInit {
+export class NgxChatUiActionUploadComponent extends BaseComponent {
   @Input() chatKey = 'default';
 
   template: TemplateRef<any>;
@@ -29,20 +30,23 @@ export class NgxChatUiActionUploadComponent implements OnInit {
   constructor(
     public ngxChatUiService: NgxChatUiService
   ) {
+    super();
   }
 
-  ngOnInit() {
-    this.ngxChatUiService
-      .templatesGet('actionUpload')
-      .subscribe(template => this.template = template);
-    this.ngxChatUiService
-      .callbacksGet(this.chatKey)
-      .subscribe(callbacks => {
-        const action = this.message.action as any;
-        this.uploadCallback = callbacks[action.callback];
-        this.config = (action.meta && action.meta.config) || {};
-        this.isSingle = action.meta && action.meta.single;
-      });
+  init() {
+    this.subscriptions.push(
+      this.ngxChatUiService
+        .templatesGet('actionUpload', this.chatKey)
+        .subscribe(template => this.template = template),
+      this.ngxChatUiService
+        .callbacksGet(this.chatKey)
+        .subscribe(callbacks => {
+          const action = this.message.action as any;
+          this.uploadCallback = callbacks[action.callback];
+          this.config = (action.meta && action.meta.config) || {};
+          this.isSingle = action.meta && action.meta.single;
+        }),
+    );
   }
 
   onUploadSuccess(dropzone: DropzoneDirective, file: any) {
