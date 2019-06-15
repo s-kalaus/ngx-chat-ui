@@ -2,5 +2,6 @@ export enum INgxChatUiMessageType{
   text,
   select,
   autocomplete,
-  upload
+  upload,
+  dialogEnd
 }

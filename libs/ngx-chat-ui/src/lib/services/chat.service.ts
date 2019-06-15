@@ -1,6 +1,7 @@
 import { EventEmitter, Injectable, TemplateRef } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import {
+  INgxChatUiDialogEnd,
   INgxChatUiItemAction,
   INgxChatUiMessage,
   INgxChatUiMessageActionSelectItem,
@@ -71,6 +72,7 @@ export class NgxChatUiService {
   private statesStore: StatesStoreType = {};
   private callbacksStore: CallbacksStoreType = {};
   itemAction$: EventEmitter<INgxChatUiItemAction> = new EventEmitter();
+  dialogEnd$: EventEmitter<INgxChatUiDialogEnd> = new EventEmitter();
   response$: EventEmitter<INgxChatUiResponse> = new EventEmitter();
 
   templatesSet(templates: TemplateParamType, chatKey: string = 'default') {
@@ -150,7 +152,15 @@ export class NgxChatUiService {
     messages.forEach(message => {
       const subject = this.messagesGet(chatKey);
       const current = subject.getValue();
-      subject.next(current.concat([this.processMessage(message, chatKey)]));
+      const next = this.processMessage(message, chatKey);
+      if (next.payload.type === INgxChatUiMessageType.dialogEnd) {
+        this.dialogEnd$.emit({
+          chatKey,
+          payload: next.payload
+        });
+      } else {
+        subject.next(current.concat([next]));
+      }
     });
   }
 

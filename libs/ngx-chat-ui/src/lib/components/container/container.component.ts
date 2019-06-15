@@ -12,6 +12,7 @@ import {
 } from '@angular/core';
 import { NgxChatUiService } from '../../services/chat.service';
 import {
+  INgxChatUiDialogEnd,
   INgxChatUiItemAction,
   INgxChatUiMessage,
   INgxChatUiMessageActionSelectItemAction,
@@ -75,6 +76,7 @@ export class NgxChatUiContainerComponent extends BaseComponent implements OnChan
   };
 
   @Output() itemAction: EventEmitter<INgxChatUiMessageActionSelectItemAction> = new EventEmitter();
+  @Output() dialogEnd: EventEmitter<INgxChatUiMessagePayload> = new EventEmitter();
   @Output() response: EventEmitter<INgxChatUiMessagePayload> = new EventEmitter();
 
   template: TemplateRef<any>;
@@ -119,6 +121,9 @@ export class NgxChatUiContainerComponent extends BaseComponent implements OnChan
       this.ngxChatUiService
         .itemAction$
         .subscribe(itemAction => this.onItemAction(itemAction)),
+      this.ngxChatUiService
+        .dialogEnd$
+        .subscribe(dialogEnd => this.onDialogEnd(dialogEnd)),
     );
   }
 
@@ -143,6 +148,15 @@ export class NgxChatUiContainerComponent extends BaseComponent implements OnChan
     }
     if (this.itemAction) {
       this.itemAction.emit(itemAction.payload);
+    }
+  }
+
+  onDialogEnd(dialogEnd: INgxChatUiDialogEnd) {
+    if (dialogEnd.chatKey !== this.chatKey) {
+      return;
+    }
+    if (this.dialogEnd) {
+      this.dialogEnd.emit(dialogEnd.payload);
     }
   }
 }

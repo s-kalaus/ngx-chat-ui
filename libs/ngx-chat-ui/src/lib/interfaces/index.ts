@@ -14,4 +14,5 @@ export * from './message-partner';
 export * from './message-payload';
 export * from './state';
 export * from './item-action';
+export * from './dialog-end';
 export * from './response';

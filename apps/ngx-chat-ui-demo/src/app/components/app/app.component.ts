@@ -194,6 +194,9 @@ export class AppComponent implements OnInit {
         },
         action: {
           type: INgxChatUiMessageType.upload,
+          meta: {
+            single: true,
+          },
           callback: 'upload',
         }
       },

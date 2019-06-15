@@ -231,7 +231,7 @@
   >
     <div
       class="ngx-chat-ui-action-upload-files"
-      *ngIf="value.length"
+      *ngIf="value.length && !isSingle"
     >
       <div
         class="ngx-chat-ui-action-upload-files-item"
@@ -258,10 +258,14 @@
         [dropzone]="config"
         (error)="onUploadError(dropzone, $event)"
         (success)="onUploadSuccess(dropzone, $event)"
-        (addedfile)="onAddedFile(dropzone, $event)"
+        (addedFile)="onAddedFile(dropzone, $event)"
         (complete)="onComplete(dropzone, $event)"
       ></div>
-      <button *ngIf="!isSingle" (click)="submit()"></button>
+      <button
+        *ngIf="!isSingle"
+        [disabled]="!value.length"
+        (click)="submit()"
+      ></button>
     </div>
   </div>
 </ng-template>

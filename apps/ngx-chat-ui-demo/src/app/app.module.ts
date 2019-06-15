@@ -7,7 +7,7 @@ import { AppComponent } from './components/app/app.component';
 import { NgxChatUiModule } from '@ngx-chat-ui/libs/ngx-chat-ui';
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
-  url: '/',
+  url: 'https://dashboard.pixc.com/uploadFile/test',
   acceptedFiles: 'image/*',
 };
 
