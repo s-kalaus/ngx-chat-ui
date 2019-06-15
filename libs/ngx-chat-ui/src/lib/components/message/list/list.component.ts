@@ -33,6 +33,9 @@ export class NgxChatUiMessageListComponent extends BaseComponent {
       this.ngxChatUiService
         .messagesGet(this.chatKey)
         .subscribe(messages => this.onMessageChanged(messages)),
+      this.ngxChatUiService
+        .stateGet(this.chatKey)
+        .subscribe(() => this.scrollBottom()),
     );
   }
 
@@ -42,6 +45,10 @@ export class NgxChatUiMessageListComponent extends BaseComponent {
 
   onMessageChanged(messages: INgxChatUiMessage[]) {
     this.messages = messages;
+    setTimeout(() => this.scrollBottom());
+  }
+
+  scrollBottom() {
     const el = this.element.nativeElement;
     el.scrollTop = el.scrollHeight;
   }

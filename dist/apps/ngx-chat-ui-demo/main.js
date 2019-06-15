@@ -1125,13 +1125,19 @@ var NgxChatUiMessageListComponent = /** @class */ (function (_super) {
             .templatesGet('messageList', this.chatKey)
             .subscribe(function (template) { return _this.template = template; }), this.ngxChatUiService
             .messagesGet(this.chatKey)
-            .subscribe(function (messages) { return _this.onMessageChanged(messages); }));
+            .subscribe(function (messages) { return _this.onMessageChanged(messages); }), this.ngxChatUiService
+            .stateGet(this.chatKey)
+            .subscribe(function () { return _this.scrollBottom(); }));
     };
     NgxChatUiMessageListComponent.prototype.trackByFn = function (index) {
         return index;
     };
     NgxChatUiMessageListComponent.prototype.onMessageChanged = function (messages) {
+        var _this = this;
         this.messages = messages;
+        setTimeout(function () { return _this.scrollBottom(); });
+    };
+    NgxChatUiMessageListComponent.prototype.scrollBottom = function () {
         var el = this.element.nativeElement;
         el.scrollTop = el.scrollHeight;
     };
