@@ -197,6 +197,7 @@
   let-message="message"
   let-submit="submit"
   let-form="form"
+  let-type="type"
 >
   <form
     novalidate
@@ -205,7 +206,7 @@
   >
     <input
       formControlName="text"
-      type="text"
+      [type]="type"
     >
     <button></button>
   </form>

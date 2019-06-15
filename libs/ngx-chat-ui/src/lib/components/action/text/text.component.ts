@@ -18,6 +18,7 @@ export class NgxChatUiActionTextComponent extends BaseComponent {
 
   form: FormGroup;
   template: TemplateRef<any>;
+  type = 'text';
 
   @Input() message: INgxChatUiMessage;
 
@@ -39,7 +40,10 @@ export class NgxChatUiActionTextComponent extends BaseComponent {
     this.subscriptions.push(
       this.ngxChatUiService
         .templatesGet('actionText', this.chatKey)
-        .subscribe(template => this.template = template),
+        .subscribe(template => {
+          this.template = template;
+          this.type = (this.message.action.meta && this.message.action.meta.type) || 'text';
+        }),
     );
   }
 
