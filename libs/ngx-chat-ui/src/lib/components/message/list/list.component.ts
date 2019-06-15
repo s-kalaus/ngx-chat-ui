@@ -45,11 +45,13 @@ export class NgxChatUiMessageListComponent extends BaseComponent {
 
   onMessageChanged(messages: INgxChatUiMessage[]) {
     this.messages = messages;
-    setTimeout(() => this.scrollBottom());
+    this.scrollBottom();
   }
 
   scrollBottom() {
-    const el = this.element.nativeElement;
-    el.scrollTop = el.scrollHeight;
+    setTimeout(() => {
+      const el = this.element.nativeElement;
+      el.scrollTop = el.scrollHeight;
+    });
   }
 }

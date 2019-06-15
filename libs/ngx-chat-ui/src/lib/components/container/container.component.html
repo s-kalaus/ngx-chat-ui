@@ -114,7 +114,7 @@
   #messagePayloadTextTemplateDefault
   let-message="message"
 >
-  {{ message.payload.value }}
+  {{ message.payload.meta && message.payload.meta.type === 'password' ? '*****' : message.payload.value }}
 </ng-template>
 
 <ng-template

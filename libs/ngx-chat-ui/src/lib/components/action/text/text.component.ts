@@ -55,6 +55,9 @@ export class NgxChatUiActionTextComponent extends BaseComponent {
       chatKey: this.chatKey,
       payload: {
         type: INgxChatUiMessageType.text,
+        meta: {
+          type: this.type,
+        },
         value: this.form.value.text,
       },
     });
