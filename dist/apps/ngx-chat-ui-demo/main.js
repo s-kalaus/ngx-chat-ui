@@ -9,14 +9,16 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _lib_ngx_chat_ui_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/ngx-chat-ui.module */ "../../libs/ngx-chat-ui/src/lib/ngx-chat-ui.module.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "NgxChatUiModule", function() { return _lib_ngx_chat_ui_module__WEBPACK_IMPORTED_MODULE_0__["NgxChatUiModule"]; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _lib_ngx_chat_ui_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./lib/ngx-chat-ui.module */ "../../libs/ngx-chat-ui/src/lib/ngx-chat-ui.module.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "NgxChatUiModule", function() { return _lib_ngx_chat_ui_module__WEBPACK_IMPORTED_MODULE_1__["NgxChatUiModule"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "NgxChatUiService", function() { return _lib_ngx_chat_ui_module__WEBPACK_IMPORTED_MODULE_0__["NgxChatUiService"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "NgxChatUiService", function() { return _lib_ngx_chat_ui_module__WEBPACK_IMPORTED_MODULE_1__["NgxChatUiService"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "INgxChatUiMessageType", function() { return _lib_ngx_chat_ui_module__WEBPACK_IMPORTED_MODULE_0__["INgxChatUiMessageType"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "INgxChatUiMessageType", function() { return _lib_ngx_chat_ui_module__WEBPACK_IMPORTED_MODULE_1__["INgxChatUiMessageType"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "INgxChatUiMessageActionSelectItemActionType", function() { return _lib_ngx_chat_ui_module__WEBPACK_IMPORTED_MODULE_0__["INgxChatUiMessageActionSelectItemActionType"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "INgxChatUiMessageActionSelectItemActionType", function() { return _lib_ngx_chat_ui_module__WEBPACK_IMPORTED_MODULE_1__["INgxChatUiMessageActionSelectItemActionType"]; });
+
 
 
 
@@ -72,22 +74,13 @@ var BaseComponent = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _base_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./base.component */ "../../libs/ngx-chat-ui/src/lib/classes/base.component.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BaseComponent", function() { return _base_component__WEBPACK_IMPORTED_MODULE_0__["BaseComponent"]; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _base_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./base.component */ "../../libs/ngx-chat-ui/src/lib/classes/base.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BaseComponent", function() { return _base_component__WEBPACK_IMPORTED_MODULE_1__["BaseComponent"]; });
 
 
 
 
-/***/ }),
-
-/***/ "../../libs/ngx-chat-ui/src/lib/components/action/action.component.html":
-/*!*************************************************************************************!*\
-  !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/action/action.component.html ***!
-  \*************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<ng-container *ngTemplateOutlet=\"template; context: {\n  message: message,\n  chatKey: chatKey,\n  MessageType: MessageType,\n  isSending: isSending\n}\"></ng-container>\n"
 
 /***/ }),
 
@@ -95,10 +88,12 @@ module.exports = "<ng-container *ngTemplateOutlet=\"template; context: {\n  mess
 /*!*************************************************************************************!*\
   !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/action/action.component.scss ***!
   \*************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsaWJzL25neC1jaGF0LXVpL3NyYy9saWIvY29tcG9uZW50cy9hY3Rpb24vYWN0aW9uLmNvbXBvbmVudC5zY3NzIn0= */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsaWJzL25neC1jaGF0LXVpL3NyYy9saWIvY29tcG9uZW50cy9hY3Rpb24vYWN0aW9uLmNvbXBvbmVudC5zY3NzIn0= */");
 
 /***/ }),
 
@@ -143,6 +138,9 @@ var NgxChatUiActionComponent = /** @class */ (function (_super) {
             .stateGet(this.chatKey)
             .subscribe(function (state) { return _this.isSending = state.isSending; }));
     };
+    NgxChatUiActionComponent.ctorParameters = function () { return [
+        { type: _services_chat_service__WEBPACK_IMPORTED_MODULE_2__["NgxChatUiService"] }
+    ]; };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
@@ -150,9 +148,9 @@ var NgxChatUiActionComponent = /** @class */ (function (_super) {
     NgxChatUiActionComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'ngx-chat-ui-action',
-            template: __webpack_require__(/*! ./action.component.html */ "../../libs/ngx-chat-ui/src/lib/components/action/action.component.html"),
+            template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./action.component.html */ "../../node_modules/raw-loader/dist/cjs.js!../../libs/ngx-chat-ui/src/lib/components/action/action.component.html")).default,
             encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
-            styles: [__webpack_require__(/*! ./action.component.scss */ "../../libs/ngx-chat-ui/src/lib/components/action/action.component.scss")]
+            styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./action.component.scss */ "../../libs/ngx-chat-ui/src/lib/components/action/action.component.scss")).default]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_chat_service__WEBPACK_IMPORTED_MODULE_2__["NgxChatUiService"]])
     ], NgxChatUiActionComponent);
@@ -163,25 +161,16 @@ var NgxChatUiActionComponent = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ "../../libs/ngx-chat-ui/src/lib/components/action/autocomplete/autocomplete.component.html":
-/*!********************************************************************************************************!*\
-  !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/action/autocomplete/autocomplete.component.html ***!
-  \********************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<ng-container *ngTemplateOutlet=\"template; context: {\n  message: message,\n  response: ngxChatUiService.response$,\n  chatKey: chatKey,\n  onChange: onChange,\n  onFocused: onFocused,\n  removeTag: removeTag,\n  select: select,\n  submit: submit,\n  data: data,\n  value: value,\n  searchCallback: searchCallback,\n  isSingle: isSingle\n}\"></ng-container>\n"
-
-/***/ }),
-
 /***/ "../../libs/ngx-chat-ui/src/lib/components/action/autocomplete/autocomplete.component.scss":
 /*!********************************************************************************************************!*\
   !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/action/autocomplete/autocomplete.component.scss ***!
   \********************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsaWJzL25neC1jaGF0LXVpL3NyYy9saWIvY29tcG9uZW50cy9hY3Rpb24vYXV0b2NvbXBsZXRlL2F1dG9jb21wbGV0ZS5jb21wb25lbnQuc2NzcyJ9 */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsaWJzL25neC1jaGF0LXVpL3NyYy9saWIvY29tcG9uZW50cy9hY3Rpb24vYXV0b2NvbXBsZXRlL2F1dG9jb21wbGV0ZS5jb21wb25lbnQuc2NzcyJ9 */");
 
 /***/ }),
 
@@ -263,6 +252,9 @@ var NgxChatUiActionAutocompleteComponent = /** @class */ (function (_super) {
             },
         });
     };
+    NgxChatUiActionAutocompleteComponent.ctorParameters = function () { return [
+        { type: _services_chat_service__WEBPACK_IMPORTED_MODULE_2__["NgxChatUiService"] }
+    ]; };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
@@ -274,9 +266,9 @@ var NgxChatUiActionAutocompleteComponent = /** @class */ (function (_super) {
     NgxChatUiActionAutocompleteComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'ngx-chat-ui-action-autocomplete',
-            template: __webpack_require__(/*! ./autocomplete.component.html */ "../../libs/ngx-chat-ui/src/lib/components/action/autocomplete/autocomplete.component.html"),
+            template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./autocomplete.component.html */ "../../node_modules/raw-loader/dist/cjs.js!../../libs/ngx-chat-ui/src/lib/components/action/autocomplete/autocomplete.component.html")).default,
             encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
-            styles: [__webpack_require__(/*! ./autocomplete.component.scss */ "../../libs/ngx-chat-ui/src/lib/components/action/autocomplete/autocomplete.component.scss")]
+            styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./autocomplete.component.scss */ "../../libs/ngx-chat-ui/src/lib/components/action/autocomplete/autocomplete.component.scss")).default]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_chat_service__WEBPACK_IMPORTED_MODULE_2__["NgxChatUiService"]])
     ], NgxChatUiActionAutocompleteComponent);
@@ -287,25 +279,16 @@ var NgxChatUiActionAutocompleteComponent = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ "../../libs/ngx-chat-ui/src/lib/components/action/select/item/item.component.html":
-/*!***********************************************************************************************!*\
-  !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/action/select/item/item.component.html ***!
-  \***********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<ng-container *ngTemplateOutlet=\"template; context: {\n  item: item,\n  response: response,\n  chatKey: chatKey\n}\"></ng-container>\n"
-
-/***/ }),
-
 /***/ "../../libs/ngx-chat-ui/src/lib/components/action/select/item/item.component.scss":
 /*!***********************************************************************************************!*\
   !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/action/select/item/item.component.scss ***!
   \***********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsaWJzL25neC1jaGF0LXVpL3NyYy9saWIvY29tcG9uZW50cy9hY3Rpb24vc2VsZWN0L2l0ZW0vaXRlbS5jb21wb25lbnQuc2NzcyJ9 */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsaWJzL25neC1jaGF0LXVpL3NyYy9saWIvY29tcG9uZW50cy9hY3Rpb24vc2VsZWN0L2l0ZW0vaXRlbS5jb21wb25lbnQuc2NzcyJ9 */");
 
 /***/ }),
 
@@ -342,6 +325,9 @@ var NgxChatUiActionSelectItemComponent = /** @class */ (function (_super) {
             .templatesGet('actionSelectItem', this.chatKey)
             .subscribe(function (template) { return _this.template = template; }));
     };
+    NgxChatUiActionSelectItemComponent.ctorParameters = function () { return [
+        { type: _services_chat_service__WEBPACK_IMPORTED_MODULE_2__["NgxChatUiService"] }
+    ]; };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
@@ -357,9 +343,9 @@ var NgxChatUiActionSelectItemComponent = /** @class */ (function (_super) {
     NgxChatUiActionSelectItemComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'ngx-chat-ui-action-select-item',
-            template: __webpack_require__(/*! ./item.component.html */ "../../libs/ngx-chat-ui/src/lib/components/action/select/item/item.component.html"),
+            template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./item.component.html */ "../../node_modules/raw-loader/dist/cjs.js!../../libs/ngx-chat-ui/src/lib/components/action/select/item/item.component.html")).default,
             encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
-            styles: [__webpack_require__(/*! ./item.component.scss */ "../../libs/ngx-chat-ui/src/lib/components/action/select/item/item.component.scss")]
+            styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./item.component.scss */ "../../libs/ngx-chat-ui/src/lib/components/action/select/item/item.component.scss")).default]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_chat_service__WEBPACK_IMPORTED_MODULE_2__["NgxChatUiService"]])
     ], NgxChatUiActionSelectItemComponent);
@@ -370,25 +356,16 @@ var NgxChatUiActionSelectItemComponent = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ "../../libs/ngx-chat-ui/src/lib/components/action/select/select.component.html":
-/*!********************************************************************************************!*\
-  !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/action/select/select.component.html ***!
-  \********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<ng-container *ngTemplateOutlet=\"template; context: {\n  message: message,\n  response: ngxChatUiService.response$,\n  submit: submit,\n  chatKey: chatKey\n}\"></ng-container>\n"
-
-/***/ }),
-
 /***/ "../../libs/ngx-chat-ui/src/lib/components/action/select/select.component.scss":
 /*!********************************************************************************************!*\
   !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/action/select/select.component.scss ***!
   \********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsaWJzL25neC1jaGF0LXVpL3NyYy9saWIvY29tcG9uZW50cy9hY3Rpb24vc2VsZWN0L3NlbGVjdC5jb21wb25lbnQuc2NzcyJ9 */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsaWJzL25neC1jaGF0LXVpL3NyYy9saWIvY29tcG9uZW50cy9hY3Rpb24vc2VsZWN0L3NlbGVjdC5jb21wb25lbnQuc2NzcyJ9 */");
 
 /***/ }),
 
@@ -435,6 +412,9 @@ var NgxChatUiActionSelectComponent = /** @class */ (function (_super) {
             },
         });
     };
+    NgxChatUiActionSelectComponent.ctorParameters = function () { return [
+        { type: _services_chat_service__WEBPACK_IMPORTED_MODULE_2__["NgxChatUiService"] }
+    ]; };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
@@ -446,9 +426,9 @@ var NgxChatUiActionSelectComponent = /** @class */ (function (_super) {
     NgxChatUiActionSelectComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'ngx-chat-ui-action-select',
-            template: __webpack_require__(/*! ./select.component.html */ "../../libs/ngx-chat-ui/src/lib/components/action/select/select.component.html"),
+            template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./select.component.html */ "../../node_modules/raw-loader/dist/cjs.js!../../libs/ngx-chat-ui/src/lib/components/action/select/select.component.html")).default,
             encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
-            styles: [__webpack_require__(/*! ./select.component.scss */ "../../libs/ngx-chat-ui/src/lib/components/action/select/select.component.scss")]
+            styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./select.component.scss */ "../../libs/ngx-chat-ui/src/lib/components/action/select/select.component.scss")).default]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_chat_service__WEBPACK_IMPORTED_MODULE_2__["NgxChatUiService"]])
     ], NgxChatUiActionSelectComponent);
@@ -459,25 +439,16 @@ var NgxChatUiActionSelectComponent = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ "../../libs/ngx-chat-ui/src/lib/components/action/text/text.component.html":
-/*!****************************************************************************************!*\
-  !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/action/text/text.component.html ***!
-  \****************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<ng-container *ngTemplateOutlet=\"template; context: {\n  message: message,\n  response: ngxChatUiService.response$,\n  submit: submit,\n  form: form,\n  chatKey: chatKey,\n  type: type\n}\"></ng-container>\n"
-
-/***/ }),
-
 /***/ "../../libs/ngx-chat-ui/src/lib/components/action/text/text.component.scss":
 /*!****************************************************************************************!*\
   !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/action/text/text.component.scss ***!
   \****************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsaWJzL25neC1jaGF0LXVpL3NyYy9saWIvY29tcG9uZW50cy9hY3Rpb24vdGV4dC90ZXh0LmNvbXBvbmVudC5zY3NzIn0= */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsaWJzL25neC1jaGF0LXVpL3NyYy9saWIvY29tcG9uZW50cy9hY3Rpb24vdGV4dC90ZXh0LmNvbXBvbmVudC5zY3NzIn0= */");
 
 /***/ }),
 
@@ -543,6 +514,10 @@ var NgxChatUiActionTextComponent = /** @class */ (function (_super) {
             },
         });
     };
+    NgxChatUiActionTextComponent.ctorParameters = function () { return [
+        { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
+        { type: _services_chat_service__WEBPACK_IMPORTED_MODULE_3__["NgxChatUiService"] }
+    ]; };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
@@ -554,9 +529,9 @@ var NgxChatUiActionTextComponent = /** @class */ (function (_super) {
     NgxChatUiActionTextComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'ngx-chat-ui-action-text',
-            template: __webpack_require__(/*! ./text.component.html */ "../../libs/ngx-chat-ui/src/lib/components/action/text/text.component.html"),
+            template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./text.component.html */ "../../node_modules/raw-loader/dist/cjs.js!../../libs/ngx-chat-ui/src/lib/components/action/text/text.component.html")).default,
             encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
-            styles: [__webpack_require__(/*! ./text.component.scss */ "../../libs/ngx-chat-ui/src/lib/components/action/text/text.component.scss")]
+            styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./text.component.scss */ "../../libs/ngx-chat-ui/src/lib/components/action/text/text.component.scss")).default]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"],
             _services_chat_service__WEBPACK_IMPORTED_MODULE_3__["NgxChatUiService"]])
@@ -568,25 +543,16 @@ var NgxChatUiActionTextComponent = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ "../../libs/ngx-chat-ui/src/lib/components/action/upload/upload.component.html":
-/*!********************************************************************************************!*\
-  !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/action/upload/upload.component.html ***!
-  \********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<ng-container *ngTemplateOutlet=\"template; context: {\n  message: message,\n  response: ngxChatUiService.response$,\n  chatKey: chatKey,\n  submit: submit,\n  config: config,\n  onUploadSuccess: onUploadSuccess,\n  onUploadError: onUploadError,\n  onAddedFile: onAddedFile,\n  onComplete: onComplete,\n  uploadCallback: uploadCallback,\n  removeDropzoneFile: removeDropzoneFile,\n  removeFile: removeFile,\n  isUploading: isUploading,\n  isSingle: isSingle,\n  value: value\n}\"></ng-container>\n"
-
-/***/ }),
-
 /***/ "../../libs/ngx-chat-ui/src/lib/components/action/upload/upload.component.scss":
 /*!********************************************************************************************!*\
   !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/action/upload/upload.component.scss ***!
   \********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsaWJzL25neC1jaGF0LXVpL3NyYy9saWIvY29tcG9uZW50cy9hY3Rpb24vdXBsb2FkL3VwbG9hZC5jb21wb25lbnQuc2NzcyJ9 */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsaWJzL25neC1jaGF0LXVpL3NyYy9saWIvY29tcG9uZW50cy9hY3Rpb24vdXBsb2FkL3VwbG9hZC5jb21wb25lbnQuc2NzcyJ9 */");
 
 /***/ }),
 
@@ -675,6 +641,9 @@ var NgxChatUiActionUploadComponent = /** @class */ (function (_super) {
             },
         });
     };
+    NgxChatUiActionUploadComponent.ctorParameters = function () { return [
+        { type: _services_chat_service__WEBPACK_IMPORTED_MODULE_2__["NgxChatUiService"] }
+    ]; };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
@@ -686,9 +655,9 @@ var NgxChatUiActionUploadComponent = /** @class */ (function (_super) {
     NgxChatUiActionUploadComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'ngx-chat-ui-action-upload',
-            template: __webpack_require__(/*! ./upload.component.html */ "../../libs/ngx-chat-ui/src/lib/components/action/upload/upload.component.html"),
+            template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./upload.component.html */ "../../node_modules/raw-loader/dist/cjs.js!../../libs/ngx-chat-ui/src/lib/components/action/upload/upload.component.html")).default,
             encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
-            styles: [__webpack_require__(/*! ./upload.component.scss */ "../../libs/ngx-chat-ui/src/lib/components/action/upload/upload.component.scss")]
+            styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./upload.component.scss */ "../../libs/ngx-chat-ui/src/lib/components/action/upload/upload.component.scss")).default]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_chat_service__WEBPACK_IMPORTED_MODULE_2__["NgxChatUiService"]])
     ], NgxChatUiActionUploadComponent);
@@ -699,25 +668,16 @@ var NgxChatUiActionUploadComponent = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ "../../libs/ngx-chat-ui/src/lib/components/container/container.component.html":
-/*!*******************************************************************************************!*\
-  !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/container/container.component.html ***!
-  \*******************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<ng-container *ngTemplateOutlet=\"template; context: {\n  chatKey: chatKey\n}\"></ng-container>\n\n<ng-template\n  #containerTemplateDefault\n  let-chatKey=\"chatKey\"\n>\n  <ngx-chat-ui-message-list\n    [chatKey]=\"chatKey\"\n  ></ngx-chat-ui-message-list>\n  <ngx-chat-ui-action\n    [chatKey]=\"chatKey\"\n  ></ngx-chat-ui-action>\n</ng-template>\n\n<ng-template\n  #messageTypingTemplateDefault\n  let-partner=\"partner\"\n>\n  <div\n    *ngIf=\"partner\"\n    class=\"ngx-chat-ui-message-typing\"\n  >{{ partner.firstName }}</div>\n</ng-template>\n\n<ng-template\n  #messageListTemplateDefault\n  let-messages=\"messages\"\n  let-chatKey=\"chatKey\"\n  let-trackByFn=\"trackByFn\"\n>\n  <div class=\"ngx-chat-ui-message-spacer\"></div>\n  <ngx-chat-ui-message-item\n    *ngFor=\"let message of messages; trackBy: trackByFn\"\n    [class.ngx-chat-ui-message-item-incoming]=\"message.isIncoming\"\n    [chatKey]=\"chatKey\"\n    [message]=\"message\"\n  ></ngx-chat-ui-message-item>\n  <ngx-chat-ui-message-typing\n    [chatKey]=\"chatKey\"\n  ></ngx-chat-ui-message-typing>\n</ng-template>\n\n<ng-template\n  #messageItemTemplateDefault\n  let-message=\"message\"\n  let-chatKey=\"chatKey\"\n>\n  <ngx-chat-ui-message-partner\n    [chatKey]=\"chatKey\"\n    [message]=\"message\"\n  ></ngx-chat-ui-message-partner>\n  <ngx-chat-ui-message-meta\n    [chatKey]=\"chatKey\"\n    [message]=\"message\"\n  ></ngx-chat-ui-message-meta>\n  <ngx-chat-ui-message-payload\n    *ngIf=\"message.payload\"\n    [chatKey]=\"chatKey\"\n    [message]=\"message\"\n  ></ngx-chat-ui-message-payload>\n</ng-template>\n\n<ng-template\n  #messagePartnerTemplateDefault\n  let-message=\"message\"\n  let-avatar=\"avatar\"\n>\n  <ng-container *ngIf=\"message.partner && message.partner.avatar; else avatarTpl\"><img [src]=\"message.partner.avatar\"></ng-container>\n  <ng-template #avatarTpl>\n    <ng-container *ngIf=\"avatar\">{{avatar}}</ng-container>\n  </ng-template>\n</ng-template>\n\n<ng-template\n  #messageMetaTemplateDefault\n  let-message=\"message\"\n>\n  {{message.date | date}}\n</ng-template>\n\n<ng-template\n  #messagePayloadTemplateDefault\n  let-message=\"message\"\n  let-MessageType=\"MessageType\"\n  let-chatKey=\"chatKey\"\n>\n  <ng-container [ngSwitch]=\"message.payload.type\">\n    <ngx-chat-ui-message-payload-text\n      *ngSwitchCase=\"MessageType.text\"\n      [chatKey]=\"chatKey\"\n      [message]=\"message\"\n    ></ngx-chat-ui-message-payload-text>\n    <ngx-chat-ui-message-payload-select\n      *ngSwitchCase=\"MessageType.select\"\n      [chatKey]=\"chatKey\"\n      [message]=\"message\"\n    ></ngx-chat-ui-message-payload-select>\n    <ngx-chat-ui-message-payload-autocomplete\n      *ngSwitchCase=\"MessageType.autocomplete\"\n      [chatKey]=\"chatKey\"\n      [message]=\"message\"\n    ></ngx-chat-ui-message-payload-autocomplete>\n    <ngx-chat-ui-message-payload-upload\n      *ngSwitchCase=\"MessageType.upload\"\n      [chatKey]=\"chatKey\"\n      [message]=\"message\"\n    ></ngx-chat-ui-message-payload-upload>\n  </ng-container>\n</ng-template>\n\n<ng-template\n  #messagePayloadTextTemplateDefault\n  let-message=\"message\"\n>\n  {{ message.payload.meta && message.payload.meta.type === 'password' ? '*****' : message.payload.value }}\n</ng-template>\n\n<ng-template\n  #messagePayloadAutocompleteTemplateDefault\n  let-value=\"value\"\n>\n  {{ value }}\n</ng-template>\n\n<ng-template\n  #messagePayloadSelectTemplateDefault\n  let-message=\"message\"\n  let-item=\"item\"\n>\n  <div\n    class=\"ngx-chat-ui-action-select-item-icon\"\n    *ngIf=\"item.icon\"\n  >{{ item.icon }}</div>\n  <div\n    class=\"ngx-chat-ui-action-select-item-text\"\n    *ngIf=\"item.text\"\n  >{{ item.text }}</div>\n</ng-template>\n\n<ng-template\n  #messagePayloadUploadTemplateDefault\n  let-message=\"message\"\n  let-value=\"value\"\n>\n  <a\n    class=\"ngx-chat-ui-message-payload-upload-files-item\"\n    *ngFor=\"let file of message.payload.value\"\n    [href]=\"file.url\"\n    target=\"_blank\"\n  >\n    <div\n      class=\"ngx-chat-ui-message-payload-upload-files-item-image\"\n      [style.background-image]=\"'url(' + (file.preview || file.url) + ')'\"\n    ></div>\n  </a>\n</ng-template>\n\n<ng-template\n  #actionTemplateDefault\n  let-message=\"message\"\n  let-MessageType=\"MessageType\"\n  let-chatKey=\"chatKey\"\n  let-isSending=\"isSending\"\n>\n  <div\n    *ngIf=\"message && message.action\"\n    [class.ngx-chat-ui-action-sending]=\"isSending\"\n    [ngSwitch]=\"message.action.type\"\n  >\n    <ngx-chat-ui-action-text\n      *ngSwitchCase=\"MessageType.text\"\n      [chatKey]=\"chatKey\"\n      [message]=\"message\"\n    ></ngx-chat-ui-action-text>\n    <ngx-chat-ui-action-select\n      *ngSwitchCase=\"MessageType.select\"\n      [chatKey]=\"chatKey\"\n      [message]=\"message\"\n    ></ngx-chat-ui-action-select>\n    <ngx-chat-ui-action-autocomplete\n      *ngSwitchCase=\"MessageType.autocomplete\"\n      [chatKey]=\"chatKey\"\n      [message]=\"message\"\n    ></ngx-chat-ui-action-autocomplete>\n    <ngx-chat-ui-action-upload\n      *ngSwitchCase=\"MessageType.upload\"\n      [chatKey]=\"chatKey\"\n      [message]=\"message\"\n    ></ngx-chat-ui-action-upload>\n  </div>\n</ng-template>\n\n<ng-template\n  #actionTextTemplateDefault\n  let-message=\"message\"\n  let-submit=\"submit\"\n  let-form=\"form\"\n  let-type=\"type\"\n>\n  <form\n    novalidate\n    [formGroup]=\"form\"\n    (ngSubmit)=\"submit()\"\n  >\n    <input\n      formControlName=\"text\"\n      [type]=\"type\"\n    >\n    <button></button>\n  </form>\n</ng-template>\n\n<ng-template\n  #actionUploadTemplateDefault\n  let-message=\"message\"\n  let-submit=\"submit\"\n  let-config=\"config\"\n  let-value=\"value\"\n  let-onUploadSuccess=\"onUploadSuccess\"\n  let-onUploadError=\"onUploadError\"\n  let-onAddedFile=\"onAddedFile\"\n  let-onComplete=\"onComplete\"\n  let-directiveRef=\"directiveRef\"\n  let-removeFile=\"removeFile\"\n  let-isUploading=\"isUploading\"\n  let-isSingle=\"isSingle\"\n>\n  <div\n    [class.ngx-chat-ui-action-upload-uploading]=\"isUploading\"\n  >\n    <div\n      class=\"ngx-chat-ui-action-upload-files\"\n      *ngIf=\"value.length && !isSingle\"\n    >\n      <div\n        class=\"ngx-chat-ui-action-upload-files-item\"\n        *ngFor=\"let file of value\"\n      >\n        <div\n          class=\"ngx-chat-ui-action-upload-files-item-image\"\n          [style.background-image]=\"'url(' + (file.preview || file.url) + ')'\"\n        ></div>\n        <a\n          class=\"ngx-chat-ui-action-upload-files-item-remove\"\n          href=\"javascript:;\"\n          (click)=\"removeFile(file)\"\n        ></a>\n      </div>\n    </div>\n    <div\n      class=\"ngx-chat-ui-action-upload-dropzone\"\n    >\n      <div\n        *ngIf=\"config\"\n        #dropzone=\"ngxDropzone\"\n        class=\"dropzone\"\n        [dropzone]=\"config\"\n        (error)=\"onUploadError(dropzone, $event)\"\n        (success)=\"onUploadSuccess(dropzone, $event)\"\n        (addedFile)=\"onAddedFile(dropzone, $event)\"\n        (complete)=\"onComplete(dropzone, $event)\"\n      ></div>\n      <button\n        *ngIf=\"!isSingle\"\n        [disabled]=\"!value.length\"\n        (click)=\"submit()\"\n      ></button>\n    </div>\n  </div>\n</ng-template>\n\n<ng-template\n  #actionAutocompleteTemplateDefault\n  let-message=\"message\"\n  let-onChange=\"onChange\"\n  let-onFocused=\"onFocused\"\n  let-select=\"select\"\n  let-value=\"value\"\n  let-data=\"data\"\n  let-removeTag=\"removeTag\"\n  let-submit=\"submit\"\n>\n\n  <div\n    class=\"ngx-chat-ui-action-autocomplete-tags\"\n    *ngIf=\"value.length\"\n  >\n    <div\n      class=\"ngx-chat-ui-action-autocomplete-tags-item\"\n      *ngFor=\"let tag of value\"\n    >\n      <div\n        class=\"ngx-chat-ui-action-autocomplete-tags-tag\"\n      >{{ tag }}</div>\n      <a\n        class=\"ngx-chat-ui-action-autocomplete-tags-item-remove\"\n        href=\"javascript:;\"\n        (click)=\"removeTag(tag)\"\n      ></a>\n    </div>\n  </div>\n  <div\n    class=\"ngx-chat-ui-action-autocomplete-picker\"\n  >\n    <ng-autocomplete\n      #autocomplete\n      [data]=\"data\"\n      (selected)=\"select(autocomplete, $event)\"\n      (inputChanged)=\"onChange(autocomplete, $event)\"\n      (inputFocused)=\"onFocused(autocomplete)\"\n      [itemTemplate]=\"itemTemplate\"\n      [notFoundTemplate]=\"notFoundTemplate\">\n    </ng-autocomplete>\n\n    <button (click)=\"submit()\"></button>\n\n    <ng-template #itemTemplate let-item>\n      <a [innerHTML]=\"item\"></a>\n    </ng-template>\n\n    <ng-template #notFoundTemplate let-notFound>\n      <div [innerHTML]=\"notFound\"></div>\n    </ng-template>\n  </div>\n</ng-template>\n\n<ng-template\n  #actionSelectTemplateDefault\n  let-message=\"message\"\n  let-submit=\"submit\"\n>\n  <div\n    class=\"ngx-chat-ui-action-select-frame\"\n    [ngClass]=\"message.action.className || 'ngx-chat-ui-action-select-button'\"\n  >\n    <div class=\"ngx-chat-ui-message-spacer\"></div>\n    <div class=\"ngx-chat-ui-action-select-items\">\n      <ngx-chat-ui-action-select-item\n        *ngFor=\"let item of message.action.items\"\n        [item]=\"item\"\n        [chatKey]=\"chatKey\"\n        (response)=\"submit($event)\"\n      ></ngx-chat-ui-action-select-item>\n    </div>\n  </div>\n</ng-template>\n\n<ng-template\n  #actionSelectItemTemplateDefault\n  let-item=\"item\"\n  let-response=\"response\"\n>\n  <a\n    (click)=\"response.emit(item)\"\n    class=\"ngx-chat-ui-action-select-item-frame\"\n    [ngClass]=\"item.className || 'ngx-chat-ui-action-select-item-regular'\"\n    href=\"javascript:;\"\n  >\n    <span\n      class=\"ngx-chat-ui-action-select-item-icon\"\n      *ngIf=\"item.icon\"\n    >{{ item.icon }}</span>\n    <span\n      class=\"ngx-chat-ui-action-select-item-text\"\n      *ngIf=\"item.text\"\n    >{{ item.text }}</span>\n  </a>\n</ng-template>\n\n"
-
-/***/ }),
-
 /***/ "../../libs/ngx-chat-ui/src/lib/components/container/container.component.scss":
 /*!*******************************************************************************************!*\
   !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/container/container.component.scss ***!
   \*******************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsaWJzL25neC1jaGF0LXVpL3NyYy9saWIvY29tcG9uZW50cy9jb250YWluZXIvY29udGFpbmVyLmNvbXBvbmVudC5zY3NzIn0= */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsaWJzL25neC1jaGF0LXVpL3NyYy9saWIvY29tcG9uZW50cy9jb250YWluZXIvY29udGFpbmVyLmNvbXBvbmVudC5zY3NzIn0= */");
 
 /***/ }),
 
@@ -813,72 +773,75 @@ var NgxChatUiContainerComponent = /** @class */ (function (_super) {
             this.dialogEnd.emit(dialogEnd.payload);
         }
     };
+    NgxChatUiContainerComponent.ctorParameters = function () { return [
+        { type: _services_chat_service__WEBPACK_IMPORTED_MODULE_2__["NgxChatUiService"] }
+    ]; };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('containerTemplateDefault'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('containerTemplateDefault', { static: true }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
     ], NgxChatUiContainerComponent.prototype, "containerTemplateDefault", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('messageTypingTemplateDefault'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('messageTypingTemplateDefault', { static: true }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
     ], NgxChatUiContainerComponent.prototype, "messageTypingTemplateDefault", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('messageListTemplateDefault'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('messageListTemplateDefault', { static: true }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
     ], NgxChatUiContainerComponent.prototype, "messageListTemplateDefault", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('messageItemTemplateDefault'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('messageItemTemplateDefault', { static: true }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
     ], NgxChatUiContainerComponent.prototype, "messageItemTemplateDefault", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('messagePartnerTemplateDefault'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('messagePartnerTemplateDefault', { static: true }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
     ], NgxChatUiContainerComponent.prototype, "messagePartnerTemplateDefault", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('messagePayloadTemplateDefault'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('messagePayloadTemplateDefault', { static: true }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
     ], NgxChatUiContainerComponent.prototype, "messagePayloadTemplateDefault", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('messagePayloadTextTemplateDefault'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('messagePayloadTextTemplateDefault', { static: true }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
     ], NgxChatUiContainerComponent.prototype, "messagePayloadTextTemplateDefault", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('messagePayloadUploadTemplateDefault'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('messagePayloadUploadTemplateDefault', { static: true }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
     ], NgxChatUiContainerComponent.prototype, "messagePayloadUploadTemplateDefault", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('messagePayloadSelectTemplateDefault'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('messagePayloadSelectTemplateDefault', { static: true }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
     ], NgxChatUiContainerComponent.prototype, "messagePayloadSelectTemplateDefault", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('messagePayloadAutocompleteTemplateDefault'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('messagePayloadAutocompleteTemplateDefault', { static: true }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
     ], NgxChatUiContainerComponent.prototype, "messagePayloadAutocompleteTemplateDefault", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('messageMetaTemplateDefault'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('messageMetaTemplateDefault', { static: true }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
     ], NgxChatUiContainerComponent.prototype, "messageMetaTemplateDefault", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('actionTemplateDefault'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('actionTemplateDefault', { static: true }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
     ], NgxChatUiContainerComponent.prototype, "actionTemplateDefault", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('actionTextTemplateDefault'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('actionTextTemplateDefault', { static: true }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
     ], NgxChatUiContainerComponent.prototype, "actionTextTemplateDefault", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('actionAutocompleteTemplateDefault'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('actionAutocompleteTemplateDefault', { static: true }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
     ], NgxChatUiContainerComponent.prototype, "actionAutocompleteTemplateDefault", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('actionSelectTemplateDefault'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('actionSelectTemplateDefault', { static: true }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
     ], NgxChatUiContainerComponent.prototype, "actionSelectTemplateDefault", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('actionSelectItemTemplateDefault'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('actionSelectItemTemplateDefault', { static: true }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
     ], NgxChatUiContainerComponent.prototype, "actionSelectItemTemplateDefault", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('actionUploadTemplateDefault'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('actionUploadTemplateDefault', { static: true }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
     ], NgxChatUiContainerComponent.prototype, "actionUploadTemplateDefault", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -984,10 +947,10 @@ var NgxChatUiContainerComponent = /** @class */ (function (_super) {
     NgxChatUiContainerComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'ngx-chat-ui-container',
-            template: __webpack_require__(/*! ./container.component.html */ "../../libs/ngx-chat-ui/src/lib/components/container/container.component.html"),
+            template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./container.component.html */ "../../node_modules/raw-loader/dist/cjs.js!../../libs/ngx-chat-ui/src/lib/components/container/container.component.html")).default,
             encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
             changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectionStrategy"].OnPush,
-            styles: [__webpack_require__(/*! ./container.component.scss */ "../../libs/ngx-chat-ui/src/lib/components/container/container.component.scss")]
+            styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./container.component.scss */ "../../libs/ngx-chat-ui/src/lib/components/container/container.component.scss")).default]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_chat_service__WEBPACK_IMPORTED_MODULE_2__["NgxChatUiService"]])
     ], NgxChatUiContainerComponent);
@@ -998,25 +961,16 @@ var NgxChatUiContainerComponent = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ "../../libs/ngx-chat-ui/src/lib/components/message/item/item.component.html":
-/*!*****************************************************************************************!*\
-  !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/message/item/item.component.html ***!
-  \*****************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<ng-container *ngTemplateOutlet=\"template; context: {\n  message: message,\n  chatKey: chatKey\n}\"></ng-container>\n"
-
-/***/ }),
-
 /***/ "../../libs/ngx-chat-ui/src/lib/components/message/item/item.component.scss":
 /*!*****************************************************************************************!*\
   !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/message/item/item.component.scss ***!
   \*****************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsaWJzL25neC1jaGF0LXVpL3NyYy9saWIvY29tcG9uZW50cy9tZXNzYWdlL2l0ZW0vaXRlbS5jb21wb25lbnQuc2NzcyJ9 */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsaWJzL25neC1jaGF0LXVpL3NyYy9saWIvY29tcG9uZW50cy9tZXNzYWdlL2l0ZW0vaXRlbS5jb21wb25lbnQuc2NzcyJ9 */");
 
 /***/ }),
 
@@ -1052,6 +1006,9 @@ var NgxChatUiMessageItemComponent = /** @class */ (function (_super) {
             .templatesGet('messageItem', this.chatKey)
             .subscribe(function (template) { return _this.template = template; }));
     };
+    NgxChatUiMessageItemComponent.ctorParameters = function () { return [
+        { type: _services_chat_service__WEBPACK_IMPORTED_MODULE_2__["NgxChatUiService"] }
+    ]; };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
@@ -1063,9 +1020,9 @@ var NgxChatUiMessageItemComponent = /** @class */ (function (_super) {
     NgxChatUiMessageItemComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'ngx-chat-ui-message-item',
-            template: __webpack_require__(/*! ./item.component.html */ "../../libs/ngx-chat-ui/src/lib/components/message/item/item.component.html"),
+            template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./item.component.html */ "../../node_modules/raw-loader/dist/cjs.js!../../libs/ngx-chat-ui/src/lib/components/message/item/item.component.html")).default,
             encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
-            styles: [__webpack_require__(/*! ./item.component.scss */ "../../libs/ngx-chat-ui/src/lib/components/message/item/item.component.scss")]
+            styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./item.component.scss */ "../../libs/ngx-chat-ui/src/lib/components/message/item/item.component.scss")).default]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_chat_service__WEBPACK_IMPORTED_MODULE_2__["NgxChatUiService"]])
     ], NgxChatUiMessageItemComponent);
@@ -1076,25 +1033,16 @@ var NgxChatUiMessageItemComponent = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ "../../libs/ngx-chat-ui/src/lib/components/message/list/list.component.html":
-/*!*****************************************************************************************!*\
-  !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/message/list/list.component.html ***!
-  \*****************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<ng-container *ngTemplateOutlet=\"template; context: {\n  messages: messages,\n  chatKey: chatKey,\n  trackByFn: trackByFn\n}\"></ng-container>\n"
-
-/***/ }),
-
 /***/ "../../libs/ngx-chat-ui/src/lib/components/message/list/list.component.scss":
 /*!*****************************************************************************************!*\
   !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/message/list/list.component.scss ***!
   \*****************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsaWJzL25neC1jaGF0LXVpL3NyYy9saWIvY29tcG9uZW50cy9tZXNzYWdlL2xpc3QvbGlzdC5jb21wb25lbnQuc2NzcyJ9 */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsaWJzL25neC1jaGF0LXVpL3NyYy9saWIvY29tcG9uZW50cy9tZXNzYWdlL2xpc3QvbGlzdC5jb21wb25lbnQuc2NzcyJ9 */");
 
 /***/ }),
 
@@ -1150,6 +1098,10 @@ var NgxChatUiMessageListComponent = /** @class */ (function (_super) {
             el.scrollTop = el.scrollHeight;
         });
     };
+    NgxChatUiMessageListComponent.ctorParameters = function () { return [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] },
+        { type: _services_chat_service__WEBPACK_IMPORTED_MODULE_2__["NgxChatUiService"] }
+    ]; };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
@@ -1157,9 +1109,9 @@ var NgxChatUiMessageListComponent = /** @class */ (function (_super) {
     NgxChatUiMessageListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'ngx-chat-ui-message-list',
-            template: __webpack_require__(/*! ./list.component.html */ "../../libs/ngx-chat-ui/src/lib/components/message/list/list.component.html"),
+            template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./list.component.html */ "../../node_modules/raw-loader/dist/cjs.js!../../libs/ngx-chat-ui/src/lib/components/message/list/list.component.html")).default,
             encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
-            styles: [__webpack_require__(/*! ./list.component.scss */ "../../libs/ngx-chat-ui/src/lib/components/message/list/list.component.scss")]
+            styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./list.component.scss */ "../../libs/ngx-chat-ui/src/lib/components/message/list/list.component.scss")).default]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"],
             _services_chat_service__WEBPACK_IMPORTED_MODULE_2__["NgxChatUiService"]])
@@ -1171,25 +1123,16 @@ var NgxChatUiMessageListComponent = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ "../../libs/ngx-chat-ui/src/lib/components/message/meta/meta.component.html":
-/*!*****************************************************************************************!*\
-  !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/message/meta/meta.component.html ***!
-  \*****************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<ng-container *ngTemplateOutlet=\"template; context: {\n  message: message\n}\"></ng-container>\n"
-
-/***/ }),
-
 /***/ "../../libs/ngx-chat-ui/src/lib/components/message/meta/meta.component.scss":
 /*!*****************************************************************************************!*\
   !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/message/meta/meta.component.scss ***!
   \*****************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsaWJzL25neC1jaGF0LXVpL3NyYy9saWIvY29tcG9uZW50cy9tZXNzYWdlL21ldGEvbWV0YS5jb21wb25lbnQuc2NzcyJ9 */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsaWJzL25neC1jaGF0LXVpL3NyYy9saWIvY29tcG9uZW50cy9tZXNzYWdlL21ldGEvbWV0YS5jb21wb25lbnQuc2NzcyJ9 */");
 
 /***/ }),
 
@@ -1225,6 +1168,9 @@ var NgxChatUiMessageMetaComponent = /** @class */ (function (_super) {
             .templatesGet('messageMeta', this.chatKey)
             .subscribe(function (template) { return _this.template = template; }));
     };
+    NgxChatUiMessageMetaComponent.ctorParameters = function () { return [
+        { type: _services_chat_service__WEBPACK_IMPORTED_MODULE_2__["NgxChatUiService"] }
+    ]; };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
@@ -1236,9 +1182,9 @@ var NgxChatUiMessageMetaComponent = /** @class */ (function (_super) {
     NgxChatUiMessageMetaComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'ngx-chat-ui-message-meta',
-            template: __webpack_require__(/*! ./meta.component.html */ "../../libs/ngx-chat-ui/src/lib/components/message/meta/meta.component.html"),
+            template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./meta.component.html */ "../../node_modules/raw-loader/dist/cjs.js!../../libs/ngx-chat-ui/src/lib/components/message/meta/meta.component.html")).default,
             encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
-            styles: [__webpack_require__(/*! ./meta.component.scss */ "../../libs/ngx-chat-ui/src/lib/components/message/meta/meta.component.scss")]
+            styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./meta.component.scss */ "../../libs/ngx-chat-ui/src/lib/components/message/meta/meta.component.scss")).default]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_chat_service__WEBPACK_IMPORTED_MODULE_2__["NgxChatUiService"]])
     ], NgxChatUiMessageMetaComponent);
@@ -1249,25 +1195,16 @@ var NgxChatUiMessageMetaComponent = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ "../../libs/ngx-chat-ui/src/lib/components/message/partner/partner.component.html":
-/*!***********************************************************************************************!*\
-  !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/message/partner/partner.component.html ***!
-  \***********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<ng-container *ngTemplateOutlet=\"template; context: {\n  message: message,\n  avatar: avatar\n}\"></ng-container>\n"
-
-/***/ }),
-
 /***/ "../../libs/ngx-chat-ui/src/lib/components/message/partner/partner.component.scss":
 /*!***********************************************************************************************!*\
   !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/message/partner/partner.component.scss ***!
   \***********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsaWJzL25neC1jaGF0LXVpL3NyYy9saWIvY29tcG9uZW50cy9tZXNzYWdlL3BhcnRuZXIvcGFydG5lci5jb21wb25lbnQuc2NzcyJ9 */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsaWJzL25neC1jaGF0LXVpL3NyYy9saWIvY29tcG9uZW50cy9tZXNzYWdlL3BhcnRuZXIvcGFydG5lci5jb21wb25lbnQuc2NzcyJ9 */");
 
 /***/ }),
 
@@ -1316,6 +1253,9 @@ var NgxChatUiMessagePartnerComponent = /** @class */ (function (_super) {
         }
         this.avatar = avatar.join('');
     };
+    NgxChatUiMessagePartnerComponent.ctorParameters = function () { return [
+        { type: _services_chat_service__WEBPACK_IMPORTED_MODULE_2__["NgxChatUiService"] }
+    ]; };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
@@ -1327,9 +1267,9 @@ var NgxChatUiMessagePartnerComponent = /** @class */ (function (_super) {
     NgxChatUiMessagePartnerComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'ngx-chat-ui-message-partner',
-            template: __webpack_require__(/*! ./partner.component.html */ "../../libs/ngx-chat-ui/src/lib/components/message/partner/partner.component.html"),
+            template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./partner.component.html */ "../../node_modules/raw-loader/dist/cjs.js!../../libs/ngx-chat-ui/src/lib/components/message/partner/partner.component.html")).default,
             encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
-            styles: [__webpack_require__(/*! ./partner.component.scss */ "../../libs/ngx-chat-ui/src/lib/components/message/partner/partner.component.scss")]
+            styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./partner.component.scss */ "../../libs/ngx-chat-ui/src/lib/components/message/partner/partner.component.scss")).default]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_chat_service__WEBPACK_IMPORTED_MODULE_2__["NgxChatUiService"]])
     ], NgxChatUiMessagePartnerComponent);
@@ -1340,25 +1280,16 @@ var NgxChatUiMessagePartnerComponent = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ "../../libs/ngx-chat-ui/src/lib/components/message/payload/autocomplete/autocomplete.component.html":
-/*!*****************************************************************************************************************!*\
-  !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/message/payload/autocomplete/autocomplete.component.html ***!
-  \*****************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<ng-container *ngTemplateOutlet=\"template; context: {\n  message: message,\n  value: value\n}\"></ng-container>\n"
-
-/***/ }),
-
 /***/ "../../libs/ngx-chat-ui/src/lib/components/message/payload/autocomplete/autocomplete.component.scss":
 /*!*****************************************************************************************************************!*\
   !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/message/payload/autocomplete/autocomplete.component.scss ***!
   \*****************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsaWJzL25neC1jaGF0LXVpL3NyYy9saWIvY29tcG9uZW50cy9tZXNzYWdlL3BheWxvYWQvYXV0b2NvbXBsZXRlL2F1dG9jb21wbGV0ZS5jb21wb25lbnQuc2NzcyJ9 */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsaWJzL25neC1jaGF0LXVpL3NyYy9saWIvY29tcG9uZW50cy9tZXNzYWdlL3BheWxvYWQvYXV0b2NvbXBsZXRlL2F1dG9jb21wbGV0ZS5jb21wb25lbnQuc2NzcyJ9 */");
 
 /***/ }),
 
@@ -1395,6 +1326,9 @@ var NgxChatUiMessagePayloadAutocompleteComponent = /** @class */ (function (_sup
             .subscribe(function (template) { return _this.template = template; }));
         this.value = this.message.payload.value.join(', ');
     };
+    NgxChatUiMessagePayloadAutocompleteComponent.ctorParameters = function () { return [
+        { type: _services_chat_service__WEBPACK_IMPORTED_MODULE_2__["NgxChatUiService"] }
+    ]; };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
@@ -1406,9 +1340,9 @@ var NgxChatUiMessagePayloadAutocompleteComponent = /** @class */ (function (_sup
     NgxChatUiMessagePayloadAutocompleteComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'ngx-chat-ui-message-payload-autocomplete',
-            template: __webpack_require__(/*! ./autocomplete.component.html */ "../../libs/ngx-chat-ui/src/lib/components/message/payload/autocomplete/autocomplete.component.html"),
+            template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./autocomplete.component.html */ "../../node_modules/raw-loader/dist/cjs.js!../../libs/ngx-chat-ui/src/lib/components/message/payload/autocomplete/autocomplete.component.html")).default,
             encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
-            styles: [__webpack_require__(/*! ./autocomplete.component.scss */ "../../libs/ngx-chat-ui/src/lib/components/message/payload/autocomplete/autocomplete.component.scss")]
+            styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./autocomplete.component.scss */ "../../libs/ngx-chat-ui/src/lib/components/message/payload/autocomplete/autocomplete.component.scss")).default]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_chat_service__WEBPACK_IMPORTED_MODULE_2__["NgxChatUiService"]])
     ], NgxChatUiMessagePayloadAutocompleteComponent);
@@ -1419,25 +1353,16 @@ var NgxChatUiMessagePayloadAutocompleteComponent = /** @class */ (function (_sup
 
 /***/ }),
 
-/***/ "../../libs/ngx-chat-ui/src/lib/components/message/payload/payload.component.html":
-/*!***********************************************************************************************!*\
-  !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/message/payload/payload.component.html ***!
-  \***********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<ng-container *ngTemplateOutlet=\"template; context: {\n  message: message,\n  chatKey: chatKey,\n  MessageType: MessageType\n}\"></ng-container>\n"
-
-/***/ }),
-
 /***/ "../../libs/ngx-chat-ui/src/lib/components/message/payload/payload.component.scss":
 /*!***********************************************************************************************!*\
   !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/message/payload/payload.component.scss ***!
   \***********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsaWJzL25neC1jaGF0LXVpL3NyYy9saWIvY29tcG9uZW50cy9tZXNzYWdlL3BheWxvYWQvcGF5bG9hZC5jb21wb25lbnQuc2NzcyJ9 */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsaWJzL25neC1jaGF0LXVpL3NyYy9saWIvY29tcG9uZW50cy9tZXNzYWdlL3BheWxvYWQvcGF5bG9hZC5jb21wb25lbnQuc2NzcyJ9 */");
 
 /***/ }),
 
@@ -1476,6 +1401,9 @@ var NgxChatUiMessagePayloadComponent = /** @class */ (function (_super) {
             .templatesGet('messagePayload', this.chatKey)
             .subscribe(function (template) { return _this.template = template; }));
     };
+    NgxChatUiMessagePayloadComponent.ctorParameters = function () { return [
+        { type: _services_chat_service__WEBPACK_IMPORTED_MODULE_2__["NgxChatUiService"] }
+    ]; };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
@@ -1487,9 +1415,9 @@ var NgxChatUiMessagePayloadComponent = /** @class */ (function (_super) {
     NgxChatUiMessagePayloadComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'ngx-chat-ui-message-payload',
-            template: __webpack_require__(/*! ./payload.component.html */ "../../libs/ngx-chat-ui/src/lib/components/message/payload/payload.component.html"),
+            template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./payload.component.html */ "../../node_modules/raw-loader/dist/cjs.js!../../libs/ngx-chat-ui/src/lib/components/message/payload/payload.component.html")).default,
             encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
-            styles: [__webpack_require__(/*! ./payload.component.scss */ "../../libs/ngx-chat-ui/src/lib/components/message/payload/payload.component.scss")]
+            styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./payload.component.scss */ "../../libs/ngx-chat-ui/src/lib/components/message/payload/payload.component.scss")).default]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_chat_service__WEBPACK_IMPORTED_MODULE_2__["NgxChatUiService"]])
     ], NgxChatUiMessagePayloadComponent);
@@ -1500,25 +1428,16 @@ var NgxChatUiMessagePayloadComponent = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ "../../libs/ngx-chat-ui/src/lib/components/message/payload/select/select.component.html":
-/*!*****************************************************************************************************!*\
-  !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/message/payload/select/select.component.html ***!
-  \*****************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<ng-container *ngTemplateOutlet=\"template; context: {\n  message: message,\n  item: item\n}\"></ng-container>\n"
-
-/***/ }),
-
 /***/ "../../libs/ngx-chat-ui/src/lib/components/message/payload/select/select.component.scss":
 /*!*****************************************************************************************************!*\
   !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/message/payload/select/select.component.scss ***!
   \*****************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsaWJzL25neC1jaGF0LXVpL3NyYy9saWIvY29tcG9uZW50cy9tZXNzYWdlL3BheWxvYWQvc2VsZWN0L3NlbGVjdC5jb21wb25lbnQuc2NzcyJ9 */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsaWJzL25neC1jaGF0LXVpL3NyYy9saWIvY29tcG9uZW50cy9tZXNzYWdlL3BheWxvYWQvc2VsZWN0L3NlbGVjdC5jb21wb25lbnQuc2NzcyJ9 */");
 
 /***/ }),
 
@@ -1559,6 +1478,9 @@ var NgxChatUiMessagePayloadSelectComponent = /** @class */ (function (_super) {
         this.item = this.ngxChatUiService
             .getItemForItemAction(this.message, this.chatKey);
     };
+    NgxChatUiMessagePayloadSelectComponent.ctorParameters = function () { return [
+        { type: _services_chat_service__WEBPACK_IMPORTED_MODULE_2__["NgxChatUiService"] }
+    ]; };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
@@ -1570,9 +1492,9 @@ var NgxChatUiMessagePayloadSelectComponent = /** @class */ (function (_super) {
     NgxChatUiMessagePayloadSelectComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'ngx-chat-ui-message-payload-select',
-            template: __webpack_require__(/*! ./select.component.html */ "../../libs/ngx-chat-ui/src/lib/components/message/payload/select/select.component.html"),
+            template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./select.component.html */ "../../node_modules/raw-loader/dist/cjs.js!../../libs/ngx-chat-ui/src/lib/components/message/payload/select/select.component.html")).default,
             encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
-            styles: [__webpack_require__(/*! ./select.component.scss */ "../../libs/ngx-chat-ui/src/lib/components/message/payload/select/select.component.scss")]
+            styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./select.component.scss */ "../../libs/ngx-chat-ui/src/lib/components/message/payload/select/select.component.scss")).default]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_chat_service__WEBPACK_IMPORTED_MODULE_2__["NgxChatUiService"]])
     ], NgxChatUiMessagePayloadSelectComponent);
@@ -1583,25 +1505,16 @@ var NgxChatUiMessagePayloadSelectComponent = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ "../../libs/ngx-chat-ui/src/lib/components/message/payload/text/text.component.html":
-/*!*************************************************************************************************!*\
-  !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/message/payload/text/text.component.html ***!
-  \*************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<ng-container *ngTemplateOutlet=\"template; context: {\n  message: message\n}\"></ng-container>\n"
-
-/***/ }),
-
 /***/ "../../libs/ngx-chat-ui/src/lib/components/message/payload/text/text.component.scss":
 /*!*************************************************************************************************!*\
   !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/message/payload/text/text.component.scss ***!
   \*************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsaWJzL25neC1jaGF0LXVpL3NyYy9saWIvY29tcG9uZW50cy9tZXNzYWdlL3BheWxvYWQvdGV4dC90ZXh0LmNvbXBvbmVudC5zY3NzIn0= */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsaWJzL25neC1jaGF0LXVpL3NyYy9saWIvY29tcG9uZW50cy9tZXNzYWdlL3BheWxvYWQvdGV4dC90ZXh0LmNvbXBvbmVudC5zY3NzIn0= */");
 
 /***/ }),
 
@@ -1637,6 +1550,9 @@ var NgxChatUiMessagePayloadTextComponent = /** @class */ (function (_super) {
             .templatesGet('messagePayloadText', this.chatKey)
             .subscribe(function (template) { return _this.template = template; }));
     };
+    NgxChatUiMessagePayloadTextComponent.ctorParameters = function () { return [
+        { type: _services_chat_service__WEBPACK_IMPORTED_MODULE_2__["NgxChatUiService"] }
+    ]; };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
@@ -1648,9 +1564,9 @@ var NgxChatUiMessagePayloadTextComponent = /** @class */ (function (_super) {
     NgxChatUiMessagePayloadTextComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'ngx-chat-ui-message-payload-text',
-            template: __webpack_require__(/*! ./text.component.html */ "../../libs/ngx-chat-ui/src/lib/components/message/payload/text/text.component.html"),
+            template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./text.component.html */ "../../node_modules/raw-loader/dist/cjs.js!../../libs/ngx-chat-ui/src/lib/components/message/payload/text/text.component.html")).default,
             encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
-            styles: [__webpack_require__(/*! ./text.component.scss */ "../../libs/ngx-chat-ui/src/lib/components/message/payload/text/text.component.scss")]
+            styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./text.component.scss */ "../../libs/ngx-chat-ui/src/lib/components/message/payload/text/text.component.scss")).default]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_chat_service__WEBPACK_IMPORTED_MODULE_2__["NgxChatUiService"]])
     ], NgxChatUiMessagePayloadTextComponent);
@@ -1661,25 +1577,16 @@ var NgxChatUiMessagePayloadTextComponent = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ "../../libs/ngx-chat-ui/src/lib/components/message/payload/upload/upload.component.html":
-/*!*****************************************************************************************************!*\
-  !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/message/payload/upload/upload.component.html ***!
-  \*****************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<ng-container *ngTemplateOutlet=\"template; context: {\n  message: message\n}\"></ng-container>\n"
-
-/***/ }),
-
 /***/ "../../libs/ngx-chat-ui/src/lib/components/message/payload/upload/upload.component.scss":
 /*!*****************************************************************************************************!*\
   !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/message/payload/upload/upload.component.scss ***!
   \*****************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsaWJzL25neC1jaGF0LXVpL3NyYy9saWIvY29tcG9uZW50cy9tZXNzYWdlL3BheWxvYWQvdXBsb2FkL3VwbG9hZC5jb21wb25lbnQuc2NzcyJ9 */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsaWJzL25neC1jaGF0LXVpL3NyYy9saWIvY29tcG9uZW50cy9tZXNzYWdlL3BheWxvYWQvdXBsb2FkL3VwbG9hZC5jb21wb25lbnQuc2NzcyJ9 */");
 
 /***/ }),
 
@@ -1715,6 +1622,9 @@ var NgxChatUiMessagePayloadUploadComponent = /** @class */ (function (_super) {
             .templatesGet('messagePayloadUpload', this.chatKey)
             .subscribe(function (template) { return _this.template = template; }));
     };
+    NgxChatUiMessagePayloadUploadComponent.ctorParameters = function () { return [
+        { type: _services_chat_service__WEBPACK_IMPORTED_MODULE_2__["NgxChatUiService"] }
+    ]; };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
@@ -1726,9 +1636,9 @@ var NgxChatUiMessagePayloadUploadComponent = /** @class */ (function (_super) {
     NgxChatUiMessagePayloadUploadComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'ngx-chat-ui-message-payload-upload',
-            template: __webpack_require__(/*! ./upload.component.html */ "../../libs/ngx-chat-ui/src/lib/components/message/payload/upload/upload.component.html"),
+            template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./upload.component.html */ "../../node_modules/raw-loader/dist/cjs.js!../../libs/ngx-chat-ui/src/lib/components/message/payload/upload/upload.component.html")).default,
             encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
-            styles: [__webpack_require__(/*! ./upload.component.scss */ "../../libs/ngx-chat-ui/src/lib/components/message/payload/upload/upload.component.scss")]
+            styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./upload.component.scss */ "../../libs/ngx-chat-ui/src/lib/components/message/payload/upload/upload.component.scss")).default]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_chat_service__WEBPACK_IMPORTED_MODULE_2__["NgxChatUiService"]])
     ], NgxChatUiMessagePayloadUploadComponent);
@@ -1739,25 +1649,16 @@ var NgxChatUiMessagePayloadUploadComponent = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ "../../libs/ngx-chat-ui/src/lib/components/message/typing/typing.component.html":
-/*!*********************************************************************************************!*\
-  !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/message/typing/typing.component.html ***!
-  \*********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<ng-container *ngTemplateOutlet=\"template; context: {\n  partner: partner,\n  chatKey: chatKey\n}\"></ng-container>\n"
-
-/***/ }),
-
 /***/ "../../libs/ngx-chat-ui/src/lib/components/message/typing/typing.component.scss":
 /*!*********************************************************************************************!*\
   !*** /ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/message/typing/typing.component.scss ***!
   \*********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsaWJzL25neC1jaGF0LXVpL3NyYy9saWIvY29tcG9uZW50cy9tZXNzYWdlL3R5cGluZy90eXBpbmcuY29tcG9uZW50LnNjc3MifQ== */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsaWJzL25neC1jaGF0LXVpL3NyYy9saWIvY29tcG9uZW50cy9tZXNzYWdlL3R5cGluZy90eXBpbmcuY29tcG9uZW50LnNjc3MifQ== */");
 
 /***/ }),
 
@@ -1803,6 +1704,9 @@ var NgxChatUiMessageTypingComponent = /** @class */ (function (_super) {
                 .getValue()
                 .find(function (messagePartner) { return messagePartner.messagePartnerId === state.isTyping; }) || !!state.isTyping)) || null;
     };
+    NgxChatUiMessageTypingComponent.ctorParameters = function () { return [
+        { type: _services_chat_service__WEBPACK_IMPORTED_MODULE_2__["NgxChatUiService"] }
+    ]; };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
@@ -1810,9 +1714,9 @@ var NgxChatUiMessageTypingComponent = /** @class */ (function (_super) {
     NgxChatUiMessageTypingComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'ngx-chat-ui-message-typing',
-            template: __webpack_require__(/*! ./typing.component.html */ "../../libs/ngx-chat-ui/src/lib/components/message/typing/typing.component.html"),
+            template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./typing.component.html */ "../../node_modules/raw-loader/dist/cjs.js!../../libs/ngx-chat-ui/src/lib/components/message/typing/typing.component.html")).default,
             encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
-            styles: [__webpack_require__(/*! ./typing.component.scss */ "../../libs/ngx-chat-ui/src/lib/components/message/typing/typing.component.scss")]
+            styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./typing.component.scss */ "../../libs/ngx-chat-ui/src/lib/components/message/typing/typing.component.scss")).default]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_chat_service__WEBPACK_IMPORTED_MODULE_2__["NgxChatUiService"]])
     ], NgxChatUiMessageTypingComponent);
@@ -1832,11 +1736,13 @@ var NgxChatUiMessageTypingComponent = /** @class */ (function (_super) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _message_type__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./message-type */ "../../libs/ngx-chat-ui/src/lib/interfaces/message-type.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "INgxChatUiMessageType", function() { return _message_type__WEBPACK_IMPORTED_MODULE_0__["INgxChatUiMessageType"]; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _message_type__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./message-type */ "../../libs/ngx-chat-ui/src/lib/interfaces/message-type.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "INgxChatUiMessageType", function() { return _message_type__WEBPACK_IMPORTED_MODULE_1__["INgxChatUiMessageType"]; });
 
-/* harmony import */ var _message_action_select_item_action_type__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./message-action-select-item-action-type */ "../../libs/ngx-chat-ui/src/lib/interfaces/message-action-select-item-action-type.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "INgxChatUiMessageActionSelectItemActionType", function() { return _message_action_select_item_action_type__WEBPACK_IMPORTED_MODULE_1__["INgxChatUiMessageActionSelectItemActionType"]; });
+/* harmony import */ var _message_action_select_item_action_type__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./message-action-select-item-action-type */ "../../libs/ngx-chat-ui/src/lib/interfaces/message-action-select-item-action-type.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "INgxChatUiMessageActionSelectItemActionType", function() { return _message_action_select_item_action_type__WEBPACK_IMPORTED_MODULE_2__["INgxChatUiMessageActionSelectItemActionType"]; });
+
 
 
 
@@ -1854,6 +1760,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "INgxChatUiMessageActionSelectItemActionType", function() { return INgxChatUiMessageActionSelectItemActionType; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
+
 var INgxChatUiMessageActionSelectItemActionType;
 (function (INgxChatUiMessageActionSelectItemActionType) {
     INgxChatUiMessageActionSelectItemActionType[INgxChatUiMessageActionSelectItemActionType["flow"] = 0] = "flow";
@@ -1873,6 +1781,8 @@ var INgxChatUiMessageActionSelectItemActionType;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "INgxChatUiMessageType", function() { return INgxChatUiMessageType; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
+
 var INgxChatUiMessageType;
 (function (INgxChatUiMessageType) {
     INgxChatUiMessageType[INgxChatUiMessageType["text"] = 0] = "text";
@@ -2283,10 +2193,475 @@ var NgxChatUiService = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _chat_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./chat.service */ "../../libs/ngx-chat-ui/src/lib/services/chat.service.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "NgxChatUiService", function() { return _chat_service__WEBPACK_IMPORTED_MODULE_0__["NgxChatUiService"]; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _chat_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./chat.service */ "../../libs/ngx-chat-ui/src/lib/services/chat.service.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "NgxChatUiService", function() { return _chat_service__WEBPACK_IMPORTED_MODULE_1__["NgxChatUiService"]; });
 
 
+
+
+
+/***/ }),
+
+/***/ "../../node_modules/raw-loader/dist/cjs.js!../../libs/ngx-chat-ui/src/lib/components/action/action.component.html":
+/*!**************************************************************************************************************************************!*\
+  !*** /ngx-chat-ui/node_modules/raw-loader/dist/cjs.js!/ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/action/action.component.html ***!
+  \**************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ng-container *ngTemplateOutlet=\"template; context: {\n  message: message,\n  chatKey: chatKey,\n  MessageType: MessageType,\n  isSending: isSending\n}\"></ng-container>\n");
+
+/***/ }),
+
+/***/ "../../node_modules/raw-loader/dist/cjs.js!../../libs/ngx-chat-ui/src/lib/components/action/autocomplete/autocomplete.component.html":
+/*!*********************************************************************************************************************************************************!*\
+  !*** /ngx-chat-ui/node_modules/raw-loader/dist/cjs.js!/ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/action/autocomplete/autocomplete.component.html ***!
+  \*********************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ng-container *ngTemplateOutlet=\"template; context: {\n  message: message,\n  response: ngxChatUiService.response$,\n  chatKey: chatKey,\n  onChange: onChange,\n  onFocused: onFocused,\n  removeTag: removeTag,\n  select: select,\n  submit: submit,\n  data: data,\n  value: value,\n  searchCallback: searchCallback,\n  isSingle: isSingle\n}\"></ng-container>\n");
+
+/***/ }),
+
+/***/ "../../node_modules/raw-loader/dist/cjs.js!../../libs/ngx-chat-ui/src/lib/components/action/select/item/item.component.html":
+/*!************************************************************************************************************************************************!*\
+  !*** /ngx-chat-ui/node_modules/raw-loader/dist/cjs.js!/ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/action/select/item/item.component.html ***!
+  \************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ng-container *ngTemplateOutlet=\"template; context: {\n  item: item,\n  response: response,\n  chatKey: chatKey\n}\"></ng-container>\n");
+
+/***/ }),
+
+/***/ "../../node_modules/raw-loader/dist/cjs.js!../../libs/ngx-chat-ui/src/lib/components/action/select/select.component.html":
+/*!*********************************************************************************************************************************************!*\
+  !*** /ngx-chat-ui/node_modules/raw-loader/dist/cjs.js!/ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/action/select/select.component.html ***!
+  \*********************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ng-container *ngTemplateOutlet=\"template; context: {\n  message: message,\n  response: ngxChatUiService.response$,\n  submit: submit,\n  chatKey: chatKey\n}\"></ng-container>\n");
+
+/***/ }),
+
+/***/ "../../node_modules/raw-loader/dist/cjs.js!../../libs/ngx-chat-ui/src/lib/components/action/text/text.component.html":
+/*!*****************************************************************************************************************************************!*\
+  !*** /ngx-chat-ui/node_modules/raw-loader/dist/cjs.js!/ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/action/text/text.component.html ***!
+  \*****************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ng-container *ngTemplateOutlet=\"template; context: {\n  message: message,\n  response: ngxChatUiService.response$,\n  submit: submit,\n  form: form,\n  chatKey: chatKey,\n  type: type\n}\"></ng-container>\n");
+
+/***/ }),
+
+/***/ "../../node_modules/raw-loader/dist/cjs.js!../../libs/ngx-chat-ui/src/lib/components/action/upload/upload.component.html":
+/*!*********************************************************************************************************************************************!*\
+  !*** /ngx-chat-ui/node_modules/raw-loader/dist/cjs.js!/ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/action/upload/upload.component.html ***!
+  \*********************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ng-container *ngTemplateOutlet=\"template; context: {\n  message: message,\n  response: ngxChatUiService.response$,\n  chatKey: chatKey,\n  submit: submit,\n  config: config,\n  onUploadSuccess: onUploadSuccess,\n  onUploadError: onUploadError,\n  onAddedFile: onAddedFile,\n  onComplete: onComplete,\n  uploadCallback: uploadCallback,\n  removeDropzoneFile: removeDropzoneFile,\n  removeFile: removeFile,\n  isUploading: isUploading,\n  isSingle: isSingle,\n  value: value\n}\"></ng-container>\n");
+
+/***/ }),
+
+/***/ "../../node_modules/raw-loader/dist/cjs.js!../../libs/ngx-chat-ui/src/lib/components/container/container.component.html":
+/*!********************************************************************************************************************************************!*\
+  !*** /ngx-chat-ui/node_modules/raw-loader/dist/cjs.js!/ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/container/container.component.html ***!
+  \********************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ng-container *ngTemplateOutlet=\"template; context: {\n  chatKey: chatKey\n}\"></ng-container>\n\n<ng-template\n  #containerTemplateDefault\n  let-chatKey=\"chatKey\"\n>\n  <ngx-chat-ui-message-list\n    [chatKey]=\"chatKey\"\n  ></ngx-chat-ui-message-list>\n  <ngx-chat-ui-action\n    [chatKey]=\"chatKey\"\n  ></ngx-chat-ui-action>\n</ng-template>\n\n<ng-template\n  #messageTypingTemplateDefault\n  let-partner=\"partner\"\n>\n  <div\n    *ngIf=\"partner\"\n    class=\"ngx-chat-ui-message-typing\"\n  >{{ partner.firstName }}</div>\n</ng-template>\n\n<ng-template\n  #messageListTemplateDefault\n  let-messages=\"messages\"\n  let-chatKey=\"chatKey\"\n  let-trackByFn=\"trackByFn\"\n>\n  <div class=\"ngx-chat-ui-message-spacer\"></div>\n  <ngx-chat-ui-message-item\n    *ngFor=\"let message of messages; trackBy: trackByFn\"\n    [class.ngx-chat-ui-message-item-incoming]=\"message.isIncoming\"\n    [chatKey]=\"chatKey\"\n    [message]=\"message\"\n  ></ngx-chat-ui-message-item>\n  <ngx-chat-ui-message-typing\n    [chatKey]=\"chatKey\"\n  ></ngx-chat-ui-message-typing>\n</ng-template>\n\n<ng-template\n  #messageItemTemplateDefault\n  let-message=\"message\"\n  let-chatKey=\"chatKey\"\n>\n  <ngx-chat-ui-message-partner\n    [chatKey]=\"chatKey\"\n    [message]=\"message\"\n  ></ngx-chat-ui-message-partner>\n  <ngx-chat-ui-message-meta\n    [chatKey]=\"chatKey\"\n    [message]=\"message\"\n  ></ngx-chat-ui-message-meta>\n  <ngx-chat-ui-message-payload\n    *ngIf=\"message.payload\"\n    [chatKey]=\"chatKey\"\n    [message]=\"message\"\n  ></ngx-chat-ui-message-payload>\n</ng-template>\n\n<ng-template\n  #messagePartnerTemplateDefault\n  let-message=\"message\"\n  let-avatar=\"avatar\"\n>\n  <ng-container *ngIf=\"message.partner && message.partner.avatar; else avatarTpl\"><img [src]=\"message.partner.avatar\"></ng-container>\n  <ng-template #avatarTpl>\n    <ng-container *ngIf=\"avatar\">{{avatar}}</ng-container>\n  </ng-template>\n</ng-template>\n\n<ng-template\n  #messageMetaTemplateDefault\n  let-message=\"message\"\n>\n  {{message.date | date}}\n</ng-template>\n\n<ng-template\n  #messagePayloadTemplateDefault\n  let-message=\"message\"\n  let-MessageType=\"MessageType\"\n  let-chatKey=\"chatKey\"\n>\n  <ng-container [ngSwitch]=\"message.payload.type\">\n    <ngx-chat-ui-message-payload-text\n      *ngSwitchCase=\"MessageType.text\"\n      [chatKey]=\"chatKey\"\n      [message]=\"message\"\n    ></ngx-chat-ui-message-payload-text>\n    <ngx-chat-ui-message-payload-select\n      *ngSwitchCase=\"MessageType.select\"\n      [chatKey]=\"chatKey\"\n      [message]=\"message\"\n    ></ngx-chat-ui-message-payload-select>\n    <ngx-chat-ui-message-payload-autocomplete\n      *ngSwitchCase=\"MessageType.autocomplete\"\n      [chatKey]=\"chatKey\"\n      [message]=\"message\"\n    ></ngx-chat-ui-message-payload-autocomplete>\n    <ngx-chat-ui-message-payload-upload\n      *ngSwitchCase=\"MessageType.upload\"\n      [chatKey]=\"chatKey\"\n      [message]=\"message\"\n    ></ngx-chat-ui-message-payload-upload>\n  </ng-container>\n</ng-template>\n\n<ng-template\n  #messagePayloadTextTemplateDefault\n  let-message=\"message\"\n>\n  {{ message.payload.meta && message.payload.meta.type === 'password' ? '*****' : message.payload.value }}\n</ng-template>\n\n<ng-template\n  #messagePayloadAutocompleteTemplateDefault\n  let-value=\"value\"\n>\n  {{ value }}\n</ng-template>\n\n<ng-template\n  #messagePayloadSelectTemplateDefault\n  let-message=\"message\"\n  let-item=\"item\"\n>\n  <div\n    class=\"ngx-chat-ui-action-select-item-icon\"\n    *ngIf=\"item.icon\"\n  >{{ item.icon }}</div>\n  <div\n    class=\"ngx-chat-ui-action-select-item-text\"\n    *ngIf=\"item.text\"\n  >{{ item.text }}</div>\n</ng-template>\n\n<ng-template\n  #messagePayloadUploadTemplateDefault\n  let-message=\"message\"\n  let-value=\"value\"\n>\n  <a\n    class=\"ngx-chat-ui-message-payload-upload-files-item\"\n    *ngFor=\"let file of message.payload.value\"\n    [href]=\"file.url\"\n    target=\"_blank\"\n  >\n    <div\n      class=\"ngx-chat-ui-message-payload-upload-files-item-image\"\n      [style.background-image]=\"'url(' + (file.preview || file.url) + ')'\"\n    ></div>\n  </a>\n</ng-template>\n\n<ng-template\n  #actionTemplateDefault\n  let-message=\"message\"\n  let-MessageType=\"MessageType\"\n  let-chatKey=\"chatKey\"\n  let-isSending=\"isSending\"\n>\n  <div\n    *ngIf=\"message && message.action\"\n    [class.ngx-chat-ui-action-sending]=\"isSending\"\n    [ngSwitch]=\"message.action.type\"\n  >\n    <ngx-chat-ui-action-text\n      *ngSwitchCase=\"MessageType.text\"\n      [chatKey]=\"chatKey\"\n      [message]=\"message\"\n    ></ngx-chat-ui-action-text>\n    <ngx-chat-ui-action-select\n      *ngSwitchCase=\"MessageType.select\"\n      [chatKey]=\"chatKey\"\n      [message]=\"message\"\n    ></ngx-chat-ui-action-select>\n    <ngx-chat-ui-action-autocomplete\n      *ngSwitchCase=\"MessageType.autocomplete\"\n      [chatKey]=\"chatKey\"\n      [message]=\"message\"\n    ></ngx-chat-ui-action-autocomplete>\n    <ngx-chat-ui-action-upload\n      *ngSwitchCase=\"MessageType.upload\"\n      [chatKey]=\"chatKey\"\n      [message]=\"message\"\n    ></ngx-chat-ui-action-upload>\n  </div>\n</ng-template>\n\n<ng-template\n  #actionTextTemplateDefault\n  let-message=\"message\"\n  let-submit=\"submit\"\n  let-form=\"form\"\n  let-type=\"type\"\n>\n  <form\n    novalidate\n    [formGroup]=\"form\"\n    (ngSubmit)=\"submit()\"\n  >\n    <input\n      formControlName=\"text\"\n      [type]=\"type\"\n    >\n    <button></button>\n  </form>\n</ng-template>\n\n<ng-template\n  #actionUploadTemplateDefault\n  let-message=\"message\"\n  let-submit=\"submit\"\n  let-config=\"config\"\n  let-value=\"value\"\n  let-onUploadSuccess=\"onUploadSuccess\"\n  let-onUploadError=\"onUploadError\"\n  let-onAddedFile=\"onAddedFile\"\n  let-onComplete=\"onComplete\"\n  let-directiveRef=\"directiveRef\"\n  let-removeFile=\"removeFile\"\n  let-isUploading=\"isUploading\"\n  let-isSingle=\"isSingle\"\n>\n  <div\n    [class.ngx-chat-ui-action-upload-uploading]=\"isUploading\"\n  >\n    <div\n      class=\"ngx-chat-ui-action-upload-files\"\n      *ngIf=\"value.length && !isSingle\"\n    >\n      <div\n        class=\"ngx-chat-ui-action-upload-files-item\"\n        *ngFor=\"let file of value\"\n      >\n        <div\n          class=\"ngx-chat-ui-action-upload-files-item-image\"\n          [style.background-image]=\"'url(' + (file.preview || file.url) + ')'\"\n        ></div>\n        <a\n          class=\"ngx-chat-ui-action-upload-files-item-remove\"\n          href=\"javascript:;\"\n          (click)=\"removeFile(file)\"\n        ></a>\n      </div>\n    </div>\n    <div\n      class=\"ngx-chat-ui-action-upload-dropzone\"\n    >\n      <div\n        *ngIf=\"config\"\n        #dropzone=\"ngxDropzone\"\n        class=\"dropzone\"\n        [dropzone]=\"config\"\n        (error)=\"onUploadError(dropzone, $event)\"\n        (success)=\"onUploadSuccess(dropzone, $event)\"\n        (addedFile)=\"onAddedFile(dropzone, $event)\"\n        (complete)=\"onComplete(dropzone, $event)\"\n      ></div>\n      <button\n        *ngIf=\"!isSingle\"\n        [disabled]=\"!value.length\"\n        (click)=\"submit()\"\n      ></button>\n    </div>\n  </div>\n</ng-template>\n\n<ng-template\n  #actionAutocompleteTemplateDefault\n  let-message=\"message\"\n  let-onChange=\"onChange\"\n  let-onFocused=\"onFocused\"\n  let-select=\"select\"\n  let-value=\"value\"\n  let-data=\"data\"\n  let-removeTag=\"removeTag\"\n  let-submit=\"submit\"\n>\n\n  <div\n    class=\"ngx-chat-ui-action-autocomplete-tags\"\n    *ngIf=\"value.length\"\n  >\n    <div\n      class=\"ngx-chat-ui-action-autocomplete-tags-item\"\n      *ngFor=\"let tag of value\"\n    >\n      <div\n        class=\"ngx-chat-ui-action-autocomplete-tags-tag\"\n      >{{ tag }}</div>\n      <a\n        class=\"ngx-chat-ui-action-autocomplete-tags-item-remove\"\n        href=\"javascript:;\"\n        (click)=\"removeTag(tag)\"\n      ></a>\n    </div>\n  </div>\n  <div\n    class=\"ngx-chat-ui-action-autocomplete-picker\"\n  >\n    <ng-autocomplete\n      #autocomplete\n      [data]=\"data\"\n      (selected)=\"select(autocomplete, $event)\"\n      (inputChanged)=\"onChange(autocomplete, $event)\"\n      (inputFocused)=\"onFocused(autocomplete)\"\n      [itemTemplate]=\"itemTemplate\"\n      [notFoundTemplate]=\"notFoundTemplate\">\n    </ng-autocomplete>\n\n    <button (click)=\"submit()\"></button>\n\n    <ng-template #itemTemplate let-item>\n      <a [innerHTML]=\"item\"></a>\n    </ng-template>\n\n    <ng-template #notFoundTemplate let-notFound>\n      <div [innerHTML]=\"notFound\"></div>\n    </ng-template>\n  </div>\n</ng-template>\n\n<ng-template\n  #actionSelectTemplateDefault\n  let-message=\"message\"\n  let-submit=\"submit\"\n>\n  <div\n    class=\"ngx-chat-ui-action-select-frame\"\n    [ngClass]=\"message.action.className || 'ngx-chat-ui-action-select-button'\"\n  >\n    <div class=\"ngx-chat-ui-message-spacer\"></div>\n    <div class=\"ngx-chat-ui-action-select-items\">\n      <ngx-chat-ui-action-select-item\n        *ngFor=\"let item of message.action.items\"\n        [item]=\"item\"\n        [chatKey]=\"chatKey\"\n        (response)=\"submit($event)\"\n      ></ngx-chat-ui-action-select-item>\n    </div>\n  </div>\n</ng-template>\n\n<ng-template\n  #actionSelectItemTemplateDefault\n  let-item=\"item\"\n  let-response=\"response\"\n>\n  <a\n    (click)=\"response.emit(item)\"\n    class=\"ngx-chat-ui-action-select-item-frame\"\n    [ngClass]=\"item.className || 'ngx-chat-ui-action-select-item-regular'\"\n    href=\"javascript:;\"\n  >\n    <span\n      class=\"ngx-chat-ui-action-select-item-icon\"\n      *ngIf=\"item.icon\"\n    >{{ item.icon }}</span>\n    <span\n      class=\"ngx-chat-ui-action-select-item-text\"\n      *ngIf=\"item.text\"\n    >{{ item.text }}</span>\n  </a>\n</ng-template>\n\n");
+
+/***/ }),
+
+/***/ "../../node_modules/raw-loader/dist/cjs.js!../../libs/ngx-chat-ui/src/lib/components/message/item/item.component.html":
+/*!******************************************************************************************************************************************!*\
+  !*** /ngx-chat-ui/node_modules/raw-loader/dist/cjs.js!/ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/message/item/item.component.html ***!
+  \******************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ng-container *ngTemplateOutlet=\"template; context: {\n  message: message,\n  chatKey: chatKey\n}\"></ng-container>\n");
+
+/***/ }),
+
+/***/ "../../node_modules/raw-loader/dist/cjs.js!../../libs/ngx-chat-ui/src/lib/components/message/list/list.component.html":
+/*!******************************************************************************************************************************************!*\
+  !*** /ngx-chat-ui/node_modules/raw-loader/dist/cjs.js!/ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/message/list/list.component.html ***!
+  \******************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ng-container *ngTemplateOutlet=\"template; context: {\n  messages: messages,\n  chatKey: chatKey,\n  trackByFn: trackByFn\n}\"></ng-container>\n");
+
+/***/ }),
+
+/***/ "../../node_modules/raw-loader/dist/cjs.js!../../libs/ngx-chat-ui/src/lib/components/message/meta/meta.component.html":
+/*!******************************************************************************************************************************************!*\
+  !*** /ngx-chat-ui/node_modules/raw-loader/dist/cjs.js!/ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/message/meta/meta.component.html ***!
+  \******************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ng-container *ngTemplateOutlet=\"template; context: {\n  message: message\n}\"></ng-container>\n");
+
+/***/ }),
+
+/***/ "../../node_modules/raw-loader/dist/cjs.js!../../libs/ngx-chat-ui/src/lib/components/message/partner/partner.component.html":
+/*!************************************************************************************************************************************************!*\
+  !*** /ngx-chat-ui/node_modules/raw-loader/dist/cjs.js!/ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/message/partner/partner.component.html ***!
+  \************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ng-container *ngTemplateOutlet=\"template; context: {\n  message: message,\n  avatar: avatar\n}\"></ng-container>\n");
+
+/***/ }),
+
+/***/ "../../node_modules/raw-loader/dist/cjs.js!../../libs/ngx-chat-ui/src/lib/components/message/payload/autocomplete/autocomplete.component.html":
+/*!******************************************************************************************************************************************************************!*\
+  !*** /ngx-chat-ui/node_modules/raw-loader/dist/cjs.js!/ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/message/payload/autocomplete/autocomplete.component.html ***!
+  \******************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ng-container *ngTemplateOutlet=\"template; context: {\n  message: message,\n  value: value\n}\"></ng-container>\n");
+
+/***/ }),
+
+/***/ "../../node_modules/raw-loader/dist/cjs.js!../../libs/ngx-chat-ui/src/lib/components/message/payload/payload.component.html":
+/*!************************************************************************************************************************************************!*\
+  !*** /ngx-chat-ui/node_modules/raw-loader/dist/cjs.js!/ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/message/payload/payload.component.html ***!
+  \************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ng-container *ngTemplateOutlet=\"template; context: {\n  message: message,\n  chatKey: chatKey,\n  MessageType: MessageType\n}\"></ng-container>\n");
+
+/***/ }),
+
+/***/ "../../node_modules/raw-loader/dist/cjs.js!../../libs/ngx-chat-ui/src/lib/components/message/payload/select/select.component.html":
+/*!******************************************************************************************************************************************************!*\
+  !*** /ngx-chat-ui/node_modules/raw-loader/dist/cjs.js!/ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/message/payload/select/select.component.html ***!
+  \******************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ng-container *ngTemplateOutlet=\"template; context: {\n  message: message,\n  item: item\n}\"></ng-container>\n");
+
+/***/ }),
+
+/***/ "../../node_modules/raw-loader/dist/cjs.js!../../libs/ngx-chat-ui/src/lib/components/message/payload/text/text.component.html":
+/*!**************************************************************************************************************************************************!*\
+  !*** /ngx-chat-ui/node_modules/raw-loader/dist/cjs.js!/ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/message/payload/text/text.component.html ***!
+  \**************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ng-container *ngTemplateOutlet=\"template; context: {\n  message: message\n}\"></ng-container>\n");
+
+/***/ }),
+
+/***/ "../../node_modules/raw-loader/dist/cjs.js!../../libs/ngx-chat-ui/src/lib/components/message/payload/upload/upload.component.html":
+/*!******************************************************************************************************************************************************!*\
+  !*** /ngx-chat-ui/node_modules/raw-loader/dist/cjs.js!/ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/message/payload/upload/upload.component.html ***!
+  \******************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ng-container *ngTemplateOutlet=\"template; context: {\n  message: message\n}\"></ng-container>\n");
+
+/***/ }),
+
+/***/ "../../node_modules/raw-loader/dist/cjs.js!../../libs/ngx-chat-ui/src/lib/components/message/typing/typing.component.html":
+/*!**********************************************************************************************************************************************!*\
+  !*** /ngx-chat-ui/node_modules/raw-loader/dist/cjs.js!/ngx-chat-ui/libs/ngx-chat-ui/src/lib/components/message/typing/typing.component.html ***!
+  \**********************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ng-container *ngTemplateOutlet=\"template; context: {\n  partner: partner,\n  chatKey: chatKey\n}\"></ng-container>\n");
+
+/***/ }),
+
+/***/ "../../node_modules/raw-loader/dist/cjs.js!./src/app/components/app/app.component.html":
+/*!****************************************************************************************************!*\
+  !*** /ngx-chat-ui/node_modules/raw-loader/dist/cjs.js!./src/app/components/app/app.component.html ***!
+  \****************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<h2>Select Action Payload</h2>\r\n<ngx-chat-ui-container\r\n  chatKey=\"demoSelect\"\r\n  [state]=\"state.demoSelect\"\r\n  [partners]=\"partners\"\r\n  [messages]=\"messages.demoSelect\"\r\n  (response)=\"onResponse('demoSelect', $event)\"\r\n></ngx-chat-ui-container>\r\n\r\n<h2>Text Action Payload</h2>\r\n<ngx-chat-ui-container\r\n  chatKey=\"demoText\"\r\n  [state]=\"state.demoText\"\r\n  [partners]=\"partners\"\r\n  [messages]=\"messages.demoText\"\r\n  (response)=\"onResponse('demoText', $event)\"\r\n></ngx-chat-ui-container>\r\n\r\n<h2>List Action Payload</h2>\r\n<ngx-chat-ui-container\r\n  chatKey=\"demoList\"\r\n  [state]=\"state.demoList\"\r\n  [partners]=\"partners\"\r\n  [messages]=\"messages.demoList\"\r\n  (response)=\"onResponse('demoList', $event)\"\r\n></ngx-chat-ui-container>\r\n\r\n<h2>Autocomplete Action Payload</h2>\r\n<ngx-chat-ui-container\r\n  chatKey=\"demoAutocomplete\"\r\n  [state]=\"state.demoAutocomplete\"\r\n  [partners]=\"partners\"\r\n  [messages]=\"messages.demoAutocomplete\"\r\n  (response)=\"onResponse('demoAutocomplete', $event)\"\r\n  [callbacks]=\"callbacks.demoAutocomplete\"\r\n></ngx-chat-ui-container>\r\n\r\n<h2>Upload Action Payload</h2>\r\n<ngx-chat-ui-container\r\n  chatKey=\"demoUpload\"\r\n  [state]=\"state.demoUpload\"\r\n  [partners]=\"partners\"\r\n  [messages]=\"messages.demoUpload\"\r\n  (response)=\"onResponse('demoUpload', $event)\"\r\n  [callbacks]=\"callbacks.demoUpload\"\r\n></ngx-chat-ui-container>\r\n");
+
+/***/ }),
+
+/***/ "../../node_modules/tslib/tslib.es6.js":
+/*!****************************************************!*\
+  !*** /ngx-chat-ui/node_modules/tslib/tslib.es6.js ***!
+  \****************************************************/
+/*! exports provided: __extends, __assign, __rest, __decorate, __param, __metadata, __awaiter, __generator, __exportStar, __values, __read, __spread, __spreadArrays, __await, __asyncGenerator, __asyncDelegator, __asyncValues, __makeTemplateObject, __importStar, __importDefault */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__extends", function() { return __extends; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__assign", function() { return __assign; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__rest", function() { return __rest; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__decorate", function() { return __decorate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__param", function() { return __param; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__metadata", function() { return __metadata; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__awaiter", function() { return __awaiter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__generator", function() { return __generator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__exportStar", function() { return __exportStar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__values", function() { return __values; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__read", function() { return __read; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__spread", function() { return __spread; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__spreadArrays", function() { return __spreadArrays; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__await", function() { return __await; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__asyncGenerator", function() { return __asyncGenerator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__asyncDelegator", function() { return __asyncDelegator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__asyncValues", function() { return __asyncValues; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__makeTemplateObject", function() { return __makeTemplateObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__importStar", function() { return __importStar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__importDefault", function() { return __importDefault; });
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation. All rights reserved.
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at http://www.apache.org/licenses/LICENSE-2.0
+
+THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+MERCHANTABLITY OR NON-INFRINGEMENT.
+
+See the Apache Version 2.0 License for specific language governing permissions
+and limitations under the License.
+***************************************************************************** */
+/* global Reflect, Promise */
+
+var extendStatics = function(d, b) {
+    extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return extendStatics(d, b);
+};
+
+function __extends(d, b) {
+    extendStatics(d, b);
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+}
+
+var __assign = function() {
+    __assign = Object.assign || function __assign(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+        }
+        return t;
+    }
+    return __assign.apply(this, arguments);
+}
+
+function __rest(s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+}
+
+function __decorate(decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+}
+
+function __param(paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+}
+
+function __metadata(metadataKey, metadataValue) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(metadataKey, metadataValue);
+}
+
+function __awaiter(thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+}
+
+function __generator(thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+}
+
+function __exportStar(m, exports) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+
+function __values(o) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator], i = 0;
+    if (m) return m.call(o);
+    return {
+        next: function () {
+            if (o && i >= o.length) o = void 0;
+            return { value: o && o[i++], done: !o };
+        }
+    };
+}
+
+function __read(o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+}
+
+function __spread() {
+    for (var ar = [], i = 0; i < arguments.length; i++)
+        ar = ar.concat(__read(arguments[i]));
+    return ar;
+}
+
+function __spreadArrays() {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
+
+function __await(v) {
+    return this instanceof __await ? (this.v = v, this) : new __await(v);
+}
+
+function __asyncGenerator(thisArg, _arguments, generator) {
+    if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+    var g = generator.apply(thisArg, _arguments || []), i, q = [];
+    return i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i;
+    function verb(n) { if (g[n]) i[n] = function (v) { return new Promise(function (a, b) { q.push([n, v, a, b]) > 1 || resume(n, v); }); }; }
+    function resume(n, v) { try { step(g[n](v)); } catch (e) { settle(q[0][3], e); } }
+    function step(r) { r.value instanceof __await ? Promise.resolve(r.value.v).then(fulfill, reject) : settle(q[0][2], r); }
+    function fulfill(value) { resume("next", value); }
+    function reject(value) { resume("throw", value); }
+    function settle(f, v) { if (f(v), q.shift(), q.length) resume(q[0][0], q[0][1]); }
+}
+
+function __asyncDelegator(o) {
+    var i, p;
+    return i = {}, verb("next"), verb("throw", function (e) { throw e; }), verb("return"), i[Symbol.iterator] = function () { return this; }, i;
+    function verb(n, f) { i[n] = o[n] ? function (v) { return (p = !p) ? { value: __await(o[n](v)), done: n === "return" } : f ? f(v) : v; } : f; }
+}
+
+function __asyncValues(o) {
+    if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+    var m = o[Symbol.asyncIterator], i;
+    return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i);
+    function verb(n) { i[n] = o[n] && function (v) { return new Promise(function (resolve, reject) { v = o[n](v), settle(resolve, reject, v.done, v.value); }); }; }
+    function settle(resolve, reject, d, v) { Promise.resolve(v).then(function(v) { resolve({ value: v, done: d }); }, reject); }
+}
+
+function __makeTemplateObject(cooked, raw) {
+    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
+    return cooked;
+};
+
+function __importStar(mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result.default = mod;
+    return result;
+}
+
+function __importDefault(mod) {
+    return (mod && mod.__esModule) ? mod : { default: mod };
+}
 
 
 /***/ }),
@@ -2369,25 +2744,16 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/components/app/app.component.html":
-/*!***************************************************!*\
-  !*** ./src/app/components/app/app.component.html ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<h2>Select Action Payload</h2>\r\n<ngx-chat-ui-container\r\n  chatKey=\"demoSelect\"\r\n  [state]=\"state.demoSelect\"\r\n  [partners]=\"partners\"\r\n  [messages]=\"messages.demoSelect\"\r\n  (response)=\"onResponse('demoSelect', $event)\"\r\n></ngx-chat-ui-container>\r\n\r\n<h2>Text Action Payload</h2>\r\n<ngx-chat-ui-container\r\n  chatKey=\"demoText\"\r\n  [state]=\"state.demoText\"\r\n  [partners]=\"partners\"\r\n  [messages]=\"messages.demoText\"\r\n  (response)=\"onResponse('demoText', $event)\"\r\n></ngx-chat-ui-container>\r\n\r\n<h2>List Action Payload</h2>\r\n<ngx-chat-ui-container\r\n  chatKey=\"demoList\"\r\n  [state]=\"state.demoList\"\r\n  [partners]=\"partners\"\r\n  [messages]=\"messages.demoList\"\r\n  (response)=\"onResponse('demoList', $event)\"\r\n></ngx-chat-ui-container>\r\n\r\n<h2>Autocomplete Action Payload</h2>\r\n<ngx-chat-ui-container\r\n  chatKey=\"demoAutocomplete\"\r\n  [state]=\"state.demoAutocomplete\"\r\n  [partners]=\"partners\"\r\n  [messages]=\"messages.demoAutocomplete\"\r\n  (response)=\"onResponse('demoAutocomplete', $event)\"\r\n  [callbacks]=\"callbacks.demoAutocomplete\"\r\n></ngx-chat-ui-container>\r\n\r\n<h2>Upload Action Payload</h2>\r\n<ngx-chat-ui-container\r\n  chatKey=\"demoUpload\"\r\n  [state]=\"state.demoUpload\"\r\n  [partners]=\"partners\"\r\n  [messages]=\"messages.demoUpload\"\r\n  (response)=\"onResponse('demoUpload', $event)\"\r\n  [callbacks]=\"callbacks.demoUpload\"\r\n></ngx-chat-ui-container>\r\n"
-
-/***/ }),
-
 /***/ "./src/app/components/app/app.component.scss":
 /*!***************************************************!*\
   !*** ./src/app/components/app/app.component.scss ***!
   \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhcHBzL25neC1jaGF0LXVpLWRlbW8vc3JjL2FwcC9jb21wb25lbnRzL2FwcC9hcHAuY29tcG9uZW50LnNjc3MifQ== */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhcHBzL25neC1jaGF0LXVpLWRlbW8vc3JjL2FwcC9jb21wb25lbnRzL2FwcC9hcHAuY29tcG9uZW50LnNjc3MifQ== */");
 
 /***/ }),
 
@@ -2619,8 +2985,8 @@ var AppComponent = /** @class */ (function () {
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'ngx-chat-ui-demo-root',
-            template: __webpack_require__(/*! ./app.component.html */ "./src/app/components/app/app.component.html"),
-            styles: [__webpack_require__(/*! ./app.component.scss */ "./src/app/components/app/app.component.scss")]
+            template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./app.component.html */ "../../node_modules/raw-loader/dist/cjs.js!./src/app/components/app/app.component.html")).default,
+            styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./app.component.scss */ "./src/app/components/app/app.component.scss")).default]
         })
     ], AppComponent);
     return AppComponent;
@@ -2640,9 +3006,11 @@ var AppComponent = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "environment", function() { return environment; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
+
 var environment = {
     production: false,
     graphqlUrl: 'http://192.168.2.2:7172/graphql',
@@ -2669,19 +3037,21 @@ var environment = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser-dynamic */ "../../node_modules/@angular/platform-browser-dynamic/fesm5/platform-browser-dynamic.js");
-/* harmony import */ var _app_app_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app/app.module */ "./src/app/app.module.ts");
-/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../../node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser-dynamic */ "../../node_modules/@angular/platform-browser-dynamic/fesm5/platform-browser-dynamic.js");
+/* harmony import */ var _app_app_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app/app.module */ "./src/app/app.module.ts");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./environments/environment */ "./src/environments/environment.ts");
 
 
 
 
-if (_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].production) {
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["enableProdMode"])();
+
+if (_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].production) {
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["enableProdMode"])();
 }
-Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformBrowserDynamic"])()
-    .bootstrapModule(_app_app_module__WEBPACK_IMPORTED_MODULE_2__["AppModule"])
+Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformBrowserDynamic"])()
+    .bootstrapModule(_app_app_module__WEBPACK_IMPORTED_MODULE_3__["AppModule"])
     .catch(function (err) { return console.error(err); });
 
 
