@@ -31,23 +31,23 @@ import { BaseComponent } from '../../classes';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NgxChatUiContainerComponent extends BaseComponent implements OnChanges {
-  @ViewChild('containerTemplateDefault') containerTemplateDefault: TemplateRef<any>;
-  @ViewChild('messageTypingTemplateDefault') messageTypingTemplateDefault: TemplateRef<any>;
-  @ViewChild('messageListTemplateDefault') messageListTemplateDefault: TemplateRef<any>;
-  @ViewChild('messageItemTemplateDefault') messageItemTemplateDefault: TemplateRef<any>;
-  @ViewChild('messagePartnerTemplateDefault') messagePartnerTemplateDefault: TemplateRef<any>;
-  @ViewChild('messagePayloadTemplateDefault') messagePayloadTemplateDefault: TemplateRef<any>;
-  @ViewChild('messagePayloadTextTemplateDefault') messagePayloadTextTemplateDefault: TemplateRef<any>;
-  @ViewChild('messagePayloadUploadTemplateDefault') messagePayloadUploadTemplateDefault: TemplateRef<any>;
-  @ViewChild('messagePayloadSelectTemplateDefault') messagePayloadSelectTemplateDefault: TemplateRef<any>;
-  @ViewChild('messagePayloadAutocompleteTemplateDefault') messagePayloadAutocompleteTemplateDefault: TemplateRef<any>;
-  @ViewChild('messageMetaTemplateDefault') messageMetaTemplateDefault: TemplateRef<any>;
-  @ViewChild('actionTemplateDefault') actionTemplateDefault: TemplateRef<any>;
-  @ViewChild('actionTextTemplateDefault') actionTextTemplateDefault: TemplateRef<any>;
-  @ViewChild('actionAutocompleteTemplateDefault') actionAutocompleteTemplateDefault: TemplateRef<any>;
-  @ViewChild('actionSelectTemplateDefault') actionSelectTemplateDefault: TemplateRef<any>;
-  @ViewChild('actionSelectItemTemplateDefault') actionSelectItemTemplateDefault: TemplateRef<any>;
-  @ViewChild('actionUploadTemplateDefault') actionUploadTemplateDefault: TemplateRef<any>;
+  @ViewChild('containerTemplateDefault', { static: true }) containerTemplateDefault: TemplateRef<any>;
+  @ViewChild('messageTypingTemplateDefault', { static: true }) messageTypingTemplateDefault: TemplateRef<any>;
+  @ViewChild('messageListTemplateDefault', { static: true }) messageListTemplateDefault: TemplateRef<any>;
+  @ViewChild('messageItemTemplateDefault', { static: true }) messageItemTemplateDefault: TemplateRef<any>;
+  @ViewChild('messagePartnerTemplateDefault', { static: true }) messagePartnerTemplateDefault: TemplateRef<any>;
+  @ViewChild('messagePayloadTemplateDefault', { static: true }) messagePayloadTemplateDefault: TemplateRef<any>;
+  @ViewChild('messagePayloadTextTemplateDefault', { static: true }) messagePayloadTextTemplateDefault: TemplateRef<any>;
+  @ViewChild('messagePayloadUploadTemplateDefault', { static: true }) messagePayloadUploadTemplateDefault: TemplateRef<any>;
+  @ViewChild('messagePayloadSelectTemplateDefault', { static: true }) messagePayloadSelectTemplateDefault: TemplateRef<any>;
+  @ViewChild('messagePayloadAutocompleteTemplateDefault', { static: true }) messagePayloadAutocompleteTemplateDefault: TemplateRef<any>;
+  @ViewChild('messageMetaTemplateDefault', { static: true }) messageMetaTemplateDefault: TemplateRef<any>;
+  @ViewChild('actionTemplateDefault', { static: true }) actionTemplateDefault: TemplateRef<any>;
+  @ViewChild('actionTextTemplateDefault', { static: true }) actionTextTemplateDefault: TemplateRef<any>;
+  @ViewChild('actionAutocompleteTemplateDefault', { static: true }) actionAutocompleteTemplateDefault: TemplateRef<any>;
+  @ViewChild('actionSelectTemplateDefault', { static: true }) actionSelectTemplateDefault: TemplateRef<any>;
+  @ViewChild('actionSelectItemTemplateDefault', { static: true }) actionSelectItemTemplateDefault: TemplateRef<any>;
+  @ViewChild('actionUploadTemplateDefault', { static: true }) actionUploadTemplateDefault: TemplateRef<any>;
 
   @Input() containerTemplate: TemplateRef<any>;
   @Input() messageTypingTemplate: TemplateRef<any>;

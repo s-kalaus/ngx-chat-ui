@@ -1,6 +1,6 @@
 {
   "name": "ngx-chat-ui",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "license": "MIT",
   "author": "Sergey Kalaus (@s-kalaus)",
   "description": "Universal Angular Chat UI",
@@ -16,10 +16,10 @@
     "url": "git+https://github.com/s-kalaus/ngx-chat-ui.git"
   },
   "peerDependencies": {
-    "@angular/common": "^7.0.0",
-    "@angular/core": "^7.0.0",
-    "angular-ng-autocomplete": "^1.1.13",
-    "ngx-auto-unsubscribe": "^3.0.0",
-    "ngx-dropzone-wrapper": "^7.2.1"
+    "@angular/common": "^8.2.13",
+    "@angular/core": "^8.2.13",
+    "angular-ng-autocomplete": "^1.1.14",
+    "ngx-auto-unsubscribe": "^3.0.1",
+    "ngx-dropzone-wrapper": "^8.0.0"
   }
 }
